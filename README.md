@@ -29,7 +29,7 @@ The site is a single-page application: all 10 pages live inside index.html and s
 
 ## Google Scholar (as of October 2026)
 
-- Citations: 1,943
+- Citations: 1,950
 - h-index: 20
 - i10-index: 39
 - Profile: https://scholar.google.com/citations?user=PUKuQ8QAAAAJ
