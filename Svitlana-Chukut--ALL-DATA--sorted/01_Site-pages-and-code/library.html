@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Бібліотека праць — Світлана Чукут</title>
+<meta name="description" content="Бібліотека праць Світлани Чукут: статті, монографії, конференції, сертифікати, нагороди.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hdr"><div class="wrap hdr-in">
+  <a class="brand" href="index.html"><span class="mk" data-i18n="brandMark">СЧ</span><span><span class="nm" data-i18n="brandName">Світлана Чукут</span><br><span class="sb" data-i18n="brandSub">Комунікації · Урядування</span></span></a>
+  <nav class="nav" id="nav">
+    <a href="index.html" data-i18n="nHome">Головна</a>
+    <a href="bio.html" data-i18n="nBio">Біографія</a>
+    <a href="library.html" class="on" data-i18n="nLib">Бібліотека</a>
+    <a href="courses.html" data-i18n="nCourses">Курси</a>
+    <a href="media.html" data-i18n="nMedia">Медіа</a>
+    <a href="partners.html" data-i18n="nPart">Партнери</a>
+    <a href="contact.html" data-i18n="nContact">Контакти</a>
+  </nav>
+  <div class="lang"><button data-l="uk" onclick="SC_setLang('uk')">УК</button><button data-l="en" onclick="SC_setLang('en')">EN</button></div>
+  <button class="burger" aria-label="Меню"><span></span></button>
+</div></header>
+
+<section class="phero"><div class="wrap">
+  <p class="crumbs"><a href="index.html" data-i18n="nHome">Головна</a> · <span data-i18n="nLib">Бібліотека</span></p>
+  <h1 data-i18n="pTitle">Бібліотека <em>праць</em></h1>
+  <p class="lead" data-i18n="pLead">Статті, монографії, тези конференцій, проєкти, сертифікати та нагороди. Шукайте за назвою або фільтруйте за типом і роками.</p>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="lib-tools">
+    <input type="search" id="fq" placeholder="Пошук за назвою…">
+    <select id="fc"><option value="" data-i18n="fAll">Усі типи</option></select>
+    <select id="fd"><option value="" data-i18n="fAllY">Усі роки</option></select>
+  </div>
+  <div class="lib-grid" id="grid"></div>
+  <p class="lib-count" id="cnt"></p>
+  <div class="pager">
+    <a href="bio.html"><span data-i18n="pgPrev">← Попередня</span><span data-i18n="nBio">Біографія</span></a>
+    <a href="courses.html" style="text-align:right"><span data-i18n="pgNext">Наступна →</span><span data-i18n="nCourses">Курси</span></a>
+  </div>
+</div></section>
+
+<footer class="ftr"><div class="wrap">
+  <div class="ftr-grid">
+    <div><h4 data-i18n="brandName">Світлана Чукут</h4><p style="font-size:14px" data-i18n="fNote">Персональний сайт-візитівка. Створено як подарунок.</p></div>
+    <div><h4 data-i18n="fNav">Навігація</h4><a href="bio.html" data-i18n="nBio">Біографія</a><a href="library.html" data-i18n="nLib">Бібліотека</a><a href="courses.html" data-i18n="nCourses">Курси</a><a href="media.html" data-i18n="nMedia">Медіа</a></div>
+    <div><h4 data-i18n="fContact">Контакти</h4><a href="mailto:egovtpu@gmail.com">egovtpu@gmail.com</a><a href="https://www.linkedin.com/in/svitlana-chukut" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com/citations?user=PUKuQ8QAAAAJ" target="_blank" rel="noopener">Google Scholar</a></div>
+  </div>
+  <div class="base"><span data-i18n="rights">Усі права захищено.</span><span data-i18n="madeWith">Зроблено з повагою до її справи</span></div>
+</div></footer>
+
+<script>
+const LIB=[
+["art","1998","Вплив державної політики на функціонування форм спадкоємності духовної культури","The impact of state policy on the functioning of spiritual culture continuity forms","Збірник наукових праць УАДУ, № 1","Collected papers of UAPA, No. 1","",""],
+["art","1998","Мова: пані чи служниця?","Language: mistress or maid?","Командор, № 1","Komandor, No. 1","",""],
+["art","1998","Теорія Гоббса про державу як передумову культури в контексті сучасних проблем демократизації українського суспільства","Hobbes's theory of the state as a precondition of culture in the context of Ukraine's democratisation","Придніпровський вісник, № 95–96","Prydniprovskyi Visnyk, No. 95–96","",""],
+["art","1999","Концептуальний аналіз вибору в контексті управління суспільно-культурними процесами","Conceptual analysis of choice in managing socio-cultural processes","Вісник УАДУ, № 1","Bulletin of UAPA, No. 1","",""],
+["art","1999","Державна ідея та суспільний ідеал: їх функціональне значення в процесах державотворення України","The state idea and the social ideal: their functional role in Ukraine's state-building","Вісник УАДУ, № 2","Bulletin of UAPA, No. 2","",""],
+["art","1999","Роль сучасних засобів масової інформації в процесах державотворення (окремі аспекти)","The role of modern mass media in state-building (selected aspects)","Вісник УАДУ, № 3","Bulletin of UAPA, No. 3","",""],
+["art","1999","Сутність і роль громадської думки в процесах державотворення","The essence and role of public opinion in state-building","Грані, № 3(5)","Hrani, No. 3(5)","",""],
+["art","1999","Охорона культурної спадщини як актуальна проблема сьогодення","Heritage protection as a pressing contemporary issue","Збірник наукових праць УАДУ, № 1","Collected papers of UAPA, No. 1","",""],
+["art","1999","Основні аспекти реформування культурної політики в Україні в контексті світового досвіду","Key aspects of cultural policy reform in Ukraine in light of world experience","Збірник наукових праць УАДУ, № 2","Collected papers of UAPA, No. 2","",""],
+["art","1999","Проблеми функціонування сучасних соціальних інститутів в умовах трансформації українського суспільства","Problems of modern social institutions amid Ukraine's transformation","Актуальні проблеми державного управління, Харків, № 2","Pressing Issues of Public Administration, Kharkiv, No. 2","",""],
+["art","1999","Творча еліта: теоретико-методологічний аспект","The creative elite: a theoretical and methodological aspect","Актуальні проблеми державного управління, Одеса, № 1","Pressing Issues of Public Administration, Odesa, No. 1","",""],
+["art","1999","Духовна культура та національне питання в контексті процесу державотворення в Україні","Spiritual culture and the national question in Ukraine's state-building","Актуальні проблеми державного управління, Львів, № 2","Pressing Issues of Public Administration, Lviv, No. 2","",""],
+["art","1999","Чого не вистачає сьогоднішній правлячій еліті України?","What does Ukraine's current ruling elite lack?","Віче, № 6","Viche, No. 6","",""],
+["art","1999","Ритуал, його місце та значення в системі управління спадкоємністю в духовній культурі","Ritual: its place and role in managing continuity in spiritual culture","Командор, № 2","Komandor, No. 2","",""],
+["art","1999","Деякі проблеми державного управління Стародавнього Китаю в контексті сучасності","Selected problems of ancient Chinese public administration in a contemporary context","Командор, № 3","Komandor, No. 3","",""],
+["art","1999","Європейський досвід удосконалення культурної політики в контексті розбудови Української держави","European experience of improving cultural policy in building the Ukrainian state","Зб. «Україна на порозі третього тисячоліття», Київ","'Ukraine on the Threshold of the Third Millennium', Kyiv","",""],
+["art","1999","Механізм функціонування спадкоємності в духовній культурі","The mechanism of continuity in spiritual culture","Зб. «Україна на порозі третього тисячоліття», Київ","'Ukraine on the Threshold of the Third Millennium', Kyiv","",""],
+["art","2000","Реалізація державної культурної політики як пріоритетний напрям розвитку гуманітарної сфери","Implementing state cultural policy as a priority for the humanitarian sphere","«Україна: поступ у ХХІ століття», К.: УАДУ","'Ukraine: Advance into the 21st Century', Kyiv: UAPA","",""],
+["art","2001","Вибір і громадська думка","Choice and public opinion","Вісник Академії керівних кадрів культури, № 3","Bulletin of the Academy of Cultural Executives, No. 3","",""],
+["art","2001","Культурна політика України","Cultural policy of Ukraine","Вісник Академії керівних кадрів культури, № 3","Bulletin of the Academy of Cultural Executives, No. 3","",""],
+["art","2001","Етико-культурні домінанти політичного процесу","Ethical and cultural dominants of the political process","Збірник наукових праць УАДУ","Collected papers of UAPA","",""],
+["art","2001","Державна культурна політика України в контексті сучасного світового досвіду: основні напрямки і тенденції розвитку","Ukraine's state cultural policy in contemporary world experience","МНПК, ДАКККіМ","Int. conf., DAKKKiM","",""],
+["art","2002","Порівняльний аналіз побудови електронного уряду в Англії та Україні","Comparative analysis of e-government development in England and Ukraine","«Державне управління в умовах інтеграції України в ЄС», т.2, К.: УАДУ","'Public Administration amid Ukraine's EU Integration', vol.2, Kyiv: UAPA","",""],
+["art","2003","Сутність електронного уряду та принципи його організації","The essence of e-government and principles of its organisation","Вісник УАДУ, № 2","Bulletin of UAPA, No. 2","",""],
+["art","2003","Побудова інформаційного суспільства в Україні: проблеми та перспективи","Building the information society in Ukraine: problems and prospects","Міжнародний конгрес, Київ, 1–2.04.2003","International congress, Kyiv, 1–2.04.2003","",""],
+["art","2003","Державна культурна політика в умовах побудови інформаційного суспільства: зарубіжний і вітчизняний досвід","State cultural policy amid the information society: foreign and domestic experience","Культурологічні читання пам'яті В. Підкопаєва","Pidkopaiev memorial cultural readings","",""],
+["art","2003","Електронний уряд: проблеми і пріоритети","E-government: problems and priorities","Матеріали наук.-практ. конф. УАДУ, травень 2003","Proc. of UAPA research conf., May 2003","",""],
+["art","2005","Проблеми і перспективи впровадження електронного уряду: світовий та вітчизняний досвід","Problems and prospects of e-government implementation: world and domestic experience","Зб. «Державне управління в Україні: реалії та перспективи», К.: НАДУ","'Public Administration in Ukraine: Realities and Prospects', Kyiv: NAPA","",""],
+["art","2005","Проблеми та перешкоди на шляху електронного уряду: світовий і вітчизняний досвід","Problems and obstacles to e-government: world and domestic experience","Там само","Ibid.","",""],
+["art","2008","Питання забезпечення сумісності надання електронних державних послуг та європейські виміри підготовки магістрів з електронного урядування","Interoperability of e-public services and European dimensions of e-governance master's training","Вісник державної служби, вип. 1","Civil Service Bulletin, iss. 1","О.В. Загвойська","O. Zahvoiska",""],
+["art","2008","Науково-методичне забезпечення зв'язків з громадськістю в органах державної виконавчої влади","Scientific and methodological support for public relations in executive bodies","Методичні рекомендації, К.: НАДУ","Methodological guide, Kyiv: NAPA","Т.В. Джига, А.В. Баровська","T. Dzhyha, A. Barovska",""],
+["art","2008","Вітчизняний і зарубіжний досвід впровадження електронного урядування","Domestic and foreign experience of e-governance implementation","Зб. матеріалів наук.-практ. конф., К.: Майкрософт","Conf. proceedings, Kyiv: Microsoft","О.В. Загвойська","O. Zahvoiska",""],
+["art","2009","Питання забезпечення сумісності надання електронних державних послуг","Interoperability of e-public service delivery","Вісник державної служби, вип. 1","Civil Service Bulletin, iss. 1","О.В. Загвойська","O. Zahvoiska",""],
+["art","2010","Магістерська програма з електронного урядування як сучасний інституційний механізм реформування державного управління","The e-governance master's programme as an institutional reform mechanism","«Електронне урядування», № 1","'E-Governance' journal, No. 1","О.В. Загвойська","O. Zahvoiska",""],
+["art","2010","Питання кадрового забезпечення впровадження електронного урядування","Staffing for e-governance implementation","Рішельєвські читання, Одеса, с. 67–70","Richelieu readings, Odesa, pp. 67–70","О.В. Загвойська, О.Б. Кукарін","O. Zahvoiska, O. Kukarin",""],
+["art","2010","Магістерська програма з електронного урядування","The e-governance master's programme","«Досвід впровадження е-демократії та е-урядування в Україні», Київ","'E-democracy and e-governance in Ukraine', Kyiv","",""],
+["art","2011","Теоретико-методологічні, інституційні та організаційні засади електронного урядування","Theoretical, methodological, institutional and organisational foundations of e-governance","Інформаційний дайджест досліджень, вип. 3, К.","Research digest, iss. 3, Kyiv","О.В. Загвойська","O. Zahvoiska",""],
+["art","2011","Теоретико-методологічні, організаційні та інституційні засади впровадження електронного урядування","Foundations for implementing e-governance","Заключний звіт про НДР, К.","Final research report, Kyiv","",""],
+["art","2015","Впровадження електронного урядування в умовах мережевої війни","Implementing e-governance amid network warfare","«Публічне управління та адміністрування», К., № 1","'Public Management and Administration', Kyiv, No. 1","",""],
+["art","2016","Смарт-сіті чи електронне місто","Smart city or electronic city","Інвестиції: практика та досвід, № 13, с. 89–93","Investytsiyi: praktyka ta dosvid, No. 13, pp. 89–93","В.І. Дмитренко","V. Dmytrenko","http://www.investplan.com.ua/?op=1&j=Investytsiyi_praktyka_ta_dosvid&s=ua&z=5082"],
+["art","2016","Впровадження електронного парламенту в Україні в контексті сучасних світових тенденцій","E-parliament in Ukraine in light of current world trends","Держава та регіони. Серія: Державне управління, № 1 (53)","State and Regions. Public Administration, No. 1 (53)","",""],
+["art","2016","Особливості впровадження електронного урядування в Об'єднаних Арабських Еміратах","E-governance implementation in the UAE: specifics","Інвестиції: практика та досвід, № 8, с. 92–95","Investytsiyi: praktyka ta dosvid, No. 8, pp. 92–95","М.С. Шуляк","M. Shuliak","http://www.investplan.com.ua/?op=1&z=4986&i=19"],
+["art","2016","Аналіз кращих практик надання електронних послуг в Об'єднаних Арабських Еміратах","Best e-service practices in the UAE: analysis","Державне управління: удосконалення та розвиток, № 4","Derzhavne upravlinnia, No. 4","М.С. Шуляк","M. Shuliak","http://www.dy.nayka.com.ua/?op=1&z=962"],
+["art","2016","Кращі європейські практики впровадження електронного урядування: досвід Данії","Best European e-governance practices: the Danish experience","Інвестиції: практика та досвід, № 24, с. 140–145","Investytsiyi: praktyka ta dosvid, No. 24, pp. 140–145","В.Л. Полярна","V. Poliarna","http://www.investplan.com.ua/?op=1&z=5314&i=28"],
+["art","2016","Основні напрями та пріоритети надання електронних послуг в країнах ЄС: на прикладі Данії","E-service priorities in the EU: the Danish case","Державне управління: удосконалення та розвиток, № 4","Derzhavne upravlinnia, No. 4","В.Л. Полярна","V. Poliarna","http://www.dy.nayka.com.ua/?op=1&z=1015"],
+["art","2017","Interoperability as a necessary condition for the implementation of e-governance: experience of the European Union","Interoperability as a necessary condition for the implementation of e-governance: experience of the European Union","Публічне урядування, № 5 (10), с. 293–303","Public Management, No. 5 (10), pp. 293–303","В.І. Дмитренко","V. Dmytrenko","http://journals.maup.com.ua/index.php/public-management/article/view/587"],
+["art","2018","Блокчейн чи система електронного документообігу: сучасні тенденції впровадження в органах виконавчої влади України","Blockchain or e-document management: implementation trends in Ukraine's executive bodies","Інвестиції: практика та досвід, № 1, с. 70–76","Investytsiyi: praktyka ta dosvid, No. 1, pp. 70–76","К.Л. Буряченко","K. Buriachenko","http://www.investplan.com.ua/?op=1&z=5871&i=12"],
+["art","2019","Кращі європейські та українські практики надання електронних послуг для вразливих верств населення","Best European and Ukrainian e-service practices for vulnerable populations","Інвестиції: практика та досвід, № 5, с. 91–97","Investytsiyi: praktyka ta dosvid, No. 5, pp. 91–97","Т.М. Ціпцюра","T. Tsiptsiura","https://doi.org/10.32702/2306-6814.2019.5.91"],
+["art","2020","Становлення сучасної української наукової думки щодо історії розвитку вітчизняного електронного урядування: міжгалузевий аспект","The formation of Ukrainian scholarly thought on the history of domestic e-governance","Сторінки історії, № 51 (Web of Science)","Storinky Istorii, No. 51 (Web of Science)","Н.М. Драгомирецька, М.І. Михайлуца","N. Drahomyretska, M. Mykhailutsa","https://doi.org/10.20535/2307-5244.51.2020.220187"],
+["art","2021","Забезпечення соціальної інклюзії в розумних містах: виклики та сучасні тенденції","Ensuring social inclusion in smart cities: challenges and current trends","Державне управління: удосконалення та розвиток, № 1","Derzhavne upravlinnia, No. 1","О.Р. Шиць","O. Shyts","https://doi.org/10.32702/2307-2156-2021.1.5"],
+["art","2021","Комунікаційні стратегії в публічному управлінні та адмініструванні: зарубіжний та український досвід","Communication strategies in public management and administration: foreign and Ukrainian experience","Інвестиції: практика та досвід, № 12, с. 72–79","Investytsiyi: praktyka ta dosvid, No. 12, pp. 72–79","В.О. Яценко","V. Yatsenko","https://doi.org/10.32702/2306-6814.2021.12.72"],
+["art","2021","Проблеми тлумачення «сталого розвитку» в державному управлінні України: поняття, переклад, комунікація","Interpreting 'sustainable development' in Ukraine's public administration","Дніпровський науковий журнал, № 6","Dnipro Scientific Journal, No. 6","Н.М. Драгомирецька, Ю.О. Романенко, Т.П. Сазикіна","N. Drahomyretska, Y. Romanenko, T. Sazykina","https://doi.org/10.51547/ppp.dp.ua/2021.6.4"],
+["art","2021","Організаційно-правовий контекст діяльності уряду України зі сталого розвитку","The organisational and legal context of Ukraine's government action on sustainable development","Дніпровський науковий журнал, № 5","Dnipro Scientific Journal, No. 5","Н.М. Драгомирецька, Ю.О. Романенко","N. Drahomyretska, Y. Romanenko","https://doi.org/10.51547/ppp.dp.ua/2021.5.1"],
+["art","2021","Публічне управління та COVID-19: виклики і цифрова трансформація","Public management and COVID-19: challenges and digital transformation","Тези XI МНПК «Сучасні проблеми управління», с. 323–326","Proc. XI Int. conf., pp. 323–326","","https://doi.org/10.20535/spu2021.249115"],
+["art","2022","Запровадження розумних енергосистем як складової розумного міста з використанням великих даних","Smart grids as a smart-city component using big data","Інвестиції: практика та досвід, т. 3, с. 88–95","Investytsiyi: praktyka ta dosvid, vol. 3, pp. 88–95","Л.О. Шумська","L. Shumska","https://doi.org/10.32702/2306-6814.2022.3.88"],
+["art","2023","Організація надання електронних послуг в Україні в умовах війни","Organising e-service delivery in Ukraine during wartime","Публічне управління та регіональний розвиток, № 20, с. 589–613","Public Administration and Regional Development, No. 20, pp. 589–613","Є.С. Карпенко","Y. Karpenko","https://doi.org/10.34132/pard2023.20.14"],
+["art","2023","Цифровізація процесів архівної справи в контексті формування Національного архівного фонду","Digitising archival processes amid the National Archival Fond's formation","Інвестиції: практика та досвід, № 24, с. 163–170","Investytsiyi: praktyka ta dosvid, No. 24, pp. 163–170","А.Л. Карапозюк","A. Karapoziuk","https://doi.org/10.32702/2306-6814.2023.24.163"],
+["art","2024","Assessment of skills in using AI tools among public servants in Ukraine","Assessment of skills in using AI tools among public servants in Ukraine","Наукові перспективи, № 10(52), с. 16–31","Naukovi perspektyvy, No. 10(52), pp. 16–31","А.М. Іщенко","A. Ishchenko","https://doi.org/10.52058/2708-7530-2024-10(52)-16-31"]
+];
+LIB.push(
+["book","1999","Генеза духовної культури (управлінський вимір)","The Genesis of Spiritual Culture (the Management Dimension)","Монографія. К.: УАДУ. — 256 с.","Monograph. Kyiv: UAPA. — 256 pp.","",""],
+["book","1999","Відтворення генераційної цілісності духовної культури (управлінський аспект)","Reproducing the generational integrity of spiritual culture (the management aspect)","Автореферат дисертації доктора наук. К.","Doctoral thesis abstract. Kyiv","",""],
+["book","2006","Інформаційна політика: навчальний посібник","Information Policy: a textbook","К.: Знання. — 663 с.","Kyiv: Znannia. — 663 pp.","Г.Г. Почепцов","H. Pocheptsov",""],
+["book","2008","Інформаційна політика: навчальний посібник (2-ге вид.)","Information Policy: a textbook (2nd ed.)","К.: Знання. — 663 с.","Kyiv: Znannia. — 663 pp.","Г.Г. Почепцов","H. Pocheptsov",""],
+["book","2003","Інформаційна політика: навчальний посібник. Ч. 2","Information Policy: a textbook. Part 2","К.: НАДУ","Kyiv: NAPA","О.В. Литвиненко","O. Lytvynenko",""],
+["book","2002","Гуманітарна політика: навчальний посібник","Humanitarian Policy: a textbook","К.: УАДУ. — 262 с.","Kyiv: UAPA. — 262 pp.","В. Скуратівський, В. Трощинський","V. Skurativskyi, V. Troshchynskyi",""],
+["book","2007","Електронний уряд: науково-практичний довідник","E-Government: a research and practice guide","К.: НАДУ. — 70 с.","Kyiv: NAPA. — 70 pp.","І.В. Клименко, К.О. Линьов","I. Klymenko, K. Lynov",""],
+["book","2022","Основи електронного урядування: навчальний посібник","Fundamentals of Electronic Governance: a textbook","К.: КПІ ім. Ігоря Сікорського. — 268 с.","Kyiv: Igor Sikorsky KPI. — 268 pp.","О.В. Загвойська, Я.Ю. Цимбаленко","O. Zahvoiska, Y. Tsymbalenko","https://ela.kpi.ua/items/ab842173-d6da-430a-811eb4923cbc5463"],
+["book","2004","Інформаційна політика та зв'язки з громадськістю: методичні рекомендації","Information policy and public relations: methodological guide","К.: Центр навчальної літератури","Kyiv: Centre of Educational Literature","І.Ф. Надольний","I. Nadolnyi",""],
+["book","2004","Інформаційна політика та зв'язки з громадськістю: опорний конспект дистанційного курсу","Information policy and PR: distance course outline","К.: Центр навчальної літератури. — 84 с.","Kyiv: Centre of Educational Literature. — 84 pp.","Г.Г. Почепцов","H. Pocheptsov",""],
+["book","2007","Інформаційна політика в Україні: методичні рекомендації з курсу","Information policy in Ukraine: course guidelines","К.: НАДУ","Kyiv: NAPA","",""],
+["book","2007","Інформаційна політика в Україні: опорний конспект лекцій","Information policy in Ukraine: lecture outline","К.: НАДУ","Kyiv: NAPA","Т.В. Джига","T. Dzhyha",""],
+["book","2007","Комунікативна політика в органах державної влади: методичні рекомендації до дистанційного курсу","Communicative policy in public authorities: distance course guide","К. — 39 с.","Kyiv. — 39 pp.","Т.В. Джига, А.В. Баровська","T. Dzhyha, A. Barovska",""],
+["book","2007","Комунікативна політика в органах державної влади: опорний конспект до дистанційного курсу","Communicative policy in public authorities: course outline","К.: Секретаріат КМУ","Kyiv: Secretariat of the CMU","Т.В. Джига","T. Dzhyha",""],
+["book","2008","Комунікативна політика в органах державної влади: опорний конспект лекцій","Communicative policy in public authorities: lecture outline","К.: НАДУ","Kyiv: NAPA","Т.В. Джига","T. Dzhyha",""],
+["book","2007","Правове забезпечення інформаційної сфери в Україні та за кордоном: методичні рекомендації","Legal support of the information sphere in Ukraine and abroad","К.: НАДУ","Kyiv: NAPA","Р.Г. Скребець","R. Skrebets",""],
+["book","2007","Практичне використання електронного уряду та урядування: методичні рекомендації","Practical use of e-government and e-governance: guidelines","К.: НАДУ","Kyiv: NAPA","Т.В. Джига","T. Dzhyha",""],
+["book","2007","Практичне використання електронного уряду та урядування. Прикладні наукові розробки","Practical e-government: applied research for public servants","К.: НАДУ","Kyiv: NAPA","Т.В. Джига, О.П. Попроцький та ін.","T. Dzhyha, O. Poprotskyi et al.",""],
+["book","2007","Електронне урядування: методичні рекомендації для самостійної роботи","E-governance: self-study guidelines","К.: НАДУ","Kyiv: NAPA","",""],
+["book","2009","Електронне урядування: опорний конспект","E-governance: course outline","К.: НАДУ","Kyiv: NAPA","О.Б. Кукарін","O. Kukarin",""],
+["book","2009","Інформаційна політика в Україні: методичні рекомендації до практичних занять","Information policy in Ukraine: practical class guidelines","К.: НАДУ","Kyiv: NAPA","О.В. Загвойська, О.Б. Кукарін, О.П. Попроцький","O. Zahvoiska, O. Kukarin, O. Poprotskyi",""],
+["book","2008","Інформаційна політика та електронне урядування: опорний конспект","Information policy and e-governance: course outline","К.: НАДУ","Kyiv: NAPA","О.Б. Кукарін","O. Kukarin",""],
+["book","2011","Налагодження механізмів взаємодії уряду з неурядовими організаціями","Building government–NGO interaction mechanisms","Наук.-метод. розробка. К.: НАДУ. — 80 с.","Research guide. Kyiv: NAPA. — 80 pp.","О.В. Загвойська, Н.М. Драгомирецька та ін.","O. Zahvoiska, N. Drahomyretska et al.",""],
+["book","2016","Розвиток електронного парламенту в Україні в контексті сучасного світового досвіду","E-parliament development in Ukraine in current world context","Розділ. «Час вибору: виклики інформаційної епохи». Одеса: Гельветика. С. 360–371","Chapter. 'Time of Choice'. Odesa: Helvetyka. Pp. 360–371","Л.О. Луцук","L. Lutsuk",""],
+["book","2017","Розвиток електронного урядування на місцевому та регіональному рівнях","E-governance development at local and regional levels","Розділ. «Електронне урядування та електронна демократія» у 15 ч. К.: НАДУ. Ч. 7","Chapter. 'E-governance and e-democracy' in 15 vols. Kyiv: NAPA. Vol. 7","",""],
+["book","2002","Гуманітарна політика щодо розвитку культури","Humanitarian policy for cultural development","Розділ. «Гуманітарна політика». К.: Міленіум","Chapter. 'Humanitarian Policy'. Kyiv: Milenium","",""],
+["book","2002","Гуманітарна політика щодо розвитку науки","Humanitarian policy for scientific development","Розділ. Там само","Chapter. Ibid.","",""],
+["book","2002","Державна інформаційна політика в Україні","State information policy in Ukraine","Розділ. «Інформаційна політика». Ч. 1. К.: УАДУ. С. 56–88","Chapter. 'Information Policy'. Part 1. Kyiv: UAPA. Pp. 56–88","",""],
+["book","1999","Духовна культура в гуманітарній політиці України","Spiritual culture in Ukraine's humanitarian policy","Розділ. «Програма «Україна – 2010»». К.: УАДУ","Chapter. 'Programme Ukraine 2010'. Kyiv: UAPA","",""],
+["book","2009–2011","Головний редактор міжнародного фахового журналу «Електронне урядування»","Editor-in-chief of the international journal 'E-Governance'","Редакторство","Editorial work","",""],
+["book","2006–2012","Член редколегій фахових видань","Editorial board member of scholarly journals","«Стратегічні пріоритети», «Демократичне врядування», «Вісник» та «Збірник» НАДУ","'Strategic Priorities', 'Democratic Governance', NAPA Bulletin and Proceedings","",""],
+["book","2008–2011","Наукова редакція збірників з електронного урядування","Academic editor of e-governance collections","«Зарубіжний досвід…» (2008), «Кращі практики…» (2010), «Інституційні засади…» (2011)","'Foreign Experience' (2008), 'Best Practices' (2010), 'Institutional Foundations' (2011)","",""],
+["book","2012","Авторське свідоцтво № 42281: «Електронне урядування: концепція, методологія, інструменти та програми»","Copyright certificate No. 42281: 'E-governance: concept, methodology, tools and programmes'","Авторське свідоцтво","Copyright certificate","Ольга Загвойська","Olha Zahvoiska",""],
+["conf","2012","Тенденції розвитку електронного урядування та ризики його впровадження","E-governance development trends and implementation risks","Конгрес «Інформаційне суспільство в Україні», Київ","'Information Society in Ukraine' congress, Kyiv","",""],
+["conf","2013","Тенденції та проблеми впровадження електронного урядування в Україні","Trends and problems of e-governance implementation in Ukraine","VII МНПК «Сучасні проблеми управління», Київ","VII Int. conf. 'Contemporary Problems of Management', Kyiv","",""],
+["conf","2014","Сучасна війна, мережеве суспільство і психологія натовпу","Modern warfare, the network society and crowd psychology","ПЛЕНАРНА доповідь. «Великі війни, великі трансформації», Київ","PLENARY talk. 'Great Wars, Great Transformations', Kyiv","","https://sociology.kpi.ua/wp-content/uploads/2015/01/Програма_Соціологія_2014.pdf"],
+["conf","2014","Особливості впровадження електронного урядування в умовах мережевої війни","E-governance implementation amid network warfare","«В.М. Глушков — піонер кібернетики», Київ","'V. Hlushkov, Cybernetics Pioneer', Kyiv","",""],
+["conf","2015","Вплив електронного урядування на трансформацію ролі держави","How e-governance transforms the role of the state","«Держава та глобальні соціальні зміни», Київ","'The State and Global Social Change', Kyiv","",""],
+["conf","2015","Вплив електронного урядування на процес децентралізації","How e-governance impacts decentralisation","VIII МНПК «Сучасні проблеми управління», Київ","VIII Int. conf., Kyiv","",""],
+["conf","2017","Від Інтернету речей до Smart City: проблеми та перспективи","From the Internet of Things to Smart City: problems and prospects","Конференція «Інтернет речей», Верховна Рада України","'Internet of Things' conference, Verkhovna Rada of Ukraine","","https://ktpu.kpi.ua/internet-rechej-problemi-pravovogo-regulyuvannya-ta-vprovadzhennya/"],
+["conf","2018","Застосування принципу «цифрове за замовчуванням»: проблеми та перспективи","Applying the 'digital by default' principle","«Інформаційне право», Київ","'Information Law', Kyiv","",""],
+["conf","2018","Електронне урядування: реалії та виклики","E-governance: realities and challenges","Відкрита лекція. Всеукраїнська олімпіада, КПІ","Open lecture. All-Ukrainian olympiad, KPI","",""],
+["conf","2019","Запровадження електронних послуг в Україні для вразливих категорій громадян","E-services for vulnerable citizens in Ukraine","Круглий стіл, Вінниця","Round table, Vinnytsia","",""],
+["conf","2019","Від електронного уряду до розумного урядування: сучасні виклики та загрози","From e-government to smart governance: current challenges","ПЛЕНАРНА доповідь. X МНПК «Сучасні проблеми управління», Київ","PLENARY talk. X Int. conf., Kyiv","","https://ktpu.kpi.ua/conference/suchasni-problemy-upravlinnya/"],
+["conf","2021","Публічне управління та COVID-19: виклики і цифрова трансформація","Public management and COVID-19: challenges and digital transformation","ПЛЕНАРНА доповідь. XI МНПК «Сучасні проблеми управління», Київ","PLENARY talk. XI Int. conf., Kyiv","","https://ktpu.kpi.ua/wp-content/uploads/2021/12/spu2021.pdf"],
+["conf","2023","The Smart Tourism during the War and post-War Recovery: The Case of Ukraine","The Smart Tourism during the War and post-War Recovery: The Case of Ukraine","Симпозіум GISU, Сідней, Австралія (найактивніша учасниця)","GISU symposium, Sydney, Australia (most active participant)","O. Akimova, A. Ischenko, M. Yenin, I. Perga, O. Zahvoiska","O. Akimova, A. Ischenko, M. Yenin, I. Perga, O. Zahvoiska","https://icd.kpi.ua/?p=18255"],
+["conf","2013–…","Член програмних та організаційних комітетів МНПК «Сучасні проблеми управління»","Programme and organising committees member","МНПК «Сучасні проблеми управління», КПІ","Int. conf. 'Contemporary Problems of Management', KPI","","https://ktpu.kpi.ua/conference/suchasni-problemy-upravlinnya/"],
+["proj","2005–2008","Українсько-німецький проєкт «Сприяння реформі державного управління» (GTZ, уряд ФРН)","Ukrainian-German public administration reform project (GTZ, German Government)","Учасник — модуль «Електронне урядування»","Participant — 'E-governance' module","",""],
+["proj","2008","НДР «Зв'язки з громадськістю в державному управлінні» (ДР № 0107U005909)","Research: 'Public relations in public administration'","Науковий керівник","Research supervisor","",""],
+["proj","2008–2010","Концепція розвитку електронного урядування в Україні (розпорядження КМУ № 2250-р)","Ukraine's E-Governance Development Concept (Cabinet Resolution No. 2250-r)","Член робочої групи (грант МФ «Відродження»)","Working group member (Renaissance Foundation grant)","","https://www.irf.ua/en/?p=70400"],
+["proj","2009–2010","НДР «Налагодження механізмів ефективної взаємодії Уряду з громадськістю та ЗМІ»","Research: 'Government–public–media interaction mechanisms'","Науковий керівник","Research supervisor","",""],
+["proj","2010–2011","НДР «Теоретико-методологічні засади впровадження е-урядування»","Research: 'Foundations for e-governance implementation'","Науковий керівник","Research supervisor","",""],
+["proj","2015–2017","EGAP «Електронне урядування задля підзвітності влади та участі громади» (Швейцарія)","EGAP 'E-governance for accountability and community participation' (Switzerland)","Експерт","Expert","",""],
+["proj","2016–2018","«Вплив електронного урядування на суспільні трансформації»","'The impact of e-governance on social transformations'","Науковий керівник","Research supervisor","",""],
+["proj","2018–2020","«Сучасні тенденції впровадження електронного урядування в Україні»","'Current e-governance trends in Ukraine: best practices'","Науковий керівник","Research supervisor","",""],
+["proj","2021","Аудит систем управління та залучення стейкхолдерів ДП НАЕК «Енергоатом»","Audit of management and stakeholder engagement systems, Energoatom","Виконавець теми","Project executor","",""],
+["proj","2021–…","GISU «Smart Cities & Tourism Research Projects»","GISU 'Smart Cities & Tourism Research Projects'","Учасник від КПІ","KPI participant","",""],
+["proj","2021–2024","GISU «Innovative Business Strategies in Response to COVID-19 Impact on Tourism»","GISU 'Innovative Business Strategies in Response to COVID-19 Impact on Tourism'","Учасник (за даними LinkedIn)","Participant (per LinkedIn)","",""],
+["proj","2023–2025","Orbicom «Digital transformation of public administration for SDGs»","Orbicom 'Digital transformation of public administration for SDGs'","Учасник (за даними LinkedIn)","Participant (per LinkedIn)","",""],
+["talk","2023","Публічна лекція «How Social Media & E-Messaging are the Real Weapons in the Russia-Ukraine War»","Public lecture 'How Social Media & E-Messaging are the Real Weapons in the Russia-Ukraine War'","Rotary Club of Kingston, Онтаріо, Канада","Rotary Club of Kingston, Ontario, Canada","","https://kingstonrotary.ca/Stories/how-social-media-e-messaging-are-the-real-weapons-in-the-bitter-russia-ukraine-war"],
+["talk","2023","Найактивніша учасниця міжнародного симпозіуму GISU","Most active participant of the GISU international symposium","Сідней, Австралія","Sydney, Australia","","https://icd.kpi.ua/?p=18255"],
+["talk","2024","Координатор від ФСП КПІ при підписанні меморандуму з Western Sydney University","FSP KPI coordinator for the MoU with Western Sydney University","КПІ — WSU","KPI — WSU","","https://icd.kpi.ua/?p=18255"],
+["talk","2025","Організатор XIII МНПК «Сучасні проблеми управління»","Organiser of the XIII Int. conf. 'Contemporary Problems of Management'","КПІ, 25.09.2025","KPI, 25.09.2025","","http://fsp.kpi.ua/ua/xiii-mizhnarodna-naukovo-praktichna-konferentsiya-uspishno-vidbulasya/"],
+["talk","2010","У складі робочої групи експертів з е-урядування","Among the e-governance expert working group","Новина МФ «Відродження»","Renaissance Foundation news","","https://www.irf.ua/en/?p=70400"],
+["awd","2002","Почесна грамота","Diploma of Honour","НАДУ при Президентові України","NAPA under the President of Ukraine","",""],
+["awd","2017","Подяка","Letter of gratitude","КПІ ім. Ігоря Сікорського","Igor Sikorsky KPI","",""],
+["awd","2018","Грамота за підготовку переможців конкурсу студентських робіт","Award for mentoring student competition winners","КНТЕУ","KNUTE","",""],
+["awd","2019","Подяка","Gratitude of the Ministry","МОН України","Ministry of Education and Science of Ukraine","",""],
+["awd","2019","Почесна відзнака Вченої ради","Honorary Award of the Academic Council","КПІ ім. Ігоря Сікорського","Igor Sikorsky KPI","",""],
+["awd","2019","Грамота за підготовку переможців (І місце — Ціпцюра Т.)","Award for mentoring winners","КНТЕУ","KNUTE","",""],
+["awd","2019","Подяка за роботу в галузевій комісії конкурсу","Gratitude for competition committee work","КНТЕУ","KNUTE","",""],
+["awd","2019","Подяка як члену журі олімпіади з публічного управління","Gratitude as olympiad jury member","КПІ","KPI","",""],
+["awd","2019","Диплом, ІІ місце, «Кращі практики освітніх інновацій»","Diploma, 2nd place, 'Best Educational Innovation Practices'","НАДС України","NACS of Ukraine","",""],
+["awd","2020","Диплом, ІІІ місце, «Кращі практики освітніх інновацій»","Diploma, 3rd place, 'Best Educational Innovation Practices'","НАДС України","NACS of Ukraine","","https://ktpu.kpi.ua/wp-content/uploads/2020/10/IMG_20201009_121507.jpg"],
+["awd","2020","Грамота за підготовку переможців конкурсу","Award for mentoring competition winners","КНТЕУ","KNUTE","",""],
+["awd","2021","Диплом, ІІ місце, «Кращі практики освітніх інновацій»","Diploma, 2nd place, 'Best Educational Innovation Practices'","НАДС України (співавт. Я.Ю. Цимбаленко)","NACS of Ukraine (co-author Y. Tsymbalenko)","",""],
+["awd","2021","Подяка як члену оргкомітету олімпіади з е-урядування","Gratitude as e-governance olympiad organiser","КПІ","KPI","",""],
+["awd","2021","Подяка як члену журі олімпіади з е-урядування","Gratitude as e-governance olympiad jury member","КПІ","KPI","",""],
+["awd","2021","Подяка за підготовку переможниці (Шиць О., ІІ місце)","Gratitude for mentoring a prizewinner","КНЕУ ім. Вадима Гетьмана","KNEU","",""],
+["awd","2022","Подяка за підготовку переможця міжнародного конкурсу (2 місце)","Gratitude for mentoring an international competition winner","ІФНТУНГ","IFNTUOG","",""],
+["awd","2023","Подяка за підготовку переможця міжнародного конкурсу (1 місце)","Gratitude for mentoring an international competition winner","Міжнародний конкурс (за даними LinkedIn)","International competition (per LinkedIn)","",""],
+["stu","2018","Куц Аріна Романівна","Arina Kuts","І місце Всеукраїнського конкурсу + І місце олімпіади","1st place, All-Ukrainian competition + olympiad","","https://ktpu.kpi.ua/kuts-arina-dvichi-peremozhnitsya/"],
+["stu","2018","Пащак Марія","Maria Pashchak","ІІ місце Всеукраїнського конкурсу","2nd place, All-Ukrainian competition","",""],
+["stu","2018","Плотнікова Олена","Olena Plotnikova","ІІ місце Всеукраїнського конкурсу","2nd place, All-Ukrainian competition","",""],
+["stu","2019","Ціпцюра Тетяна Миколаївна","Tetiana Tsiptsiura","І місце Всеукраїнського конкурсу","1st place, All-Ukrainian competition","",""],
+["stu","2019","Круц Анна","Anna Kruts","ІІ місце (2019) · ІІІ місце (2020)","2nd (2019) · 3rd (2020) place","",""],
+["stu","2019","Фещенко Каріна","Karina Feshchenko","ІІ місце Всеукраїнського конкурсу","2nd place, All-Ukrainian competition","",""],
+["stu","2020","Волицький Назарій","Nazarii Volytskyi","ІІІ місце Всеукраїнського конкурсу","3rd place, All-Ukrainian competition","",""],
+["stu","2020","Трачук Владислав","Vladyslav Trachuk","ІІІ місце Всеукраїнського конкурсу","3rd place, All-Ukrainian competition","",""],
+["stu","2021","Шиць Олександра","Oleksandra Shyts","ІІ місце Всеукраїнського конкурсу","2nd place, All-Ukrainian competition","",""],
+["stu","2022","Скремінський Микита Володимирович","Mykyta Skreminskyi","2 місце Міжнародного конкурсу","2nd place, international competition","","https://ktpu.kpi.ua/dosiahnennia-kafedry/"],
+["stu","2023","Шумська Л. та Шиць О.","L. Shumska & O. Shyts","1 місце Міжнародного конкурсу","1st place, international competition","",""],
+["cert","2023","Innovative Teaching with ChatGPT","Innovative Teaching with ChatGPT","Vanderbilt University","Vanderbilt University","",""],
+["cert","2023","Qualitative Methods in Research","Qualitative Methods in Research","Ukraine Global Faculty","Ukraine Global Faculty","",""],
+["cert","2023","Quantitative Methods in Research","Quantitative Methods in Research","Ukraine Global Faculty","Ukraine Global Faculty","",""],
+["cert","2023","TCPS 2: CORE — Research Ethics","TCPS 2: CORE — Research Ethics","Tri-agency Institutional Programs Secretariat","Tri-agency Institutional Programs Secretariat","",""],
+["cert","2023","Enhanced Language Training (ELT)","Enhanced Language Training (ELT)","COSTI","COSTI","",""],
+["cert","2021","Fundamentals of Test Theory","Fundamentals of Test Theory","МОН України","Ministry of Education and Science of Ukraine","",""],
+["cert","2019","«Експерт з акредитації освітніх програм» (Prometheus)","'Educational Programme Accreditation Expert' (Prometheus)","НАЗЯВО","NAQA","",""],
+["cert","2017","«Розвиток громадянських компетентностей» (DOCCU)","'Developing Civic Competences' (DOCCU)","Швейцарсько-український проєкт","Swiss-Ukrainian project","",""],
+["cert","2011","«Модернізація державного сектора через е-уряд»","'Public Sector Modernisation through E-Government'","НаУКМА","NaUKMA","",""],
+["cert","2001","«Теорія і практика дистанційного навчання»","'Theory and Practice of Distance Learning'","Світовий банк","World Bank","",""]
+);
+</script>
+<script>
+const PAGE = {
+uk:{brandMark:"СЧ",brandName:"Світлана Чукут",pTitle:"Бібліотека <em>праць</em>",pLead:"Статті, монографії, тези конференцій, проєкти, сертифікати та нагороди. Шукайте за назвою або фільтруйте за типом і роками.",phSearch:"Пошук за назвою…",fAll:"Усі типи",fAllY:"Усі роки",pgPrev:"← Попередня",pgNext:"Наступна →",found:"Знайдено записів:",cat_art:"Статті",cat_book:"Книги і монографії",cat_conf:"Конференції",cat_stu:"Наукове керівництво",cat_proj:"Проєкти",cat_awd:"Нагороди",cat_cert:"Сертифікати",cat_talk:"Виступи"},
+en:{brandMark:"SC",brandName:"Svitlana Chukut",pTitle:"Publication <em>library</em>",pLead:"Articles, monographs, conference proceedings, projects, certificates and awards. Search by title or filter by type and year.",phSearch:"Search by title…",fAll:"All types",fAllY:"All years",pgPrev:"← Previous",pgNext:"Next →",found:"Records found:",cat_art:"Articles",cat_book:"Books & monographs",cat_conf:"Conferences",cat_stu:"Supervised research",cat_proj:"Projects",cat_awd:"Awards",cat_cert:"Certificates",cat_talk:"Talks"}
+};
+var CATS=["art","book","conf","stu","proj","awd","cert","talk"];
+function PAGE_AFTER(d,lang){
+  document.title = lang==="uk" ? "Бібліотека праць — Світлана Чукут" : "Publication library — Svitlana Chukut";
+  var fc=document.getElementById("fc"), fd=document.getElementById("fd");
+  var cv=fc.value, dv=fd.value;
+  fc.innerHTML='<option value="">'+d.fAll+'</option>'+CATS.map(function(c){return '<option value="'+c+'">'+(d["cat_"+c]||c)+'</option>';}).join("");
+  fc.value=cv;
+  var yrs=[...new Set(LIB.map(function(r){return (r[1]||"").slice(0,4);}).filter(function(y){return /^\d{4}$/.test(y);}))].sort().reverse();
+  var decades=[...new Set(yrs.map(function(y){return y.slice(0,3)+"0";}))].sort().reverse();
+  fd.innerHTML='<option value="">'+d.fAllY+'</option>'+decades.map(function(x){return '<option value="'+x+'">'+x+'–'+(+x+9)+'</option>';}).join("");
+  fd.value=dv;
+  var fq=document.getElementById("fq"); fq.placeholder=d.phSearch;
+  render(d,lang);
+}
+function render(d,lang){
+  var q=(document.getElementById("fq").value||"").toLowerCase().trim();
+  var c=document.getElementById("fc").value, dec=document.getElementById("fd").value;
+  var out=LIB.filter(function(r){
+    if(c&&r[0]!==c)return false;
+    if(dec){var y=(r[1]||"").slice(0,4);if(!(y>=dec&&y<(+dec+10)))return false;}
+    if(q){var t=((r[2]||"")+" "+(r[3]||"")).toLowerCase();if(t.indexOf(q)<0)return false;}
+    return true;
+  });
+  var g=document.getElementById("grid");
+  g.innerHTML=out.map(function(r){
+    var t=lang==="uk"?r[2]:r[3], s=lang==="uk"?r[4]:r[5], l=lang==="uk"?r[6]:r[7];
+    var meta=[d["cat_"+r[0]]||r[0],r[1],s].filter(Boolean).join(" · ");
+    var link=l?(' <a href="'+l+'" target="_blank" rel="noopener">↗</a>'):"";
+    return '<div class="lib-it"><div class="t">'+t+link+'</div><div class="m">'+meta+'</div></div>';
+  }).join("");
+  document.getElementById("cnt").textContent=d.found+" "+out.length+" / "+LIB.length;
+}
+document.addEventListener("DOMContentLoaded",function(){
+  ["fq","fc","fd"].forEach(function(id){document.getElementById(id).addEventListener("input",function(){var l=document.documentElement.lang;render(Object.assign({},PAGE[l]),l);});});
+  document.getElementById("fc").addEventListener("change",function(){var l=document.documentElement.lang;render(Object.assign({},PAGE[l]),l);});
+  document.getElementById("fd").addEventListener("change",function(){var l=document.documentElement.lang;render(Object.assign({},PAGE[l]),l);});
+});
+</script>
+<script src="assets/app.js"></script>
+</body>
+</html>
