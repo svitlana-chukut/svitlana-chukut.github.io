@@ -1293,3 +1293,8 @@ html{overflow-anchor:none}
 @media (max-width:900px){.arch-stats{grid-template-columns:repeat(2,1fr)}.arch-findings{grid-template-columns:1fr}.arch-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.arch-grid{grid-template-columns:1fr}.arch-card img{height:200px}}
 @media (prefers-reduced-motion:reduce){.arch-card,.arch-mk{transition:none}}
+
+/* Page visibility + reveal safety net. These two rules used to live in an
+   inline <style> block in index.html; they sit last so they keep the same
+   cascade weight they had there. */
+.page{display:none}.page.on{display:block}html.rv-safe .rv{opacity:1!important;transform:none!important}

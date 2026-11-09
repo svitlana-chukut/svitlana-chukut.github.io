@@ -6,17 +6,22 @@ each step below can be followed on the real files.
 
 How the site is organised — this is the one thing to understand first:
 
-- `index.html` holds only the STRUCTURE of the pages (markup). The texts
-  printed inside its `data-i18n` spans are French fallback copies; they
-  are overwritten at runtime and are NOT the place to edit.
+- `index.html` holds only the STRUCTURE of the pages (markup). It
+  carries no content text at all: its `data-i18n` elements are empty
+  placeholders, filled at runtime from the data files — so there is
+  nothing to edit in `index.html` when a text changes.
 - The CONTENT lives separately, in data files under `assets/`:
   short labels in `content-texts.js`, the long texts of each page in
   `content-page-<page>.js`, the publication catalogue in
   `content-library.js`, the certificate registry in
   `content-certificates.js`, the Google Scholar metrics in
   `content-scholar.js`, the file inventory in `content-files.js`.
-- ALL design lives in `assets/style.css`; shared behaviour (navigation,
-  language switch, search, viewers) in `assets/app.js`.
+- ALL design lives in `assets/style.css`. Behaviour is all external
+  too: hash routing in `assets/router.js`, shared behaviour (language
+  switch, search, viewers) in `assets/app.js`, the initial theme in
+  `assets/theme-init.js`, and one small script per page concern
+  (`assets/page-*.js`). `index.html` contains no scripts or styles of
+  its own and survives standard HTML formatting.
 
 Work on a copy first; keep the ZIP of the previous version as your
 backup. After any edit, open the page and check the changed section on
@@ -36,8 +41,9 @@ in the header) and both themes (Light / Dark).
      the top of `index.html` (the Editor's Manual) says which file
      holds which page's texts.
 2. Edit BOTH language strings of the same entry, in the data file.
-   Never edit only the copy inside `index.html` — it is a fallback
-   and will be overwritten. UI labels exist only in French and
+   `index.html` holds no copy of any text — its placeholders are
+   empty by design — so the data files are the only place a text
+   can be edited. UI labels exist only in French and
    English — do not add a third language to labels.
 3. Inline markup inside a string (`<span class="grad">`, links) is
    intentional: keep the tags, edit the words.

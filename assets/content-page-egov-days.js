@@ -9,15 +9,16 @@
 
    The key is the data-i18n attribute of the passage's <span>
    in index.html; the renderer (assets/app.js) fills that span
-   from this file on every language switch. French is also the
-   fallback printed inside the span in index.html.
+   from this file on every language switch. The span in index.html is an EMPTY placeholder:
+   the renderer fills it from this file, in the language
+   currently selected.
 
    HOW TO EDIT
      - Change a text: edit BOTH language strings of its entry
        here. Never edit the copy inside index.html — it is
-       only a no-JavaScript fallback and is overwritten.
+       an EMPTY placeholder that the renderer fills.
      - Add a passage: add an entry with a fresh key, then put
-       <span data-i18n="your-key">French fallback</span> where
+       <span data-i18n="your-key"></span> (left empty) where
        the passage belongs in index.html.
      - Inline markup (<span class="grad">, <a>, <b>…) inside a
        string is intentional: keep the tags, edit the words.

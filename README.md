@@ -5,7 +5,7 @@ The complete, editable copy of the personal website of Svitlana Chukut
 AND every media original, in one package, built from the current site
 on 8 November 2026.
 
-**497 files · 81 993 408 bytes (82.0 MB) in total.**
+**504 files · 81 839 731 bytes (81.8 MB) in total.**
 Every file is listed, with its exact size and role, in
 `FILE-INVENTORY.csv`. The site is a single-page application: one HTML
 file holds the structure of every page, shown one at a time through
@@ -17,7 +17,7 @@ can be edited without touching the page code.
 
 | Path | What it is |
 |---|---|
-| `index.html` | The live site's structure — the markup of every page. An Editor's Manual comment at the very top explains where everything lives. The texts printed inside it are French fallbacks only; the data files below are the source of truth. |
+| `index.html` | The live site's structure — the markup of every page. An Editor's Manual comment at the very top explains where everything lives. This file carries NO content text and NO JavaScript of its own: every translated string is an empty `data-i18n` placeholder filled at runtime from the data files below, and all behaviour lives in the external scripts. Nothing in it depends on fallback text, exact whitespace or attribute order, so it survives standard HTML formatting (verified with Prettier 3). |
 | `assets/content-texts.js` | Short texts: the shared labels (navigation, header, footer), the page dictionary and the page titles — French first, then English. |
 | `assets/content-page-*.js` | The long texts, one file per page: global, home, bio, library, courses, media, events, egov-days, partners, documents, contact, archive, site-files. One entry per passage: [key, French, English]. |
 | `assets/content-library.js` | The publication catalogue: 215 records, one line per record, newest first. |
@@ -25,7 +25,14 @@ can be edited without touching the page code.
 | `assets/content-scholar.js` | The Google Scholar metrics (works, citations, h-index, i10, as-of). Every Scholar figure on the site is stamped from this one file. |
 | `assets/content-files.js` | The file-inventory data (IMGS, NONIMG) behind the guide and archive pages. |
 | `assets/style.css` | All design: colour tokens, typography, layout, light + dark themes. |
-| `assets/app.js` | Shared behaviour: navigation, language switch, site search, document viewers. |
+| `assets/app.js` | Shared behaviour: language switch, site search, document viewers. |
+| `assets/router.js` | Hash routing: shows one page at a time, keeps the tab title, the active menu state and Back/Forward scroll restoration. |
+| `assets/theme-init.js` | Initial light/dark theme, loaded in the head before first paint. |
+| `assets/structured-data.js` | The schema.org Person record (JSON-LD) that search engines read. |
+| `assets/page-after.js` | Per-language fix-up hook, run after every language switch. |
+| `assets/page-home-library.js` | Home & Library page hooks: the Home hero canvas and the publication rendering. |
+| `assets/page-media-subtitles.js` | Media page: the Olympiad video subtitle controller. |
+| `assets/page-archive-grid.js` | Archive page: the file-grid renderer (filter, search, review marks). |
 | `assets/subtitles.js` | Generated subtitle data for one video. Do not edit by hand. |
 | `assets/books/` | Book covers and title pages, and the full PDF of the 2008 book (6 files). |
 | `assets/certificates/` | Certificate, diploma and gratitude card images (53 files). |
