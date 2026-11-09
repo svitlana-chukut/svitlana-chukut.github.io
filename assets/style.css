@@ -411,6 +411,7 @@ h1,h2,h3{text-wrap:balance}
 .certificate-feature .cert-stat h3{margin-top:14px}
 .org-logo{width:64px;height:64px;object-fit:contain;display:block;margin-bottom:14px;background:#fff;border:1px solid var(--line-soft);border-radius:10px;padding:6px}
 .registry-subhead{color:var(--heading);font-size:23px;font-weight:650;line-height:1.25;letter-spacing:-.015em;margin:48px 0 8px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.author-note{background:var(--accent-soft);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px;color:var(--text);font-size:16px;line-height:1.55;margin:26px 0 4px}
 .registry-subhead.linkedin-listed a{color:inherit;text-decoration-color:var(--accent-ring);text-underline-offset:5px}
 .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
 .cert-registry .cert-card{display:block;padding:24px 0;border-bottom:1px solid var(--line-soft);background:transparent}
@@ -568,6 +569,11 @@ html[data-theme="dark"] .course:hover{border-color:#31456f}
 .sub-toggle:focus-visible{outline:none}
 .sub-toggle:focus-visible .sub-switch{outline:2px solid var(--focus);outline-offset:2px}
 .sub-note{margin-top:10px;font-size:14.5px;color:var(--muted)}
+.sub-sync{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sub-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--heading);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+.sub-btn:hover{border-color:var(--accent)}
+.sub-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.sub-play{background:linear-gradient(135deg,var(--accent-2),var(--accent));border-color:transparent;color:var(--navy)}
 @media (max-width:640px){
   .sub-row{flex-wrap:wrap}
   .sub-bar{flex-basis:100%;font-size:16px;padding:12px 14px}
