@@ -1,0 +1,480 @@
+path,folder,file_name,size_bytes,size_kb,kind,role
+EDITING-GUIDE.md,(package root),EDITING-GUIDE.md,3921,4,MD,Step-by-step editing guide
+FILE-INVENTORY.csv,(package root),FILE-INVENTORY.csv,57483,56,CSV,This inventory — every file in the package
+README.md,(package root),README.md,3280,3,MD,"Package readme: contents, structure, how to run"
+assets/app.js,assets,app.js,74923,73,JS,Site behaviour script
+assets/bio2.jpg,assets,bio2.jpg,40351,39,JPG,Biography portrait
+assets/books/egov-2008-foreign-experience.jpg,assets/books,egov-2008-foreign-experience.jpg,73557,72,JPG,Book cover / title page / book PDF
+assets/books/egov-2008-foreign-experience.pdf,assets/books,egov-2008-foreign-experience.pdf,1773957,1732,PDF,Book cover / title page / book PDF
+assets/books/egov-2008.jpg,assets/books,egov-2008.jpg,88066,86,JPG,Book cover / title page / book PDF
+assets/books/info-policy-textbook-cover.jpg,assets/books,info-policy-textbook-cover.jpg,73045,71,JPG,Book cover / title page / book PDF
+assets/books/info-policy.jpg,assets/books,info-policy.jpg,94668,92,JPG,Book cover / title page / book PDF
+assets/books/osnovy-egu-2022-titlepage.jpg,assets/books,osnovy-egu-2022-titlepage.jpg,129503,126,JPG,Book cover / title page / book PDF
+assets/cert-pages/acadia-ai-literacy-1.jpg,assets/cert-pages,acadia-ai-literacy-1.jpg,111314,109,JPG,Certificate full page (viewer)
+assets/cert-pages/black-sea-science-2023-1.jpg,assets/cert-pages,black-sea-science-2023-1.jpg,1346307,1315,JPG,Certificate full page (viewer)
+assets/cert-pages/costi-elt-2023-1.jpg,assets/cert-pages,costi-elt-2023-1.jpg,178761,175,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-ai-foundations-asu-1.jpg,assets/cert-pages,coursera-ai-foundations-asu-1.jpg,285501,279,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-chatgpt-ada-1.jpg,assets/cert-pages,coursera-chatgpt-ada-1.jpg,283295,277,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-genai-assistants-spec-1.jpg,assets/cert-pages,coursera-genai-assistants-spec-1.jpg,371054,362,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-genai-educators-spec-1.jpg,assets/cert-pages,coursera-genai-educators-spec-1.jpg,353862,346,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-genai-everyone-1.jpg,assets/cert-pages,coursera-genai-everyone-1.jpg,268162,262,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-genai-leaders-1.jpg,assets/cert-pages,coursera-genai-leaders-1.jpg,293445,287,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-gpt-vision-1.jpg,assets/cert-pages,coursera-gpt-vision-1.jpg,287925,281,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-innovative-teaching-1.jpg,assets/cert-pages,coursera-innovative-teaching-1.jpg,283536,277,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-openai-gpts-1.jpg,assets/cert-pages,coursera-openai-gpts-1.jpg,287725,281,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-pe-educators-spec-1.jpg,assets/cert-pages,coursera-pe-educators-spec-1.jpg,385156,376,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-pe-for-chatgpt-1.jpg,assets/cert-pages,coursera-pe-for-chatgpt-1.jpg,267051,261,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-pe-spec-1.jpg,assets/cert-pages,coursera-pe-spec-1.jpg,409221,400,JPG,Certificate full page (viewer)
+assets/cert-pages/coursera-trustworthy-ai-1.jpg,assets/cert-pages,coursera-trustworthy-ai-1.jpg,282250,276,JPG,Certificate full page (viewer)
+assets/cert-pages/curriculum-development-2023-1.jpg,assets/cert-pages,curriculum-development-2023-1.jpg,224573,219,JPG,Certificate full page (viewer)
+assets/cert-pages/fsp-gratitude-2023-1.jpg,assets/cert-pages,fsp-gratitude-2023-1.jpg,286050,279,JPG,Certificate full page (viewer)
+assets/cert-pages/gbc-ai-creativity-1.jpg,assets/cert-pages,gbc-ai-creativity-1.jpg,155988,152,JPG,Certificate full page (viewer)
+assets/cert-pages/gbc-ai-gamification-1.jpg,assets/cert-pages,gbc-ai-gamification-1.jpg,142125,139,JPG,Certificate full page (viewer)
+assets/cert-pages/gbc-anti-racism-1.jpg,assets/cert-pages,gbc-anti-racism-1.jpg,152413,149,JPG,Certificate full page (viewer)
+assets/cert-pages/gbc-aoda-customer-service-1.jpg,assets/cert-pages,gbc-aoda-customer-service-1.jpg,148927,145,JPG,Certificate full page (viewer)
+assets/cert-pages/gbc-aoda-general-requirements-1.jpg,assets/cert-pages,gbc-aoda-general-requirements-1.jpg,147059,144,JPG,Certificate full page (viewer)
+assets/cert-pages/gbc-aoda-info-communication-1.jpg,assets/cert-pages,gbc-aoda-info-communication-1.jpg,152667,149,JPG,Certificate full page (viewer)
+assets/cert-pages/gbc-code-and-aoda-1.jpg,assets/cert-pages,gbc-code-and-aoda-1.jpg,147115,144,JPG,Certificate full page (viewer)
+assets/cert-pages/gbc-digital-confidence-1.jpg,assets/cert-pages,gbc-digital-confidence-1.jpg,155161,152,JPG,Certificate full page (viewer)
+assets/cert-pages/gbc-excel-1.jpg,assets/cert-pages,gbc-excel-1.jpg,146654,143,JPG,Certificate full page (viewer)
+assets/cert-pages/gbc-respect-workplace-1.jpg,assets/cert-pages,gbc-respect-workplace-1.jpg,159878,156,JPG,Certificate full page (viewer)
+assets/cert-pages/gbc-training-programs-1.jpg,assets/cert-pages,gbc-training-programs-1.jpg,143646,140,JPG,Certificate full page (viewer)
+assets/cert-pages/gisu-appreciation-2023-1.jpg,assets/cert-pages,gisu-appreciation-2023-1.jpg,398047,389,JPG,Certificate full page (viewer)
+assets/cert-pages/gisu-appreciation-card.jpg,assets/cert-pages,gisu-appreciation-card.jpg,123531,121,JPG,Certificate full page (viewer)
+assets/cert-pages/gisu-participation-2021-1.jpg,assets/cert-pages,gisu-participation-2021-1.jpg,520782,509,JPG,Certificate full page (viewer)
+assets/cert-pages/ifntuog-gratitude-2022-1.jpg,assets/cert-pages,ifntuog-gratitude-2022-1.jpg,470409,459,JPG,Certificate full page (viewer)
+assets/cert-pages/ipac-ai-agents-2026-1.jpg,assets/cert-pages,ipac-ai-agents-2026-1.jpg,306233,299,JPG,Certificate full page (viewer)
+assets/cert-pages/ipac-navigating-ai-2026-1.jpg,assets/cert-pages,ipac-navigating-ai-2026-1.jpg,298363,291,JPG,Certificate full page (viewer)
+assets/cert-pages/ipac-practical-guide-2024-1.jpg,assets/cert-pages,ipac-practical-guide-2024-1.jpg,306773,300,JPG,Certificate full page (viewer)
+assets/cert-pages/ipac-practical-guide-2025-1.jpg,assets/cert-pages,ipac-practical-guide-2025-1.jpg,307026,300,JPG,Certificate full page (viewer)
+assets/cert-pages/knteu-gramota-2018-1.jpg,assets/cert-pages,knteu-gramota-2018-1.jpg,371694,363,JPG,Certificate full page (viewer)
+assets/cert-pages/knteu-gramota-2020-1.jpg,assets/cert-pages,knteu-gramota-2020-1.jpg,355568,347,JPG,Certificate full page (viewer)
+assets/cert-pages/kpi-jury-2019-1.jpg,assets/cert-pages,kpi-jury-2019-1.jpg,338077,330,JPG,Certificate full page (viewer)
+assets/cert-pages/kpi-organizer-2017-1.jpg,assets/cert-pages,kpi-organizer-2017-1.jpg,351250,343,JPG,Certificate full page (viewer)
+assets/cert-pages/kpi-organizer-2018-1.jpg,assets/cert-pages,kpi-organizer-2018-1.jpg,307958,301,JPG,Certificate full page (viewer)
+assets/cert-pages/kpi-organizer-2019-1.jpg,assets/cert-pages,kpi-organizer-2019-1.jpg,324831,317,JPG,Certificate full page (viewer)
+assets/cert-pages/nmc-testology-2021-1.jpg,assets/cert-pages,nmc-testology-2021-1.jpg,341317,333,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-1.jpg,assets/cert-pages,opp-egov-kpi-1.jpg,117041,114,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-10.jpg,assets/cert-pages,opp-egov-kpi-10.jpg,133811,131,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-11.jpg,assets/cert-pages,opp-egov-kpi-11.jpg,140580,137,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-12.jpg,assets/cert-pages,opp-egov-kpi-12.jpg,136206,133,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-13.jpg,assets/cert-pages,opp-egov-kpi-13.jpg,128502,125,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-14.jpg,assets/cert-pages,opp-egov-kpi-14.jpg,145493,142,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-15.jpg,assets/cert-pages,opp-egov-kpi-15.jpg,132314,129,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-16.jpg,assets/cert-pages,opp-egov-kpi-16.jpg,189576,185,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-17.jpg,assets/cert-pages,opp-egov-kpi-17.jpg,121353,119,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-18.jpg,assets/cert-pages,opp-egov-kpi-18.jpg,156704,153,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-19.jpg,assets/cert-pages,opp-egov-kpi-19.jpg,170531,167,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-2.jpg,assets/cert-pages,opp-egov-kpi-2.jpg,196594,192,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-20.jpg,assets/cert-pages,opp-egov-kpi-20.jpg,190767,186,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-21.jpg,assets/cert-pages,opp-egov-kpi-21.jpg,174745,171,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-22.jpg,assets/cert-pages,opp-egov-kpi-22.jpg,201798,197,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-23.jpg,assets/cert-pages,opp-egov-kpi-23.jpg,198019,193,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-24.jpg,assets/cert-pages,opp-egov-kpi-24.jpg,194505,190,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-25.jpg,assets/cert-pages,opp-egov-kpi-25.jpg,238609,233,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-26.jpg,assets/cert-pages,opp-egov-kpi-26.jpg,170184,166,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-27.jpg,assets/cert-pages,opp-egov-kpi-27.jpg,147317,144,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-28.jpg,assets/cert-pages,opp-egov-kpi-28.jpg,189661,185,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-29.jpg,assets/cert-pages,opp-egov-kpi-29.jpg,138000,135,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-3.jpg,assets/cert-pages,opp-egov-kpi-3.jpg,207033,202,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-30.jpg,assets/cert-pages,opp-egov-kpi-30.jpg,130757,128,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-31.jpg,assets/cert-pages,opp-egov-kpi-31.jpg,235973,230,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-32.jpg,assets/cert-pages,opp-egov-kpi-32.jpg,206676,202,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-33.jpg,assets/cert-pages,opp-egov-kpi-33.jpg,171783,168,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-34.jpg,assets/cert-pages,opp-egov-kpi-34.jpg,198567,194,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-35.jpg,assets/cert-pages,opp-egov-kpi-35.jpg,192714,188,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-36.jpg,assets/cert-pages,opp-egov-kpi-36.jpg,146946,144,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-37.jpg,assets/cert-pages,opp-egov-kpi-37.jpg,138315,135,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-38.jpg,assets/cert-pages,opp-egov-kpi-38.jpg,150073,147,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-39.jpg,assets/cert-pages,opp-egov-kpi-39.jpg,160621,157,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-4.jpg,assets/cert-pages,opp-egov-kpi-4.jpg,198445,194,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-40.jpg,assets/cert-pages,opp-egov-kpi-40.jpg,157932,154,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-5.jpg,assets/cert-pages,opp-egov-kpi-5.jpg,152799,149,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-6.jpg,assets/cert-pages,opp-egov-kpi-6.jpg,152025,148,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-7.jpg,assets/cert-pages,opp-egov-kpi-7.jpg,201487,197,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-8.jpg,assets/cert-pages,opp-egov-kpi-8.jpg,125319,122,JPG,Certificate full page (viewer)
+assets/cert-pages/opp-egov-kpi-9.jpg,assets/cert-pages,opp-egov-kpi-9.jpg,94219,92,JPG,Certificate full page (viewer)
+assets/cert-pages/oxford-unesco-ai-gov-2026-1.jpg,assets/cert-pages,oxford-unesco-ai-gov-2026-1.jpg,220718,216,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-1.jpg,assets/cert-pages,portfolio-curriculum-1.jpg,412515,403,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-10.jpg,assets/cert-pages,portfolio-curriculum-10.jpg,443440,433,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-11.jpg,assets/cert-pages,portfolio-curriculum-11.jpg,409975,400,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-12.jpg,assets/cert-pages,portfolio-curriculum-12.jpg,388290,379,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-13.jpg,assets/cert-pages,portfolio-curriculum-13.jpg,379477,371,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-14.jpg,assets/cert-pages,portfolio-curriculum-14.jpg,274352,268,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-2.jpg,assets/cert-pages,portfolio-curriculum-2.jpg,439089,429,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-3.jpg,assets/cert-pages,portfolio-curriculum-3.jpg,474881,464,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-4.jpg,assets/cert-pages,portfolio-curriculum-4.jpg,463588,453,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-5.jpg,assets/cert-pages,portfolio-curriculum-5.jpg,470149,459,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-6.jpg,assets/cert-pages,portfolio-curriculum-6.jpg,470437,459,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-7.jpg,assets/cert-pages,portfolio-curriculum-7.jpg,452119,442,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-8.jpg,assets/cert-pages,portfolio-curriculum-8.jpg,404133,395,JPG,Certificate full page (viewer)
+assets/cert-pages/portfolio-curriculum-9.jpg,assets/cert-pages,portfolio-curriculum-9.jpg,375233,366,JPG,Certificate full page (viewer)
+assets/cert-pages/prometheus-naqa-2019-1.jpg,assets/cert-pages,prometheus-naqa-2019-1.jpg,371054,362,JPG,Certificate full page (viewer)
+assets/cert-pages/tcps2-core-1.jpg,assets/cert-pages,tcps2-core-1.jpg,220502,215,JPG,Certificate full page (viewer)
+assets/cert-pages/tcps2-core-card.jpg,assets/cert-pages,tcps2-core-card.jpg,77458,76,JPG,Certificate full page (viewer)
+assets/cert-pages/ugf-qualitative-methods-2023-1.jpg,assets/cert-pages,ugf-qualitative-methods-2023-1.jpg,411060,401,JPG,Certificate full page (viewer)
+assets/cert-pages/ugf-quantitative-methods-2023-1.jpg,assets/cert-pages,ugf-quantitative-methods-2023-1.jpg,398975,390,JPG,Certificate full page (viewer)
+assets/cert-pages/umanitoba-conference-2024-1.jpg,assets/cert-pages,umanitoba-conference-2024-1.jpg,173061,169,JPG,Certificate full page (viewer)
+assets/certificates/acadia-ai-literacy.jpg,assets/certificates,acadia-ai-literacy.jpg,18605,18,JPG,Certificate card image
+assets/certificates/black-sea-science-2023.jpg,assets/certificates,black-sea-science-2023.jpg,153862,150,JPG,Certificate card image
+assets/certificates/costi-elt-2023.jpg,assets/certificates,costi-elt-2023.jpg,22260,22,JPG,Certificate card image
+assets/certificates/coursera-ai-foundations-asu.jpg,assets/certificates,coursera-ai-foundations-asu.jpg,26108,25,JPG,Certificate card image
+assets/certificates/coursera-chatgpt-ada.jpg,assets/certificates,coursera-chatgpt-ada.jpg,26476,26,JPG,Certificate card image
+assets/certificates/coursera-genai-assistants-spec.jpg,assets/certificates,coursera-genai-assistants-spec.jpg,30137,29,JPG,Certificate card image
+assets/certificates/coursera-genai-educators-spec.jpg,assets/certificates,coursera-genai-educators-spec.jpg,28904,28,JPG,Certificate card image
+assets/certificates/coursera-genai-everyone.jpg,assets/certificates,coursera-genai-everyone.jpg,23333,23,JPG,Certificate card image
+assets/certificates/coursera-genai-leaders.jpg,assets/certificates,coursera-genai-leaders.jpg,27775,27,JPG,Certificate card image
+assets/certificates/coursera-gpt-vision.jpg,assets/certificates,coursera-gpt-vision.jpg,27257,27,JPG,Certificate card image
+assets/certificates/coursera-innovative-teaching.jpg,assets/certificates,coursera-innovative-teaching.jpg,26511,26,JPG,Certificate card image
+assets/certificates/coursera-openai-gpts.jpg,assets/certificates,coursera-openai-gpts.jpg,27335,27,JPG,Certificate card image
+assets/certificates/coursera-pe-educators-spec.jpg,assets/certificates,coursera-pe-educators-spec.jpg,31894,31,JPG,Certificate card image
+assets/certificates/coursera-pe-for-chatgpt.jpg,assets/certificates,coursera-pe-for-chatgpt.jpg,25138,25,JPG,Certificate card image
+assets/certificates/coursera-pe-spec.jpg,assets/certificates,coursera-pe-spec.jpg,33670,33,JPG,Certificate card image
+assets/certificates/coursera-trustworthy-ai.jpg,assets/certificates,coursera-trustworthy-ai.jpg,26323,26,JPG,Certificate card image
+assets/certificates/curriculum-development-2023.jpg,assets/certificates,curriculum-development-2023.jpg,28512,28,JPG,Certificate card image
+assets/certificates/fsp-gratitude-2023.jpg,assets/certificates,fsp-gratitude-2023.jpg,89300,87,JPG,Certificate card image
+assets/certificates/gbc-ai-creativity.jpg,assets/certificates,gbc-ai-creativity.jpg,17847,17,JPG,Certificate card image
+assets/certificates/gbc-ai-gamification.jpg,assets/certificates,gbc-ai-gamification.jpg,16177,16,JPG,Certificate card image
+assets/certificates/gbc-anti-racism.jpg,assets/certificates,gbc-anti-racism.jpg,17297,17,JPG,Certificate card image
+assets/certificates/gbc-aoda-customer-service.jpg,assets/certificates,gbc-aoda-customer-service.jpg,16801,16,JPG,Certificate card image
+assets/certificates/gbc-aoda-general-requirements.jpg,assets/certificates,gbc-aoda-general-requirements.jpg,16608,16,JPG,Certificate card image
+assets/certificates/gbc-aoda-info-communication.jpg,assets/certificates,gbc-aoda-info-communication.jpg,17342,17,JPG,Certificate card image
+assets/certificates/gbc-code-and-aoda.jpg,assets/certificates,gbc-code-and-aoda.jpg,16643,16,JPG,Certificate card image
+assets/certificates/gbc-digital-confidence.jpg,assets/certificates,gbc-digital-confidence.jpg,17720,17,JPG,Certificate card image
+assets/certificates/gbc-excel.jpg,assets/certificates,gbc-excel.jpg,16544,16,JPG,Certificate card image
+assets/certificates/gbc-respect-workplace.jpg,assets/certificates,gbc-respect-workplace.jpg,18397,18,JPG,Certificate card image
+assets/certificates/gbc-training-programs.jpg,assets/certificates,gbc-training-programs.jpg,16335,16,JPG,Certificate card image
+assets/certificates/gisu-appreciation-2023.jpg,assets/certificates,gisu-appreciation-2023.jpg,48085,47,JPG,Certificate card image
+assets/certificates/gisu-participation-2021.jpg,assets/certificates,gisu-participation-2021.jpg,52703,51,JPG,Certificate card image
+assets/certificates/ifntuog-gratitude-2022.jpg,assets/certificates,ifntuog-gratitude-2022.jpg,190236,186,JPG,Certificate card image
+assets/certificates/ipac-ai-agents-2026.jpg,assets/certificates,ipac-ai-agents-2026.jpg,96132,94,JPG,Certificate card image
+assets/certificates/ipac-navigating-ai-2026.jpg,assets/certificates,ipac-navigating-ai-2026.jpg,93973,92,JPG,Certificate card image
+assets/certificates/ipac-practical-guide-2024.jpg,assets/certificates,ipac-practical-guide-2024.jpg,34472,34,JPG,Certificate card image
+assets/certificates/ipac-practical-guide-2025.jpg,assets/certificates,ipac-practical-guide-2025.jpg,34448,34,JPG,Certificate card image
+assets/certificates/knteu-gramota-2018.jpg,assets/certificates,knteu-gramota-2018.jpg,261420,255,JPG,Certificate card image
+assets/certificates/knteu-gramota-2020.jpg,assets/certificates,knteu-gramota-2020.jpg,248888,243,JPG,Certificate card image
+assets/certificates/kpi-jury-2019.jpg,assets/certificates,kpi-jury-2019.jpg,174347,170,JPG,Certificate card image
+assets/certificates/kpi-organizer-2017.jpg,assets/certificates,kpi-organizer-2017.jpg,179610,175,JPG,Certificate card image
+assets/certificates/kpi-organizer-2018.jpg,assets/certificates,kpi-organizer-2018.jpg,159683,156,JPG,Certificate card image
+assets/certificates/kpi-organizer-2019.jpg,assets/certificates,kpi-organizer-2019.jpg,166650,163,JPG,Certificate card image
+assets/certificates/nmc-testology-2021.jpg,assets/certificates,nmc-testology-2021.jpg,110568,108,JPG,Certificate card image
+assets/certificates/opp-egov-kpi.jpg,assets/certificates,opp-egov-kpi.jpg,27096,26,JPG,Certificate card image
+assets/certificates/oxford-unesco-ai-gov-2026.jpg,assets/certificates,oxford-unesco-ai-gov-2026.jpg,64814,63,JPG,Certificate card image
+assets/certificates/portfolio-curriculum.jpg,assets/certificates,portfolio-curriculum.jpg,74185,72,JPG,Certificate card image
+assets/certificates/prometheus-naqa-2019.jpg,assets/certificates,prometheus-naqa-2019.jpg,39680,39,JPG,Certificate card image
+assets/certificates/spu2021-conference-certificate-1.png,assets/certificates,spu2021-conference-certificate-1.png,427824,418,PNG,Certificate card image
+assets/certificates/tcps2-core.jpg,assets/certificates,tcps2-core.jpg,28327,28,JPG,Certificate card image
+assets/certificates/ugf-qualitative-methods-2023.jpg,assets/certificates,ugf-qualitative-methods-2023.jpg,109619,107,JPG,Certificate card image
+assets/certificates/ugf-quantitative-methods-2023.jpg,assets/certificates,ugf-quantitative-methods-2023.jpg,110111,108,JPG,Certificate card image
+assets/certificates/umanitoba-conference-2024.jpg,assets/certificates,umanitoba-conference-2024.jpg,26507,26,JPG,Certificate card image
+assets/certificates/wes-eca-2023.jpg,assets/certificates,wes-eca-2023.jpg,30202,29,JPG,Certificate card image
+assets/egov-days/arch-01-clean.jpg,assets/egov-days,arch-01-clean.jpg,74865,73,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-01-enhanced.jpg,assets/egov-days,arch-01-enhanced.jpg,112533,110,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-01-restored.jpg,assets/egov-days,arch-01-restored.jpg,257269,251,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-01-sr.jpg,assets/egov-days,arch-01-sr.jpg,341508,334,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-01-tuned.jpg,assets/egov-days,arch-01-tuned.jpg,127940,125,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-01.jpg,assets/egov-days,arch-01.jpg,9844,10,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-02-clean.jpg,assets/egov-days,arch-02-clean.jpg,65853,64,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-02-enhanced.jpg,assets/egov-days,arch-02-enhanced.jpg,96872,95,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-02-restored.jpg,assets/egov-days,arch-02-restored.jpg,217606,213,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-02-sr.jpg,assets/egov-days,arch-02-sr.jpg,292642,286,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-02-tuned.jpg,assets/egov-days,arch-02-tuned.jpg,100406,98,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-02.jpg,assets/egov-days,arch-02.jpg,9217,9,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-03-clean.jpg,assets/egov-days,arch-03-clean.jpg,80182,78,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-03-enhanced.jpg,assets/egov-days,arch-03-enhanced.jpg,114656,112,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-03-restored.jpg,assets/egov-days,arch-03-restored.jpg,264226,258,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-03-sr.jpg,assets/egov-days,arch-03-sr.jpg,383859,375,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-03-tuned.jpg,assets/egov-days,arch-03-tuned.jpg,125266,122,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-03.jpg,assets/egov-days,arch-03.jpg,10203,10,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-04-clean.jpg,assets/egov-days,arch-04-clean.jpg,74122,72,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-04-enhanced.jpg,assets/egov-days,arch-04-enhanced.jpg,111425,109,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-04-restored.jpg,assets/egov-days,arch-04-restored.jpg,249015,243,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-04-sr.jpg,assets/egov-days,arch-04-sr.jpg,331500,324,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-04-tuned.jpg,assets/egov-days,arch-04-tuned.jpg,115456,113,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-04.jpg,assets/egov-days,arch-04.jpg,10049,10,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-05-clean.jpg,assets/egov-days,arch-05-clean.jpg,68170,67,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-05-enhanced.jpg,assets/egov-days,arch-05-enhanced.jpg,102730,100,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-05-restored.jpg,assets/egov-days,arch-05-restored.jpg,231813,226,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-05-sr.jpg,assets/egov-days,arch-05-sr.jpg,297106,290,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-05-tuned.jpg,assets/egov-days,arch-05-tuned.jpg,108334,106,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-05.jpg,assets/egov-days,arch-05.jpg,9686,9,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-06-clean.jpg,assets/egov-days,arch-06-clean.jpg,48014,47,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-06-enhanced.jpg,assets/egov-days,arch-06-enhanced.jpg,72902,71,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-06-restored.jpg,assets/egov-days,arch-06-restored.jpg,332177,324,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-06-sr.jpg,assets/egov-days,arch-06-sr.jpg,445547,435,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-06-tuned.jpg,assets/egov-days,arch-06-tuned.jpg,81110,79,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-06.jpg,assets/egov-days,arch-06.jpg,7833,8,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-07-clean.jpg,assets/egov-days,arch-07-clean.jpg,97499,95,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-07-enhanced.jpg,assets/egov-days,arch-07-enhanced.jpg,170889,167,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-07-restored.jpg,assets/egov-days,arch-07-restored.jpg,353630,345,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-07-sr.jpg,assets/egov-days,arch-07-sr.jpg,431336,421,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-07-tuned.jpg,assets/egov-days,arch-07-tuned.jpg,200263,196,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-07.jpg,assets/egov-days,arch-07.jpg,11007,11,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-08-clean.jpg,assets/egov-days,arch-08-clean.jpg,90571,88,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-08-enhanced.jpg,assets/egov-days,arch-08-enhanced.jpg,132661,130,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-08-restored.jpg,assets/egov-days,arch-08-restored.jpg,261203,255,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-08-sr.jpg,assets/egov-days,arch-08-sr.jpg,390939,382,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-08-tuned.jpg,assets/egov-days,arch-08-tuned.jpg,163144,159,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-08.jpg,assets/egov-days,arch-08.jpg,10082,10,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-09-clean.jpg,assets/egov-days,arch-09-clean.jpg,79790,78,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-09-enhanced.jpg,assets/egov-days,arch-09-enhanced.jpg,123475,121,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-09-restored.jpg,assets/egov-days,arch-09-restored.jpg,244181,238,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-09-sr.jpg,assets/egov-days,arch-09-sr.jpg,321953,314,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-09-tuned.jpg,assets/egov-days,arch-09-tuned.jpg,136067,133,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-09.jpg,assets/egov-days,arch-09.jpg,9067,9,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-10-clean.jpg,assets/egov-days,arch-10-clean.jpg,73913,72,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-10-enhanced.jpg,assets/egov-days,arch-10-enhanced.jpg,108047,106,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-10-restored.jpg,assets/egov-days,arch-10-restored.jpg,210904,206,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-10-sr.jpg,assets/egov-days,arch-10-sr.jpg,290066,283,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-10-tuned.jpg,assets/egov-days,arch-10-tuned.jpg,114429,112,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-10.jpg,assets/egov-days,arch-10.jpg,8277,8,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-11-clean.jpg,assets/egov-days,arch-11-clean.jpg,74517,73,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-11-enhanced.jpg,assets/egov-days,arch-11-enhanced.jpg,105883,103,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-11-restored.jpg,assets/egov-days,arch-11-restored.jpg,205562,201,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-11-sr.jpg,assets/egov-days,arch-11-sr.jpg,308843,302,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-11-tuned.jpg,assets/egov-days,arch-11-tuned.jpg,113679,111,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-11.jpg,assets/egov-days,arch-11.jpg,7818,8,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-12-clean.jpg,assets/egov-days,arch-12-clean.jpg,122096,119,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-12-enhanced.jpg,assets/egov-days,arch-12-enhanced.jpg,200831,196,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-12-restored.jpg,assets/egov-days,arch-12-restored.jpg,248849,243,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-12-sr.jpg,assets/egov-days,arch-12-sr.jpg,325579,318,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-12-tuned.jpg,assets/egov-days,arch-12-tuned.jpg,213980,209,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-12.jpg,assets/egov-days,arch-12.jpg,18891,18,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-13-clean.jpg,assets/egov-days,arch-13-clean.jpg,118707,116,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-13-enhanced.jpg,assets/egov-days,arch-13-enhanced.jpg,193450,189,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-13-restored.jpg,assets/egov-days,arch-13-restored.jpg,240306,235,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-13-sr.jpg,assets/egov-days,arch-13-sr.jpg,307369,300,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-13-tuned.jpg,assets/egov-days,arch-13-tuned.jpg,203697,199,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-13.jpg,assets/egov-days,arch-13.jpg,18216,18,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-14-clean.jpg,assets/egov-days,arch-14-clean.jpg,89166,87,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-14-enhanced.jpg,assets/egov-days,arch-14-enhanced.jpg,144070,141,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-14-restored.jpg,assets/egov-days,arch-14-restored.jpg,228609,223,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-14-sr.jpg,assets/egov-days,arch-14-sr.jpg,288095,281,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-14-tuned.jpg,assets/egov-days,arch-14-tuned.jpg,151441,148,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-14.jpg,assets/egov-days,arch-14.jpg,10877,11,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-15-clean.jpg,assets/egov-days,arch-15-clean.jpg,123417,121,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-15-enhanced.jpg,assets/egov-days,arch-15-enhanced.jpg,212968,208,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-15-restored.jpg,assets/egov-days,arch-15-restored.jpg,350071,342,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-15-sr.jpg,assets/egov-days,arch-15-sr.jpg,435872,426,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-15-tuned.jpg,assets/egov-days,arch-15-tuned.jpg,242169,236,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-15.jpg,assets/egov-days,arch-15.jpg,13686,13,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-16-clean.jpg,assets/egov-days,arch-16-clean.jpg,125957,123,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-16-enhanced.jpg,assets/egov-days,arch-16-enhanced.jpg,201871,197,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-16-restored.jpg,assets/egov-days,arch-16-restored.jpg,320291,313,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-16-sr.jpg,assets/egov-days,arch-16-sr.jpg,393193,384,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-16-tuned.jpg,assets/egov-days,arch-16-tuned.jpg,230214,225,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-16.jpg,assets/egov-days,arch-16.jpg,14207,14,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-17-clean.jpg,assets/egov-days,arch-17-clean.jpg,116038,113,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-17-enhanced.jpg,assets/egov-days,arch-17-enhanced.jpg,192333,188,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-17-restored.jpg,assets/egov-days,arch-17-restored.jpg,311853,305,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-17-sr.jpg,assets/egov-days,arch-17-sr.jpg,415401,406,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-17-tuned.jpg,assets/egov-days,arch-17-tuned.jpg,219987,215,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-17.jpg,assets/egov-days,arch-17.jpg,12703,12,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-18-clean.jpg,assets/egov-days,arch-18-clean.jpg,106348,104,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-18-enhanced.jpg,assets/egov-days,arch-18-enhanced.jpg,168583,165,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-18-restored.jpg,assets/egov-days,arch-18-restored.jpg,266514,260,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-18-sr.jpg,assets/egov-days,arch-18-sr.jpg,343463,335,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-18-tuned.jpg,assets/egov-days,arch-18-tuned.jpg,194863,190,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-18.jpg,assets/egov-days,arch-18.jpg,11840,12,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-19-clean.jpg,assets/egov-days,arch-19-clean.jpg,123483,121,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-19-enhanced.jpg,assets/egov-days,arch-19-enhanced.jpg,193753,189,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-19-restored.jpg,assets/egov-days,arch-19-restored.jpg,308588,301,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-19-sr.jpg,assets/egov-days,arch-19-sr.jpg,412854,403,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-19-tuned.jpg,assets/egov-days,arch-19-tuned.jpg,220094,215,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-19.jpg,assets/egov-days,arch-19.jpg,17168,17,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-20-clean.jpg,assets/egov-days,arch-20-clean.jpg,105832,103,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-20-enhanced.jpg,assets/egov-days,arch-20-enhanced.jpg,166340,162,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-20-restored.jpg,assets/egov-days,arch-20-restored.jpg,266442,260,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-20-sr.jpg,assets/egov-days,arch-20-sr.jpg,341350,333,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-20-tuned.jpg,assets/egov-days,arch-20-tuned.jpg,178715,175,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-20.jpg,assets/egov-days,arch-20.jpg,14901,15,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-22-clean.jpg,assets/egov-days,arch-22-clean.jpg,111684,109,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-22-enhanced.jpg,assets/egov-days,arch-22-enhanced.jpg,180739,177,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-22-restored.jpg,assets/egov-days,arch-22-restored.jpg,286896,280,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-22-sr.jpg,assets/egov-days,arch-22-sr.jpg,358764,350,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-22-tuned.jpg,assets/egov-days,arch-22-tuned.jpg,206678,202,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/arch-22.jpg,assets/egov-days,arch-22.jpg,15982,16,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/egov-logo.jpg,assets/egov-days,egov-logo.jpg,128690,126,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/eset2010-photo1.jpg,assets/egov-days,eset2010-photo1.jpg,18891,18,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/eset2010-photo2.jpg,assets/egov-days,eset2010-photo2.jpg,18216,18,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa-emblem.jpg,assets/egov-days,napa-emblem.jpg,40494,40,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2009_100.jpg,assets/egov-days,napa2009_100.jpg,7833,8,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2009_50.jpg,assets/egov-days,napa2009_50.jpg,9844,10,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2009_60.jpg,assets/egov-days,napa2009_60.jpg,9217,9,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2009_70.jpg,assets/egov-days,napa2009_70.jpg,10203,10,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2009_80.jpg,assets/egov-days,napa2009_80.jpg,10049,10,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2009_90.jpg,assets/egov-days,napa2009_90.jpg,9686,9,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2010_10.jpg,assets/egov-days,napa2010_10.jpg,11007,11,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2010_20.jpg,assets/egov-days,napa2010_20.jpg,10082,10,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2010_30.jpg,assets/egov-days,napa2010_30.jpg,9067,9,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2010_40.jpg,assets/egov-days,napa2010_40.jpg,8277,8,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2010_50.jpg,assets/egov-days,napa2010_50.jpg,7818,8,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2011_conf_10.jpg,assets/egov-days,napa2011_conf_10.jpg,17168,17,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2011_conf_20.jpg,assets/egov-days,napa2011_conf_20.jpg,14901,15,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2011_conf_30.jpg,assets/egov-days,napa2011_conf_30.jpg,16506,16,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2011_conf_40.jpg,assets/egov-days,napa2011_conf_40.jpg,15982,16,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2011_open_10.jpg,assets/egov-days,napa2011_open_10.jpg,10877,11,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2011_open_20.jpg,assets/egov-days,napa2011_open_20.jpg,13686,13,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2011_open_30.jpg,assets/egov-days,napa2011_open_30.jpg,14207,14,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2011_open_40.jpg,assets/egov-days,napa2011_open_40.jpg,12703,12,JPG,E-Governance Days archive file (2008–2011)
+assets/egov-days/napa2011_open_50.jpg,assets/egov-days,napa2011_open_50.jpg,11840,12,JPG,E-Governance Days archive file (2008–2011)
+assets/favicon.jpg,assets,favicon.jpg,122621,120,JPG,Favicon
+assets/hero.jpg,assets,hero.jpg,96100,94,JPG,Hero portrait
+assets/linkedin/ipac-navigating-ai-certificate.jpg,assets/linkedin,ipac-navigating-ai-certificate.jpg,151125,148,JPG,LinkedIn-published document
+assets/linkedin/podjaka-1st-place-cert.jpg,assets/linkedin,podjaka-1st-place-cert.jpg,71571,70,JPG,LinkedIn-published document
+assets/logos/doccu.png,assets/logos,doccu.png,23527,23,PNG,Partner institution logo
+assets/logos/eef.png,assets/logos,eef.png,65602,64,PNG,Partner institution logo
+assets/logos/ega.png,assets/logos,ega.png,30007,29,PNG,Partner institution logo
+assets/logos/egap.svg,assets/logos,egap.svg,9613,9,SVG,Partner institution logo
+assets/logos/egov-channel-avatar.jpg,assets/logos,egov-channel-avatar.jpg,67752,66,JPG,Partner institution logo
+assets/logos/emblem-mdcs.png,assets/logos,emblem-mdcs.png,130938,128,PNG,Partner institution logo
+assets/logos/emblem-sci.png,assets/logos,emblem-sci.png,159861,156,PNG,Partner institution logo
+assets/logos/energoatom.svg,assets/logos,energoatom.svg,5247,5,SVG,Partner institution logo
+assets/logos/eset.svg,assets/logos,eset.svg,2834,3,SVG,Partner institution logo
+assets/logos/gbc.svg,assets/logos,gbc.svg,13175,13,SVG,Partner institution logo
+assets/logos/giz.svg,assets/logos,giz.svg,43754,43,SVG,Partner institution logo
+assets/logos/ipac.jpg,assets/logos,ipac.jpg,16364,16,JPG,Partner institution logo
+assets/logos/irf.png,assets/logos,irf.png,29484,29,PNG,Partner institution logo
+assets/logos/kmu.png,assets/logos,kmu.png,52175,51,PNG,Partner institution logo
+assets/logos/kpi.png,assets/logos,kpi.png,3463,3,PNG,Partner institution logo
+assets/logos/media-generation-emblem-civil-service-1792396833.json,assets/logos,media-generation-emblem-civil-service-1792396833.json,631,1,JSON,Partner institution logo
+assets/logos/media-generation-emblem-informatization-1792396832.json,assets/logos,media-generation-emblem-informatization-1792396832.json,631,1,JSON,Partner institution logo
+assets/logos/microsoft.svg,assets/logos,microsoft.svg,272,0,SVG,Partner institution logo
+assets/logos/mon.png,assets/logos,mon.png,12111,12,PNG,Partner institution logo
+assets/logos/nads.png,assets/logos,nads.png,20844,20,PNG,Partner institution logo
+assets/logos/napa.png,assets/logos,napa.png,81340,79,PNG,Partner institution logo
+assets/logos/naqa.jpg,assets/logos,naqa.jpg,16888,16,JPG,Partner institution logo
+assets/logos/naukma.png,assets/logos,naukma.png,10924,11,PNG,Partner institution logo
+assets/logos/nispachee.png,assets/logos,nispachee.png,24375,24,PNG,Partner institution logo
+assets/logos/nrfu.png,assets/logos,nrfu.png,2828,3,PNG,Partner institution logo
+assets/logos/phzh.png,assets/logos,phzh.png,97741,95,PNG,Partner institution logo
+assets/logos/rotary.jpg,assets/logos,rotary.jpg,251620,246,JPG,Partner institution logo
+assets/logos/rotary.svg,assets/logos,rotary.svg,19290,19,SVG,Partner institution logo
+assets/logos/sdc.svg,assets/logos,sdc.svg,65881,64,SVG,Partner institution logo
+assets/logos/softkey.png,assets/logos,softkey.png,11560,11,PNG,Partner institution logo
+assets/logos/telenor.png,assets/logos,telenor.png,11560,11,PNG,Partner institution logo
+assets/logos/telenor.svg,assets/logos,telenor.svg,3210,3,SVG,Partner institution logo
+assets/logos/undp.svg,assets/logos,undp.svg,17097,17,SVG,Partner institution logo
+assets/logos/wb.svg,assets/logos,wb.svg,4483,4,SVG,Partner institution logo
+assets/logos/wsu.png,assets/logos,wsu.png,387397,378,PNG,Partner institution logo
+assets/photos/card-bio-podium.jpg,assets/photos,card-bio-podium.jpg,53801,53,JPG,Photograph
+assets/photos/card-courses-smartcity.jpg,assets/photos,card-courses-smartcity.jpg,158212,155,JPG,Photograph
+assets/photos/card-events-conference2.jpg,assets/photos,card-events-conference2.jpg,108206,106,JPG,Photograph
+assets/photos/card-partners-hall.jpg,assets/photos,card-partners-hall.jpg,585241,572,JPG,Photograph
+assets/photos/chukut-cv-portrait.jpg,assets/photos,chukut-cv-portrait.jpg,8002,8,JPG,Photograph
+assets/photos/contact-cover-toronto.jpg,assets/photos,contact-cover-toronto.jpg,47022,46,JPG,Photograph
+assets/photos/egov-day-topic.jpg,assets/photos,egov-day-topic.jpg,225858,221,JPG,Photograph
+assets/photos/event-award-coe.jpg,assets/photos,event-award-coe.jpg,231225,226,JPG,Photograph
+assets/photos/event-classroom-group.jpg,assets/photos,event-classroom-group.jpg,128477,125,JPG,Photograph
+assets/photos/event-colleagues-hall.jpg,assets/photos,event-colleagues-hall.jpg,290006,283,JPG,Photograph
+assets/photos/event-egov-banner-meeting.jpg,assets/photos,event-egov-banner-meeting.jpg,278097,272,JPG,Photograph
+assets/photos/event-egov-day-stage.jpg,assets/photos,event-egov-day-stage.jpg,198996,194,JPG,Photograph
+assets/photos/event-egov-day-table.jpg,assets/photos,event-egov-day-table.jpg,242441,237,JPG,Photograph
+assets/photos/event-egov-for-all.jpg,assets/photos,event-egov-for-all.jpg,209941,205,JPG,Photograph
+assets/photos/event-egov-group-banner.jpg,assets/photos,event-egov-group-banner.jpg,146306,143,JPG,Photograph
+assets/photos/event-gloria-graduation.jpg,assets/photos,event-gloria-graduation.jpg,188519,184,JPG,Photograph
+assets/photos/event-gloria-honours.jpg,assets/photos,event-gloria-honours.jpg,139433,136,JPG,Photograph
+assets/photos/event-group-nmc.jpg,assets/photos,event-group-nmc.jpg,126476,124,JPG,Photograph
+assets/photos/event-hall-group.jpg,assets/photos,event-hall-group.jpg,107880,105,JPG,Photograph
+assets/photos/event-hall-wide.jpg,assets/photos,event-hall-wide.jpg,441019,431,JPG,Photograph
+assets/photos/event-jury-desk.jpg,assets/photos,event-jury-desk.jpg,110089,108,JPG,Photograph
+assets/photos/event-knutd-meeting.jpg,assets/photos,event-knutd-meeting.jpg,135848,133,JPG,Photograph
+assets/photos/event-meeting-lavra.jpg,assets/photos,event-meeting-lavra.jpg,269564,263,JPG,Photograph
+assets/photos/event-meeting-pryimak.jpg,assets/photos,event-meeting-pryimak.jpg,73779,72,JPG,Photograph
+assets/photos/event-museum-portrait.jpg,assets/photos,event-museum-portrait.jpg,131281,128,JPG,Photograph
+assets/photos/event-olympiada-2019.jpg,assets/photos,event-olympiada-2019.jpg,264302,258,JPG,Photograph
+assets/photos/event-online-conference.jpg,assets/photos,event-online-conference.jpg,103281,101,JPG,Photograph
+assets/photos/event-panel-chukut-wide.jpg,assets/photos,event-panel-chukut-wide.jpg,355274,347,JPG,Photograph
+assets/photos/event-panel-chukut.jpg,assets/photos,event-panel-chukut.jpg,371337,363,JPG,Photograph
+assets/photos/event-podium-blue-1.jpg,assets/photos,event-podium-blue-1.jpg,506237,494,JPG,Photograph
+assets/photos/event-podium-blue-2.jpg,assets/photos,event-podium-blue-2.jpg,111834,109,JPG,Photograph
+assets/photos/event-podium-closeup.jpg,assets/photos,event-podium-closeup.jpg,57056,56,JPG,Photograph
+assets/photos/event-podium-emblem-2.jpg,assets/photos,event-podium-emblem-2.jpg,240639,235,JPG,Photograph
+assets/photos/event-podium-emblem-close.jpg,assets/photos,event-podium-emblem-close.jpg,224005,219,JPG,Photograph
+assets/photos/event-podium-emblem.jpg,assets/photos,event-podium-emblem.jpg,123819,121,JPG,Photograph
+assets/photos/event-round-table-group.jpg,assets/photos,event-round-table-group.jpg,347120,339,JPG,Photograph
+assets/photos/event-round-table-voitovych.jpg,assets/photos,event-round-table-voitovych.jpg,140554,137,JPG,Photograph
+assets/photos/event-round-table.jpg,assets/photos,event-round-table.jpg,46599,46,JPG,Photograph
+assets/photos/event-seminar-2021.jpg,assets/photos,event-seminar-2021.jpg,106889,104,JPG,Photograph
+assets/photos/event-sikorsky.jpg,assets/photos,event-sikorsky.jpg,86694,85,JPG,Photograph
+assets/photos/event-students-flag.jpg,assets/photos,event-students-flag.jpg,113097,110,JPG,Photograph
+assets/photos/event-students-lecture-hall-1.jpg,assets/photos,event-students-lecture-hall-1.jpg,160627,157,JPG,Photograph
+assets/photos/event-students-lecture-hall-2.jpg,assets/photos,event-students-lecture-hall-2.jpg,157488,154,JPG,Photograph
+assets/photos/event-subcommission-2017.jpg,assets/photos,event-subcommission-2017.jpg,1359270,1327,JPG,Photograph
+assets/photos/gisu-symposium-2023.jpg,assets/photos,gisu-symposium-2023.jpg,127659,125,JPG,Photograph
+assets/photos/gramota-kpi.jpg,assets/photos,gramota-kpi.jpg,138105,135,JPG,Photograph
+assets/photos/ipac-portrait-2026.jpg,assets/photos,ipac-portrait-2026.jpg,120981,118,JPG,Photograph
+assets/photos/microsoft-ai-skills-badge.jpg,assets/photos,microsoft-ai-skills-badge.jpg,26392,26,JPG,Photograph
+assets/photos/nads-diploma-2020.jpg,assets/photos,nads-diploma-2020.jpg,619514,605,JPG,Photograph
+assets/photos/photo-02-upgraded.jpg,assets/photos,photo-02-upgraded.jpg,548121,535,JPG,Photograph
+assets/photos/photo-03-upgraded.jpg,assets/photos,photo-03-upgraded.jpg,537425,525,JPG,Photograph
+assets/photos/photo-04-upgraded.jpg,assets/photos,photo-04-upgraded.jpg,574627,561,JPG,Photograph
+assets/photos/photo-05-upgraded.jpg,assets/photos,photo-05-upgraded.jpg,355216,347,JPG,Photograph
+assets/photos/photo-06-upgraded.jpg,assets/photos,photo-06-upgraded.jpg,562754,550,JPG,Photograph
+assets/photos/photo-09-fine.jpg,assets/photos,photo-09-fine.jpg,360640,352,JPG,Photograph
+assets/photos/photo-09-upgraded.jpg,assets/photos,photo-09-upgraded.jpg,378400,370,JPG,Photograph
+assets/photos/photo-16-fine.jpg,assets/photos,photo-16-fine.jpg,444656,434,JPG,Photograph
+assets/photos/photo-16-upgraded.jpg,assets/photos,photo-16-upgraded.jpg,538151,526,JPG,Photograph
+assets/photos/photo-17-fine.jpg,assets/photos,photo-17-fine.jpg,696643,680,JPG,Photograph
+assets/photos/photo-17-upgraded.jpg,assets/photos,photo-17-upgraded.jpg,757160,739,JPG,Photograph
+assets/photos/photo-22-upgraded.jpg,assets/photos,photo-22-upgraded.jpg,528238,516,JPG,Photograph
+assets/photos/podjaka-ifntuog-2023.jpg,assets/photos,podjaka-ifntuog-2023.jpg,175173,171,JPG,Photograph
+assets/photos/podjaka-kneu-2021.jpg,assets/photos,podjaka-kneu-2021.jpg,615081,601,JPG,Photograph
+assets/photos/podjaka-mes.jpg,assets/photos,podjaka-mes.jpg,276557,270,JPG,Photograph
+assets/photos/rada2017.jpg,assets/photos,rada2017.jpg,62733,61,JPG,Photograph
+assets/photos/rotary.jpg,assets/photos,rotary.jpg,39899,39,JPG,Photograph
+assets/photos/wes-badge.jpg,assets/photos,wes-badge.jpg,34434,34,JPG,Photograph
+assets/qa/awards.jpg,assets/qa,awards.jpg,45932,45,JPG,Page review screenshot
+assets/qa/bio.jpg,assets/qa,bio.jpg,35915,35,JPG,Page review screenshot
+assets/qa/certificates.jpg,assets/qa,certificates.jpg,36212,35,JPG,Page review screenshot
+assets/qa/contact.jpg,assets/qa,contact.jpg,189563,185,JPG,Page review screenshot
+assets/qa/courses.jpg,assets/qa,courses.jpg,68723,67,JPG,Page review screenshot
+assets/qa/documents.jpg,assets/qa,documents.jpg,36904,36,JPG,Page review screenshot
+assets/qa/egov.jpg,assets/qa,egov.jpg,69970,68,JPG,Page review screenshot
+assets/qa/events.jpg,assets/qa,events.jpg,56352,55,JPG,Page review screenshot
+assets/qa/library.jpg,assets/qa,library.jpg,59112,58,JPG,Page review screenshot
+assets/qa/media.jpg,assets/qa,media.jpg,30386,30,JPG,Page review screenshot
+assets/qa/partners.jpg,assets/qa,partners.jpg,30437,30,JPG,Page review screenshot
+assets/stock/stock-awards.jpg,assets/stock,stock-awards.jpg,41670,41,JPG,Licensed stock illustration
+assets/stock/stock-bio.jpg,assets/stock,stock-bio.jpg,226670,221,JPG,Licensed stock illustration
+assets/stock/stock-certificates.jpg,assets/stock,stock-certificates.jpg,63234,62,JPG,Licensed stock illustration
+assets/stock/stock-contact.jpg,assets/stock,stock-contact.jpg,156071,152,JPG,Licensed stock illustration
+assets/stock/stock-courses.jpg,assets/stock,stock-courses.jpg,30827,30,JPG,Licensed stock illustration
+assets/stock/stock-documents.jpg,assets/stock,stock-documents.jpg,47140,46,JPG,Licensed stock illustration
+assets/stock/stock-egov.jpg,assets/stock,stock-egov.jpg,38968,38,JPG,Licensed stock illustration
+assets/stock/stock-events.jpg,assets/stock,stock-events.jpg,161237,157,JPG,Licensed stock illustration
+assets/stock/stock-library-ca.jpg,assets/stock,stock-library-ca.jpg,291188,284,JPG,Licensed stock illustration
+assets/stock/stock-library.jpg,assets/stock,stock-library.jpg,296611,290,JPG,Licensed stock illustration
+assets/stock/stock-media.jpg,assets/stock,stock-media.jpg,24022,23,JPG,Licensed stock illustration
+assets/stock/stock-panel.jpg,assets/stock,stock-panel.jpg,26599,26,JPG,Licensed stock illustration
+assets/stock/stock-partners.jpg,assets/stock,stock-partners.jpg,32026,31,JPG,Licensed stock illustration
+assets/stock/stock-teaching.jpg,assets/stock,stock-teaching.jpg,212900,208,JPG,Licensed stock illustration
+assets/style.css,assets,style.css,103199,101,CSS,Site stylesheet
+assets/subtitles.js,assets,subtitles.js,291592,285,JS,Generated video subtitles (do not edit by hand)
+assets/thumbs/-L1LnNZ3088.jpg,assets/thumbs,-L1LnNZ3088.jpg,53983,53,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/6H7q7g4hh0I.jpg,assets/thumbs,6H7q7g4hh0I.jpg,79836,78,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/AyJ1ROJJniU.jpg,assets/thumbs,AyJ1ROJJniU.jpg,25430,25,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/BHWkEgns3eY.jpg,assets/thumbs,BHWkEgns3eY.jpg,116463,114,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/ClCiQdPOw0o.jpg,assets/thumbs,ClCiQdPOw0o.jpg,194487,190,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/IIbl1SVkJ14.jpg,assets/thumbs,IIbl1SVkJ14.jpg,79836,78,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/LFeWponFuYg.jpg,assets/thumbs,LFeWponFuYg.jpg,194487,190,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/QOha1_dgWNk.jpg,assets/thumbs,QOha1_dgWNk.jpg,134681,132,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/Z6La3Kebtyc.jpg,assets/thumbs,Z6La3Kebtyc.jpg,133900,131,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/aEoeTTgyPGA.jpg,assets/thumbs,aEoeTTgyPGA.jpg,117282,115,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/aju4k-5B3xA.jpg,assets/thumbs,aju4k-5B3xA.jpg,64992,63,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/fg_N8AZOkCs.jpg,assets/thumbs,fg_N8AZOkCs.jpg,25430,25,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/hA7CaPPDZGI.jpg,assets/thumbs,hA7CaPPDZGI.jpg,194487,190,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/hXepgp81eos.jpg,assets/thumbs,hXepgp81eos.jpg,147874,144,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/lzz6GPKB_O8.jpg,assets/thumbs,lzz6GPKB_O8.jpg,79836,78,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/oIe6nkgXOuw.jpg,assets/thumbs,oIe6nkgXOuw.jpg,147874,144,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/tXbki-DQC1k.jpg,assets/thumbs,tXbki-DQC1k.jpg,20821,20,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/tvYendCkVTg.jpg,assets/thumbs,tvYendCkVTg.jpg,80385,79,JPG,YouTube video thumbnail (file name = video ID)
+assets/thumbs/xbBddm0ibHg.jpg,assets/thumbs,xbBddm0ibHg.jpg,147874,144,JPG,YouTube video thumbnail (file name = video ID)
+icon.jpg,(package root),icon.jpg,122621,120,JPG,Site icon
+index.html,(package root),index.html,847261,827,HTML,Live site — the complete single-page site
+legacy-pages/bio.html,legacy-pages,bio.html,30892,30,HTML,Legacy stand-alone page draft (reference only)
+legacy-pages/contact.html,legacy-pages,contact.html,7720,8,HTML,Legacy stand-alone page draft (reference only)
+legacy-pages/courses.html,legacy-pages,courses.html,17498,17,HTML,Legacy stand-alone page draft (reference only)
+legacy-pages/library.html,legacy-pages,library.html,58538,57,HTML,Legacy stand-alone page draft (reference only)
+legacy-pages/media.html,legacy-pages,media.html,10785,11,HTML,Legacy stand-alone page draft (reference only)
+legacy-pages/partners.html,legacy-pages,partners.html,15759,15,HTML,Legacy stand-alone page draft (reference only)
