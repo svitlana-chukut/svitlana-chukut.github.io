@@ -174,7 +174,7 @@ assets/content-library.js,assets,content-library.js,71604,70,JS,Publication cata
 assets/content-page-archive.js,assets,content-page-archive.js,9233,9,JS,Long texts of the Analysis archive page (FR/EN)
 assets/content-page-bio.js,assets,content-page-bio.js,82495,81,JS,Long texts of the Biography page (FR/EN)
 assets/content-page-contact.js,assets,content-page-contact.js,3338,3,JS,Long texts of the Contact page (FR/EN)
-assets/content-page-courses.js,assets,content-page-courses.js,80752,79,JS,Long texts of the Courses page (FR/EN)
+assets/content-page-courses.js,assets,content-page-courses.js,87115,85,JS,Long texts of the Courses page (FR/EN)
 assets/content-page-documents.js,assets,content-page-documents.js,29446,29,JS,Long texts of the Documents page (FR/EN)
 assets/content-page-egov-days.js,assets,content-page-egov-days.js,34890,34,JS,Long texts of the E-Governance Days page (FR/EN)
 assets/content-page-events.js,assets,content-page-events.js,36713,36,JS,Long texts of the Events page (FR/EN)
@@ -467,7 +467,7 @@ assets/stock/stock-media.jpg,assets/stock,stock-media.jpg,24022,23,JPG,Licensed 
 assets/stock/stock-panel.jpg,assets/stock,stock-panel.jpg,26599,26,JPG,Licensed stock illustration
 assets/stock/stock-partners.jpg,assets/stock,stock-partners.jpg,32026,31,JPG,Licensed stock illustration
 assets/stock/stock-teaching.jpg,assets/stock,stock-teaching.jpg,212900,208,JPG,Licensed stock illustration
-assets/style.css,assets,style.css,103969,102,CSS,Site stylesheet
+assets/style.css,assets,style.css,104633,102,CSS,Site stylesheet
 assets/subtitles.js,assets,subtitles.js,291592,285,JS,Generated video subtitles (do not edit by hand)
 assets/thumbs/-L1LnNZ3088.jpg,assets/thumbs,-L1LnNZ3088.jpg,53983,53,JPG,YouTube video thumbnail (file name = video ID)
 assets/thumbs/6H7q7g4hh0I.jpg,assets/thumbs,6H7q7g4hh0I.jpg,79836,78,JPG,YouTube video thumbnail (file name = video ID)
@@ -489,7 +489,7 @@ assets/thumbs/tXbki-DQC1k.jpg,assets/thumbs,tXbki-DQC1k.jpg,20821,20,JPG,YouTube
 assets/thumbs/tvYendCkVTg.jpg,assets/thumbs,tvYendCkVTg.jpg,80385,79,JPG,YouTube video thumbnail (file name = video ID)
 assets/thumbs/xbBddm0ibHg.jpg,assets/thumbs,xbBddm0ibHg.jpg,147874,144,JPG,YouTube video thumbnail (file name = video ID)
 icon.jpg,(package root),icon.jpg,122621,120,JPG,Site icon used by the publishing shell
-index.html,(package root),index.html,533031,521,HTML,The complete live site — page structure (single-page app)
+index.html,(package root),index.html,539792,527,HTML,The complete live site — page structure (single-page app)
 legacy-pages/bio.html,legacy-pages,bio.html,30892,30,HTML,Legacy stand-alone page draft (reference only)
 legacy-pages/contact.html,legacy-pages,contact.html,7720,8,HTML,Legacy stand-alone page draft (reference only)
 legacy-pages/courses.html,legacy-pages,courses.html,17498,17,HTML,Legacy stand-alone page draft (reference only)

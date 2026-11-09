@@ -5,7 +5,7 @@ The complete, editable copy of the personal website of Svitlana Chukut
 AND every media original, in one package, built from the current site
 on 8 November 2026.
 
-**497 files · 81 979 620 bytes (82.0 MB) in total.**
+**497 files · 81 993 408 bytes (82.0 MB) in total.**
 Every file is listed, with its exact size and role, in
 `FILE-INVENTORY.csv`. The site is a single-page application: one HTML
 file holds the structure of every page, shown one at a time through

@@ -552,6 +552,12 @@ html[data-theme="dark"] .course:hover{border-color:#31456f}
 .course-summary{color:var(--text);font-size:16px;line-height:1.68;max-width:72ch}
 .course-summary a{color:var(--accent-dark);font-weight:600;text-underline-offset:3px}
 .syllabus-note{color:var(--muted);font-size:14px}
+.course-group-head{margin:40px 0 2px;padding:20px 26px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r)}
+.course-group-head:first-of-type{margin-top:26px}
+.course-group-head h3{font-size:20px;font-weight:700;line-height:1.3;letter-spacing:-.01em;color:var(--heading);margin:0 0 6px}
+.course-group-meta{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-dark);margin:0 0 8px}
+.course-group-desc{color:var(--muted);font-size:15px;line-height:1.6;max-width:75ch;margin:0}
+@media (max-width:700px){.course-group-head{padding:16px 18px;margin-top:30px}.course-group-head h3{font-size:18px}}
 
 /* ---------- media ---------- */
 .vid{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-lg);background:#000;margin-top:8px}
