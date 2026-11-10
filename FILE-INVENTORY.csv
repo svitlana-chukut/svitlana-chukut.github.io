@@ -1,7 +1,7 @@
 path,folder,file_name,size_bytes,size_kb,kind,role
-EDITING-GUIDE.md,(package root),EDITING-GUIDE.md,6762,7,MD,Step-by-step editing guide
-FILE-INVENTORY.csv,(package root),FILE-INVENTORY.csv,59771,58,CSV,This inventory — every file in the package
-README.md,(package root),README.md,6514,6,MD,"Package readme: contents, structure, how to run"
+EDITING-GUIDE.md,(package root),EDITING-GUIDE.md,6797,7,MD,Step-by-step editing guide
+FILE-INVENTORY.csv,(package root),FILE-INVENTORY.csv,60276,59,CSV,This inventory — every file in the package
+README.md,(package root),README.md,6650,6,MD,"Package readme: contents, structure, how to run"
 assets/app.js,assets,app.js,55574,54,JS,Site behaviour script
 assets/bio2.jpg,assets,bio2.jpg,40351,39,JPG,Biography portrait
 assets/books/egov-2008-foreign-experience.jpg,assets/books,egov-2008-foreign-experience.jpg,73557,72,JPG,Book cover / title page / book PDF
@@ -171,21 +171,21 @@ assets/certificates/wes-eca-2023.jpg,assets/certificates,wes-eca-2023.jpg,30202,
 assets/content-certificates.js,assets,content-certificates.js,43747,43,JS,Certificate and document viewer registry
 assets/content-files.js,assets,content-files.js,31403,31,JS,"File inventory data (IMGS, NONIMG)"
 assets/content-library.js,assets,content-library.js,71604,70,JS,Publication catalogue data — 215 records
-assets/content-page-archive.js,assets,content-page-archive.js,9285,9,JS,Long texts of the Analysis archive page (FR/EN)
-assets/content-page-bio.js,assets,content-page-bio.js,82547,81,JS,Long texts of the Biography page (FR/EN)
-assets/content-page-contact.js,assets,content-page-contact.js,3390,3,JS,Long texts of the Contact page (FR/EN)
-assets/content-page-courses.js,assets,content-page-courses.js,87167,85,JS,Long texts of the Courses page (FR/EN)
-assets/content-page-documents.js,assets,content-page-documents.js,29498,29,JS,Long texts of the Documents page (FR/EN)
-assets/content-page-egov-days.js,assets,content-page-egov-days.js,34942,34,JS,Long texts of the E-Governance Days page (FR/EN)
-assets/content-page-events.js,assets,content-page-events.js,36765,36,JS,Long texts of the Events page (FR/EN)
-assets/content-page-global.js,assets,content-page-global.js,3879,4,JS,"Long texts of the global texts (header, footer, viewers, meta) (FR/EN)"
-assets/content-page-home.js,assets,content-page-home.js,8767,9,JS,Long texts of the Home page (FR/EN)
-assets/content-page-library.js,assets,content-page-library.js,6448,6,JS,Long texts of the Library page (FR/EN)
-assets/content-page-media.js,assets,content-page-media.js,20058,20,JS,Long texts of the Media page (FR/EN)
-assets/content-page-partners.js,assets,content-page-partners.js,5444,5,JS,Long texts of the Partners page (FR/EN)
-assets/content-page-site-files.js,assets,content-page-site-files.js,19660,19,JS,Long texts of the Website files & guide page (FR/EN)
+assets/content-page-archive.js,assets,content-page-archive.js,9499,9,JS,Long texts of the Analysis archive page (FR/EN)
+assets/content-page-bio.js,assets,content-page-bio.js,82761,81,JS,Long texts of the Biography page (FR/EN)
+assets/content-page-contact.js,assets,content-page-contact.js,3604,4,JS,Long texts of the Contact page (FR/EN)
+assets/content-page-courses.js,assets,content-page-courses.js,87381,85,JS,Long texts of the Courses page (FR/EN)
+assets/content-page-documents.js,assets,content-page-documents.js,29712,29,JS,Long texts of the Documents page (FR/EN)
+assets/content-page-egov-days.js,assets,content-page-egov-days.js,35156,34,JS,Long texts of the E-Governance Days page (FR/EN)
+assets/content-page-events.js,assets,content-page-events.js,36979,36,JS,Long texts of the Events page (FR/EN)
+assets/content-page-global.js,assets,content-page-global.js,4093,4,JS,"Long texts of the global texts (header, footer, viewers, meta) (FR/EN)"
+assets/content-page-home.js,assets,content-page-home.js,8981,9,JS,Long texts of the Home page (FR/EN)
+assets/content-page-library.js,assets,content-page-library.js,6662,7,JS,Long texts of the Library page (FR/EN)
+assets/content-page-media.js,assets,content-page-media.js,20272,20,JS,Long texts of the Media page (FR/EN)
+assets/content-page-partners.js,assets,content-page-partners.js,5658,6,JS,Long texts of the Partners page (FR/EN)
+assets/content-page-site-files.js,assets,content-page-site-files.js,20121,20,JS,Long texts of the Website files & guide page (FR/EN)
 assets/content-scholar.js,assets,content-scholar.js,1238,1,JS,Google Scholar metrics data
-assets/content-texts.js,assets,content-texts.js,64232,63,JS,Short texts — shared labels and page dictionary (FR/EN)
+assets/content-texts.js,assets,content-texts.js,64335,63,JS,Short texts — shared labels and page dictionary (FR/EN)
 assets/egov-days/arch-01-clean.jpg,assets/egov-days,arch-01-clean.jpg,74865,73,JPG,E-Governance Days archive file (2008–2011)
 assets/egov-days/arch-01-enhanced.jpg,assets/egov-days,arch-01-enhanced.jpg,112533,110,JPG,E-Governance Days archive file (2008–2011)
 assets/egov-days/arch-01-restored.jpg,assets/egov-days,arch-01-restored.jpg,257269,251,JPG,E-Governance Days archive file (2008–2011)
@@ -457,7 +457,7 @@ assets/qa/events.jpg,assets/qa,events.jpg,56352,55,JPG,Page review screenshot
 assets/qa/library.jpg,assets/qa,library.jpg,59112,58,JPG,Page review screenshot
 assets/qa/media.jpg,assets/qa,media.jpg,30386,30,JPG,Page review screenshot
 assets/qa/partners.jpg,assets/qa,partners.jpg,30437,30,JPG,Page review screenshot
-assets/router.js,assets,router.js,12483,12,JS,Hash routing script
+assets/router.js,assets,router.js,15001,15,JS,Hash routing script
 assets/stock/stock-awards.jpg,assets/stock,stock-awards.jpg,41670,41,JPG,Licensed stock illustration
 assets/stock/stock-bio.jpg,assets/stock,stock-bio.jpg,226670,221,JPG,Licensed stock illustration
 assets/stock/stock-certificates.jpg,assets/stock,stock-certificates.jpg,63234,62,JPG,Licensed stock illustration
@@ -496,7 +496,7 @@ assets/thumbs/tXbki-DQC1k.jpg,assets/thumbs,tXbki-DQC1k.jpg,20821,20,JPG,YouTube
 assets/thumbs/tvYendCkVTg.jpg,assets/thumbs,tvYendCkVTg.jpg,80385,79,JPG,YouTube video thumbnail (file name = video ID)
 assets/thumbs/xbBddm0ibHg.jpg,assets/thumbs,xbBddm0ibHg.jpg,147874,144,JPG,YouTube video thumbnail (file name = video ID)
 icon.jpg,(package root),icon.jpg,122621,120,JPG,Site icon used by the publishing shell
-index.html,(package root),index.html,342391,334,HTML,The complete live site — page structure (single-page app)
+index.html,(package root),index.html,369702,361,HTML,The complete live site — page structure (single-page app)
 legacy-pages/bio.html,legacy-pages,bio.html,30892,30,HTML,Legacy stand-alone page draft (reference only)
 legacy-pages/contact.html,legacy-pages,contact.html,7720,8,HTML,Legacy stand-alone page draft (reference only)
 legacy-pages/courses.html,legacy-pages,courses.html,17498,17,HTML,Legacy stand-alone page draft (reference only)

@@ -66,5 +66,6 @@ var PAGE_TITLES = {
     partners:{fr:"Partenaires — Svitlana Chukut",en:"Partners — Svitlana Chukut"},
     documents:{fr:"Documents et fichiers — Svitlana Chukut",en:"Documents & files — Svitlana Chukut"},
     contact:{fr:"Contacts — Svitlana Chukut",en:"Contact — Svitlana Chukut"},
+    archive:{fr:"Archive pour analyse — Svitlana Chukut",en:"Analysis archive — Svitlana Chukut"},
     "site-files":{fr:"Fichiers du site et guide de modification — Svitlana Chukut",en:"Website files & editing guide — Svitlana Chukut"}
   };

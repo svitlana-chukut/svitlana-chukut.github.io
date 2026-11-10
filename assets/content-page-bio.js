@@ -9,16 +9,19 @@
 
    The key is the data-i18n attribute of the passage's <span>
    in index.html; the renderer (assets/app.js) fills that span
-   from this file on every language switch. The span in index.html is an EMPTY placeholder:
-   the renderer fills it from this file, in the language
-   currently selected.
+   from this file on every language switch. The span in index.html
+   carries only its key as text — <span data-i18n="key">key</span> —
+   and the renderer replaces that key with this file's text, in the
+   language currently selected. No element in index.html is ever
+   left empty: an XML-style formatter would collapse an empty tag
+   into a self-closing one and break the page.
 
    HOW TO EDIT
      - Change a text: edit BOTH language strings of its entry
        here. Never edit the copy inside index.html — it is
-       an EMPTY placeholder that the renderer fills.
+       only a key placeholder that the renderer replaces.
      - Add a passage: add an entry with a fresh key, then put
-       <span data-i18n="your-key"></span> (left empty) where
+       <span data-i18n="your-key">your-key</span> where
        the passage belongs in index.html.
      - Inline markup (<span class="grad">, <a>, <b>…) inside a
        string is intentional: keep the tags, edit the words.

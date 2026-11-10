@@ -7,8 +7,9 @@ each step below can be followed on the real files.
 How the site is organised — this is the one thing to understand first:
 
 - `index.html` holds only the STRUCTURE of the pages (markup). It
-  carries no content text at all: its `data-i18n` elements are empty
-  placeholders, filled at runtime from the data files — so there is
+  carries no content text at all: its `data-i18n` elements are
+  placeholders that carry their own key as their text, filled
+  at runtime from the data files — so there is
   nothing to edit in `index.html` when a text changes.
 - The CONTENT lives separately, in data files under `assets/`:
   short labels in `content-texts.js`, the long texts of each page in

@@ -54,18 +54,28 @@
   window.SC_show=function(skipLand){
     lastHash=location.hash||"";
     var r=route(), p=r.page, lang=(window.SC_lang?window.SC_lang():"fr");
-    document.querySelectorAll(".page").forEach(function(s){ s.classList.toggle("on", s.id==="page-"+p); });
-    document.querySelectorAll(".nav a").forEach(function(a){
+    /* Plain loops, not NodeList.forEach: browsers without that method
+       (legacy Edge / older Safari) would throw here, before any page is
+       shown — the click changes the address and nothing else happens. */
+    var sections=document.querySelectorAll(".page"), si;
+    for(si=0;si<sections.length;si++) sections[si].classList.toggle("on", sections[si].id==="page-"+p);
+    var navLinks=document.querySelectorAll(".nav a"), ni, a;
+    for(ni=0;ni<navLinks.length;ni++){
+      a=navLinks[ni];
       var href=a.getAttribute("href");
       a.classList.toggle("on", href==="#"+p || href==="#"+(r.anchor||"__none__") || (a.classList.contains("nav-parent")&&p==="bio"));
       a.removeAttribute("aria-current");
-    });
+    }
     /* exactly one aria-current in the header menu: the most specific
        link for this route (the section link when there is an anchor,
        otherwise the page link) */
     var curLink=document.querySelector('.nav a[href="#'+(r.anchor||p)+'"]');
     if(curLink) curLink.setAttribute("aria-current","page");
-    document.title=(TITLES[p]&&TITLES[p][lang])||TITLES[p].fr;
+    /* A page with no title entry must never abort the switch: this line
+       used to read TITLES[p].fr unguarded, which throws for such a page
+       and killed the landing below it. */
+    var pageTitle=TITLES[p];
+    if(pageTitle) document.title=pageTitle[lang]||pageTitle.fr||document.title;
     /* the social-card titles track the tab title */
     var ogt=document.querySelector('meta[property="og:title"]'); if(ogt) ogt.setAttribute("content",document.title);
     var twt=document.querySelector('meta[name="twitter:title"]'); if(twt) twt.setAttribute("content",document.title);
@@ -91,6 +101,28 @@
       window.scrollTo(0,0);
     }
   };
+  /* ---- Route sync: never trust hashchange alone ----------------------
+     The switch above was driven only by the hashchange event. In some
+     browsers (Microsoft Edge in particular) that event is not always
+     delivered for a menu click — handlers elsewhere on the page use
+     history.replaceState, the address sits inside a shell iframe, and
+     the event can be lost or coalesced — so the address changed and
+     the page on screen did not: exactly the reported failure. Chrome
+     delivers the event reliably, which is why it worked there.
+     The fix does not depend on the event at all: syncRoute() compares
+     the address with the page actually on screen and switches when
+     they disagree. It runs after every in-page link click, on
+     popstate, and on a light interval for the life of the page, so a
+     fragment that arrives by any channel — click, Back/Forward, a
+     replaceState, a silent rewrite by the shell — is followed. Once
+     SC_show has run, lastHash matches the address and every later
+     check is a no-op, so this never re-lands or fights hashchange. */
+  function syncRoute(){
+    var h=location.hash||"";
+    if(h&&!validTarget(h.slice(1))) return;
+    var r=route(), cur=document.querySelector(".page.on");
+    if(!cur||cur.id!=="page-"+r.page||h!==lastHash) window.SC_show();
+  }
   window.addEventListener("hashchange", window.SC_show);
   /* Keyboard and screen-reader landing: when navigation switches to a
      different page without a deep anchor (anchor landings already focus
@@ -140,6 +172,14 @@
     var a=ev.target&&ev.target.closest?ev.target.closest('a[href^="#"]'):null;
     if(!a) return;
     savePlace();
+    /* The browser applies the link's fragment after this handler runs;
+       check shortly afterwards that the page on screen followed it, in
+       case the hashchange event for this click is never delivered
+       (see syncRoute above). When the event is delivered these checks
+       find nothing to do. */
+    window.setTimeout(syncRoute, 0);
+    window.setTimeout(syncRoute, 80);
+    window.setTimeout(syncRoute, 300);
     /* a same-page section jump swaps the fragment by replaceState and
        fires no hashchange, so re-save once its landing has settled */
     window.setTimeout(savePlace, 1400);
@@ -182,7 +222,13 @@
          if no hashchange comes (same-fragment traversal), show and
          restore directly. */
       window.setTimeout(function(){ if(restoreReq) window.SC_show(); },60);
-    } else restoreReq=null;
+    } else {
+      restoreReq=null;
+      /* No saved place: the traversal still changed the fragment, and
+         it is hashchange that is expected to follow — if it does not
+         (the Edge failure mode), sync the page to the address. */
+      window.setTimeout(syncRoute, 60);
+    }
   });
   /* Hand-off from the shell around the page: a message naming a valid
      section (e.g. "#events-gallery") is adopted as the fragment and
@@ -217,18 +263,12 @@
     if(window.SC_setLang){ var orig=window.SC_setLang; window.SC_setLang=function(l){ orig(l); window.SC_show(true); }; }
   });
   window.addEventListener("load", function(){ window.SC_show(true); });
-  /* For the first seconds, watch for a target that arrives without a
-     hashchange (some shells rewrite the address silently): if the
-     fragment names a section other than the one on screen, land on it
-     through the same route as everything else. */
-  var pollN=0;
-  var poll=window.setInterval(function(){
-    pollN++;
-    var h=location.hash||"";
-    if(h&&validTarget(h.slice(1))){
-      var r=route(), cur=document.querySelector(".page.on");
-      if(!cur||cur.id!=="page-"+r.page||(r.anchor&&h!==lastHash)) window.SC_show();
-    }
-    if(pollN>=12) window.clearInterval(poll);
-  },400);
+  /* Watch for a target that arrives without a hashchange (some shells
+     rewrite the address silently, and some browsers drop the event —
+     see syncRoute above). This used to stop after the first seconds;
+     it now runs for the life of the page, because a menu click can
+     lose its hashchange at any time, not just while loading. The
+     check is a string comparison when nothing changed, and SC_show
+     runs only when the address and the page on screen disagree. */
+  window.setInterval(syncRoute,400);
 })();
