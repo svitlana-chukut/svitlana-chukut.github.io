@@ -28,13 +28,12 @@
      content-page-<page>.js   long texts, one file per page:
                               global, home, bio, library, courses,
                               media, events, egov-days, partners,
-                              documents, contact, archive, site-files
+                              documents, contact
      content-library.js       the publication catalogue (LIB)
      content-certificates.js  the certificate / document viewer
                               registry (CERTVIEW): pages, summaries,
                               gallery captions
      content-scholar.js       the Google Scholar metrics (SCHOLAR)
-     content-files.js         the file inventory (IMGS, NONIMG)
      subtitles.js             generated subtitle data (do not edit)
    ================================================================ */
 
@@ -65,7 +64,5 @@ var PAGE_TITLES = {
     "egov-days":{fr:"Journées de l'administration électronique — Svitlana Chukut",en:"E-Governance Days — Svitlana Chukut"},
     partners:{fr:"Partenaires — Svitlana Chukut",en:"Partners — Svitlana Chukut"},
     documents:{fr:"Documents et fichiers — Svitlana Chukut",en:"Documents & files — Svitlana Chukut"},
-    contact:{fr:"Contacts — Svitlana Chukut",en:"Contact — Svitlana Chukut"},
-    archive:{fr:"Archive pour analyse — Svitlana Chukut",en:"Analysis archive — Svitlana Chukut"},
-    "site-files":{fr:"Fichiers du site et guide de modification — Svitlana Chukut",en:"Website files & editing guide — Svitlana Chukut"}
+    contact:{fr:"Contacts — Svitlana Chukut",en:"Contact — Svitlana Chukut"}
   };

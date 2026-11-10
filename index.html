@@ -28,7 +28,7 @@
       HTML comment. Keep every element non-empty when adding markup
       and this file survives any formatter (verified with Prettier 3
       and with a simulated XML-style collapse-and-reindent pass: the
-      output resolves every key in both languages, keeps all twelve
+      output resolves every key in both languages, keeps all ten
       pages and renders identically).
 
   The site's CONTENT is kept separately from this file, in data files
@@ -43,9 +43,9 @@
                                viewers, meta description),
                                content-page-home.js, -bio, -library,
                                -courses, -media, -events, -egov-days,
-                               -partners, -documents, -contact,
-                               -archive, -site-files. One entry per
-                               passage: [key, French, English]; the key
+                               -partners, -documents, -contact.
+                               One entry per passage:
+                               [key, French, English]; the key
                                is the data-i18n of its span here.
     assets/content-library.js  The publication catalogue (LIB): one
                                line per record, newest first.
@@ -58,9 +58,6 @@
                                works, citations, h-index, i10, as-of.
                                Every Scholar figure on the site is
                                stamped from this one file.
-    assets/content-files.js    The file inventory (IMGS, NONIMG)
-                               rendered by the "Website files & guide"
-                               page.
     assets/style.css     ALL design: colours, fonts, layout, dark theme.
                          Change the tokens at the top (:root) — never
                          restyle single elements inline.
@@ -80,8 +77,6 @@
                          (publication library rendering).
     assets/page-media-subtitles.js
                          The Olympiad video subtitle controller.
-    assets/page-archive-grid.js
-                         The "Archive for analysis" image grid.
     assets/subtitles.js  Generated subtitle data for one video.
                          Do not edit by hand (see its own header).
 
@@ -104,9 +99,8 @@
       [type, year, FR title, EN title, FR source, EN source,
        FR co-authors, EN co-authors, URL, citations (optional)].
 
-  HOW TO ADD THINGS (full step-by-step: EDITING-GUIDE.md in the source
-  package, and the "Website files & guide" page — menu More → Website
-  files & guide):
+  HOW TO ADD THINGS (full step-by-step: EDITING-GUIDE.md in the
+  complete package):
     · Publication  → add one line to the LIB list in
                      assets/content-library.js.
     · Course       → copy an existing <article class="course"> block in
@@ -133,12 +127,12 @@
       this file and assets/app.js for the old name and updating every
       reference — a renamed file with an old reference is a broken image.
 
-  The downloadable complete package (assets/downloads/) contains this
-  file, every file in assets/ — code and all media originals, in their
+  The complete package is a ZIP built on request from the current
+  site; it is NOT hosted on the site itself. It contains this file,
+  every file in assets/ — code and all media originals, in their
   folders — README.md, EDITING-GUIDE.md, a full FILE-INVENTORY.csv of
   every file in the package, and the legacy multi-page drafts under
-  legacy-pages/ (kept for reference; they are not the live site). The
-  only site file not inside it is the package ZIP itself.
+  legacy-pages/ (kept for reference; they are not the live site).
 ================================================================================
 -->
 <html lang="en">
@@ -219,7 +213,7 @@
         <a href="#events-gallery"><span data-i18n="global-24">global-24</span></a>
         <a href="#egov-days"><span data-i18n="global-25">global-25</span></a>
         <a href="#partners" data-i18n="nPart">nPart</a>
-        <a href="#documents"><span data-i18n="global-26">global-26</span></a><a href="#archive"><span data-i18n="global-27">global-27</span></a><a href="#site-files"><span data-i18n="global-28">global-28</span></a>
+        <a href="#documents"><span data-i18n="global-26">global-26</span></a>
         <a href="#home-download"><span data-i18n="global-29">global-29</span></a>
       </div>
     </div>
@@ -1945,173 +1939,12 @@
 
 </section>
 
-<!-- ===== PAGE: ANALYSIS ARCHIVE (maintainer page) — every image on the
-     site, grouped for manual review; data tables are in the script at
-     the end of this file. Marks live only in the open tab. ===== -->
-<section class="page" id="page-archive" data-page="archive">
-  <section class="phero"><div class="wrap">
-    <p class="crumbs"><a href="#home"><span data-i18n="page-archive-01">page-archive-01</span></a> · <span><span data-i18n="page-archive-02">page-archive-02</span></span></p>
-    <h1><span data-i18n="page-archive-03">page-archive-03</span></h1>
-    <p class="lead"><span data-i18n="page-archive-04">page-archive-04</span></p>
-  </div></section>
-
-  <section class="sec"><div class="wrap">
-    <div class="arch-stats">
-      <div class="arch-stat"><b>475</b><span><span data-i18n="page-archive-05">page-archive-05</span></span></div>
-      <div class="arch-stat"><b>462</b><span><span data-i18n="page-archive-06">page-archive-06</span></span></div>
-      <div class="arch-stat"><b>76,8 <small>Mo</small></b><span><span data-i18n="page-archive-07">page-archive-07</span></span></div>
-      <div class="arch-stat"><b>10</b><span><span data-i18n="page-archive-08">page-archive-08</span></span></div>
-    </div>
-    <p class="arch-note"><span data-i18n="page-archive-09">page-archive-09</span></p>
-  </div></section>
-
-  <section class="sec alt" id="archive-folders" data-section="archive-folders"><div class="wrap">
-    <p class="kick rv"><span data-i18n="archive-folders-01">archive-folders-01</span></p>
-    <h2 class="rv"><span data-i18n="archive-folders-02">archive-folders-02</span></h2>
-    <div class="arch-folders">
-      <div class="arch-folder"><span class="arch-fnum">01</span><div><h3><span data-i18n="archive-folders-03">archive-folders-03</span></h3><p><span data-i18n="archive-folders-04">archive-folders-04</span></p></div><span class="arch-fcount">10 <small><span data-i18n="archive-folders-05">archive-folders-05</span></small></span></div>
-      <div class="arch-folder"><span class="arch-fnum">02</span><div><h3><span data-i18n="archive-folders-06">archive-folders-06</span></h3><p><span data-i18n="archive-folders-07">archive-folders-07</span></p></div><span class="arch-fcount">70</span></div>
-      <div class="arch-folder"><span class="arch-fnum">03</span><div><h3><span data-i18n="archive-folders-08">archive-folders-08</span></h3><p><span data-i18n="archive-folders-09">archive-folders-09</span></p></div><span class="arch-fcount">53</span></div>
-      <div class="arch-folder"><span class="arch-fnum">04</span><div><h3><span data-i18n="archive-folders-10">archive-folders-10</span></h3><p><span data-i18n="archive-folders-11">archive-folders-11</span></p></div><span class="arch-fcount">105</span></div>
-      <div class="arch-folder"><span class="arch-fnum">05</span><div><h3><span data-i18n="archive-folders-12">archive-folders-12</span></h3><p><span data-i18n="archive-folders-13">archive-folders-13</span></p></div><span class="arch-fcount">150</span></div>
-      <div class="arch-folder"><span class="arch-fnum">06</span><div><h3><span data-i18n="archive-folders-14">archive-folders-14</span></h3><p><span data-i18n="archive-folders-15">archive-folders-15</span></p></div><span class="arch-fcount">6</span></div>
-      <div class="arch-folder"><span class="arch-fnum">07</span><div><h3><span data-i18n="archive-folders-16">archive-folders-16</span></h3><p><span data-i18n="archive-folders-17">archive-folders-17</span></p></div><span class="arch-fcount">35</span></div>
-      <div class="arch-folder"><span class="arch-fnum">08</span><div><h3><span data-i18n="archive-folders-18">archive-folders-18</span></h3><p><span data-i18n="archive-folders-19">archive-folders-19</span></p></div><span class="arch-fcount">19</span></div>
-      <div class="arch-folder"><span class="arch-fnum">09</span><div><h3><span data-i18n="archive-folders-20">archive-folders-20</span></h3><p><span data-i18n="archive-folders-21">archive-folders-21</span></p></div><span class="arch-fcount">25</span></div>
-      <div class="arch-folder"><span class="arch-fnum">10</span><div><h3>LinkedIn</h3><p><span data-i18n="archive-folders-22">archive-folders-22</span></p></div><span class="arch-fcount">2</span></div>
-    </div>
-  </div></section>
-
-  <section class="sec" id="archive-analysis" data-section="archive-analysis"><div class="wrap">
-    <p class="kick rv"><span data-i18n="archive-analysis-01">archive-analysis-01</span></p>
-    <h2 class="rv"><span data-i18n="archive-analysis-02">archive-analysis-02</span></h2>
-    <div class="arch-findings">
-      <article class="arch-finding"><span class="arch-fbig">126</span><h3><span data-i18n="archive-analysis-03">archive-analysis-03</span></h3><p><span data-i18n="archive-analysis-04">archive-analysis-04</span></p></article>
-      <article class="arch-finding"><span class="arch-fbig">53 × 2</span><h3><span data-i18n="archive-analysis-05">archive-analysis-05</span></h3><p><span data-i18n="archive-analysis-06">archive-analysis-06</span></p></article>
-      <article class="arch-finding"><span class="arch-fbig">-fine / -upgraded</span><h3><span data-i18n="archive-analysis-07">archive-analysis-07</span></h3><p><span data-i18n="archive-analysis-08">archive-analysis-08</span></p></article>
-    </div>
-  </div></section>
-
-  <section class="sec alt" id="archive-review" data-section="archive-review"><div class="wrap">
-    <p class="kick rv"><span data-i18n="archive-review-01">archive-review-01</span></p>
-    <h2 class="rv"><span data-i18n="archive-review-02">archive-review-02</span></h2>
-    <p class="lead rv" style="margin-bottom:22px"><span data-i18n="archive-review-03">archive-review-03</span></p>
-    <div class="arch-tools">
-      <label class="arch-field"><span><span data-i18n="archive-review-04">archive-review-04</span></span>
-        <select id="archFolder" aria-label="Folder / Dossier">
-          <option value="all">01–10 · All folders / Tous les dossiers</option>
-          <option value="02">02 · Photos</option><option value="03">03 · Certificates — cards</option>
-          <option value="04">04 · Certificates — pages</option><option value="05">05 · E-Gov Days</option>
-          <option value="06">06 · Books</option><option value="07">07 · Logos</option>
-          <option value="08">08 · Video thumbnails</option><option value="09">09 · Stock &amp; QA</option>
-          <option value="10">10 · LinkedIn</option>
-        </select></label>
-      <label class="arch-field arch-grow"><span><span data-i18n="archive-review-05">archive-review-05</span></span>
-        <input type="search" id="archSearch" placeholder="arch-01, podium, ipac…" aria-label="Search by file name / Rechercher par nom de fichier"></label>
-      <label class="arch-field"><span><span data-i18n="archive-review-06">archive-review-06</span></span>
-        <select id="archMarkFilter" aria-label="Filter by mark / Filtrer par marque">
-          <option value="all">—</option><option value="none">Unmarked</option><option value="keep">Keep</option><option value="check">Check</option><option value="remove">Remove?</option>
-        </select></label>
-    </div>
-    <div class="arch-counters" role="status" aria-live="polite">
-      <span><b id="archShown">0</b> <span data-i18n="archive-review-07">archive-review-07</span></span>
-      <span><b id="archKeep">0</b> <span data-i18n="archive-review-08">archive-review-08</span></span>
-      <span><b id="archCheck">0</b> <span data-i18n="archive-review-09">archive-review-09</span></span>
-      <span><b id="archRemove">0</b> <span data-i18n="archive-review-10">archive-review-10</span></span>
-      <span><b id="archLeft">462</b> <span data-i18n="archive-review-11">archive-review-11</span></span>
-    </div>
-    <div class="arch-grid" id="archGrid"><!-- filled at runtime --></div>
-    <p class="arch-more"><button type="button" class="more-btn" id="archMore"><span data-i18n="archive-review-12">archive-review-12</span></button></p>
-    <div class="arch-downloads">
-      <button type="button" class="btn btn-gold" id="archDlReview"><span data-i18n="archive-review-13">archive-review-13</span></button>
-      <button type="button" class="btn btn-ghost" id="archDlInventory" style="color:var(--heading);border-color:var(--line)"><span data-i18n="archive-review-14">archive-review-14</span></button>
-      <button type="button" class="btn btn-ghost" id="archDlTree" style="color:var(--heading);border-color:var(--line)"><span data-i18n="archive-review-15">archive-review-15</span></button>
-      <p class="arch-note"><span data-i18n="archive-review-16">archive-review-16</span></p>
-    </div>
-  </div></section>
-</section>
-
-<!-- ===== PAGE: WEBSITE FILES & GUIDE (maintainer page) — the downloadable
-     source package, the professional folder map, and the editing guide.
-     The package itself lives in assets/downloads/. ===== -->
-<section class="page" id="page-site-files" data-page="site-files">
-  <section class="phero"><div class="wrap">
-    <p class="crumbs"><a href="#home"><span data-i18n="page-site-files-01">page-site-files-01</span></a> · <span><span data-i18n="page-site-files-02">page-site-files-02</span></span></p>
-    <h1><span data-i18n="page-site-files-03">page-site-files-03</span></h1>
-    <p class="lead"><span data-i18n="page-site-files-04">page-site-files-04</span></p>
-  </div></section>
-
-  <section class="sec" id="files-download" data-section="files-download"><div class="wrap">
-    <div class="dl-panel">
-      <div>
-        <p class="kick"><span data-i18n="files-download-01">files-download-01</span></p>
-        <h2><span data-i18n="files-download-02">files-download-02</span></h2>
-        <p class="lead"><span data-i18n="files-download-03">files-download-03</span></p>
-        <p class="dl-note"><span data-i18n="files-download-04">files-download-04</span></p>
-        <p class="dl-note"><span data-i18n="files-download-05">files-download-05</span></p>
-      </div>
-      <div class="dl-groups">
-        <div class="dl-group"><h3><span data-i18n="files-download-06">files-download-06</span></h3>
-          <a class="dl-btn primary" href="assets/downloads/svitlana-chukut-website-full-package.zip" download><span><span data-i18n="files-download-07">files-download-07</span></span><span class="dl-meta">ZIP · svitlana-chukut-website-full-package.zip</span></a>
-          <a class="dl-btn" href="assets/downloads/file-inventory.csv" download><span><span data-i18n="files-download-08">files-download-08</span></span><span class="dl-meta">CSV · file-inventory.csv</span></a>
-        </div>
-      </div>
-    </div>
-  </div></section>
-
-  <section class="sec alt" id="files-structure" data-section="files-structure"><div class="wrap">
-    <p class="kick"><span data-i18n="files-structure-01">files-structure-01</span></p>
-    <h2 class="st"><span data-i18n="files-structure-02">files-structure-02</span></h2>
-    <p class="lead"><span data-i18n="files-structure-03">files-structure-03</span></p>
-    <div class="arch-folders">
-      <div class="arch-folder"><span class="arch-fnum">01</span><div><h3><span data-i18n="files-structure-04">files-structure-04</span></h3><p><span data-i18n="files-structure-05">files-structure-05</span></p></div><span class="arch-fcount">22</span></div>
-      <div class="arch-folder"><span class="arch-fnum">02</span><div><h3>assets/books/</h3><p><span data-i18n="files-structure-06">files-structure-06</span></p></div><span class="arch-fcount">6</span></div>
-      <div class="arch-folder"><span class="arch-fnum">03</span><div><h3>assets/certificates/</h3><p><span data-i18n="files-structure-07">files-structure-07</span></p></div><span class="arch-fcount">53</span></div>
-      <div class="arch-folder"><span class="arch-fnum">04</span><div><h3>assets/cert-pages/</h3><p><span data-i18n="files-structure-08">files-structure-08</span></p></div><span class="arch-fcount">105</span></div>
-      <div class="arch-folder"><span class="arch-fnum">05</span><div><h3>assets/egov-days/</h3><p><span data-i18n="files-structure-09">files-structure-09</span></p></div><span class="arch-fcount">150</span></div>
-      <div class="arch-folder"><span class="arch-fnum">06</span><div><h3>assets/photos/</h3><p><span data-i18n="files-structure-10">files-structure-10</span></p></div><span class="arch-fcount">67</span></div>
-      <div class="arch-folder"><span class="arch-fnum">07</span><div><h3>assets/logos/</h3><p><span data-i18n="files-structure-11">files-structure-11</span></p></div><span class="arch-fcount">35</span></div>
-      <div class="arch-folder"><span class="arch-fnum">08</span><div><h3>assets/thumbs/</h3><p><span data-i18n="files-structure-12">files-structure-12</span></p></div><span class="arch-fcount">19</span></div>
-      <div class="arch-folder"><span class="arch-fnum">09</span><div><h3>assets/stock/</h3><p><span data-i18n="files-structure-13">files-structure-13</span></p></div><span class="arch-fcount">14</span></div>
-      <div class="arch-folder"><span class="arch-fnum">10</span><div><h3>assets/qa/</h3><p><span data-i18n="files-structure-14">files-structure-14</span></p></div><span class="arch-fcount">11</span></div>
-      <div class="arch-folder"><span class="arch-fnum">11</span><div><h3>assets/linkedin/</h3><p><span data-i18n="files-structure-15">files-structure-15</span></p></div><span class="arch-fcount">2</span></div>
-      <div class="arch-folder"><span class="arch-fnum">12</span><div><h3>assets/downloads/</h3><p><span data-i18n="files-structure-16">files-structure-16</span></p></div><span class="arch-fcount">2</span></div>
-    </div>
-  </div></section>
-
-  <section class="sec" id="files-editing" data-section="files-editing"><div class="wrap">
-    <p class="kick"><span data-i18n="files-editing-01">files-editing-01</span></p>
-    <h2 class="st"><span data-i18n="files-editing-02">files-editing-02</span></h2>
-    <p class="lead"><span data-i18n="files-editing-03">files-editing-03</span></p>
-    <div class="cards">
-      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><h3><span data-i18n="files-editing-04">files-editing-04</span></h3><p><span data-i18n="files-editing-05">files-editing-05</span></p></article>
-      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19V6a2 2 0 0 1 2-2h13v13H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13"/></svg></div><h3><span data-i18n="files-editing-06">files-editing-06</span></h3><p><span data-i18n="files-editing-07">files-editing-07</span></p></article>
-      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></div><h3><span data-i18n="files-editing-08">files-editing-08</span></h3><p><span data-i18n="files-editing-09">files-editing-09</span></p></article>
-      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="9" r="5"/><path d="M8.8 13.2 7 21l5-2.6L17 21l-1.8-7.8"/></svg></div><h3><span data-i18n="files-editing-10">files-editing-10</span></h3><p><span data-i18n="files-editing-11">files-editing-11</span></p></article>
-      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m4 18 5-5 3 3 3-3 5 5"/></svg></div><h3><span data-i18n="files-editing-12">files-editing-12</span></h3><p><span data-i18n="files-editing-13">files-editing-13</span></p></article>
-      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h9M19 8h1M4 16h3M13 16h7"/><circle cx="16" cy="8" r="2.2"/><circle cx="10" cy="16" r="2.2"/></svg></div><h3><span data-i18n="files-editing-14">files-editing-14</span></h3><p><span data-i18n="files-editing-15">files-editing-15</span></p></article>
-    </div>
-  </div></section>
-
-  <section class="sec alt" id="files-naming" data-section="files-naming"><div class="wrap">
-    <p class="kick"><span data-i18n="files-naming-01">files-naming-01</span></p>
-    <h2 class="st"><span data-i18n="files-naming-02">files-naming-02</span></h2>
-    <ul class="tick">
-      <li><span data-i18n="files-naming-03">files-naming-03</span></li>
-      <li><span data-i18n="files-naming-04">files-naming-04</span></li>
-      <li><span data-i18n="files-naming-05">files-naming-05</span></li>
-      <li><span data-i18n="files-naming-06">files-naming-06</span></li>
-      <li><span data-i18n="files-naming-07">files-naming-07</span></li>
-    </ul>
-  </div></section>
-</section>
-
 </main>
 <!-- ===== Footer ===== -->
 <footer class="ftr"><div class="wrap">
   <div class="ftr-grid">
     <div><h4 data-i18n="brandName">brandName</h4><p style="font-size:14px" data-i18n="fNote">fNote</p></div>
-    <div><h4 data-i18n="fNav">fNav</h4><a href="#bio" data-i18n="nBio">nBio</a><a href="#library" data-i18n="nLib">nLib</a><a href="#courses" data-i18n="nCourses">nCourses</a><a href="#media" data-i18n="nMedia">nMedia</a><a href="#events"><span data-i18n="files-naming-08">files-naming-08</span></a><a href="#egov-days"><span data-i18n="files-naming-09">files-naming-09</span></a><a href="#documents"><span data-i18n="files-naming-10">files-naming-10</span></a><a href="#archive"><span data-i18n="files-naming-11">files-naming-11</span></a><a href="#site-files"><span data-i18n="files-naming-12">files-naming-12</span></a></div>
+    <div><h4 data-i18n="fNav">fNav</h4><a href="#bio" data-i18n="nBio">nBio</a><a href="#library" data-i18n="nLib">nLib</a><a href="#courses" data-i18n="nCourses">nCourses</a><a href="#media" data-i18n="nMedia">nMedia</a><a href="#events"><span data-i18n="global-33">global-33</span></a><a href="#egov-days"><span data-i18n="global-34">global-34</span></a><a href="#documents"><span data-i18n="global-35">global-35</span></a></div>
     <div><h4 data-i18n="fContact">fContact</h4><a href="mailto:svchukut@gmail.com">svchukut@gmail.com</a><a href="https://www.linkedin.com/in/svitlana-chukut" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com/citations?user=PUKuQ8QAAAAJ" target="_blank" rel="noopener">Google Scholar</a><a href="https://www.youtube.com/@electronic_governance" target="_blank" rel="noopener">YouTube</a></div>
   </div>
   <div class="base"><span data-i18n="rights">rights</span><span data-i18n="madeWith">madeWith</span></div>
@@ -2125,7 +1958,7 @@
       <button type="button" class="cv-close" id="cvClose" aria-label="Close — Fermer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
     </div>
     <p class="cv-sum" id="cvSum" hidden><!-- filled at runtime --></p>
-    <p class="cv-hint" id="cvHint"><span data-i18n="files-naming-13">files-naming-13</span></p>
+    <p class="cv-hint" id="cvHint"><span data-i18n="global-36">global-36</span></p>
     <div class="cv-pages" id="cvPages"><!-- filled at runtime --></div>
   </div>
 </div>
@@ -2140,7 +1973,7 @@
       <button type="button" class="cv-close" id="fvClose" aria-label="Close — Fermer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
     </div>
     <div class="fv-body" id="fvBody"><!-- filled at runtime --></div>
-    <p class="fv-alt"><a id="fvDirect" href="#"><span data-i18n="files-naming-14">files-naming-14</span></a></p>
+    <p class="fv-alt"><a id="fvDirect" href="#"><span data-i18n="global-37">global-37</span></a></p>
   </div>
 </div>
 
@@ -2150,7 +1983,7 @@
      explains its own format at the top:
        assets/content-texts.js    texts (SHARED labels + PAGE dictionary)
        assets/content-library.js  publication catalogue (LIB)
-       assets/content-files.js    file inventory (IMGS, NONIMG) ===== -->
+     ===== -->
 <script src="assets/content-texts.js">/* external script */</script>
 <script src="assets/content-scholar.js">/* external script */</script>
 <script src="assets/content-certificates.js">/* external script */</script>
@@ -2165,10 +1998,7 @@
 <script src="assets/content-page-partners.js">/* external script */</script>
 <script src="assets/content-page-documents.js">/* external script */</script>
 <script src="assets/content-page-contact.js">/* external script */</script>
-<script src="assets/content-page-archive.js">/* external script */</script>
-<script src="assets/content-page-site-files.js">/* external script */</script>
 <script src="assets/content-library.js">/* external script */</script>
-<script src="assets/content-files.js">/* external script */</script>
 <script src="assets/page-after.js">/* external script */</script>
 <script src="assets/router.js">/* external script */</script>
 <script src="assets/page-home-library.js">/* external script */</script>
@@ -2177,7 +2007,6 @@
 <script src="assets/subtitles.js">/* external script */</script>
 <script src="assets/page-media-subtitles.js">/* external script */</script>
 
-<script src="assets/page-archive-grid.js">/* external script */</script>
 
 </body>
 </html>

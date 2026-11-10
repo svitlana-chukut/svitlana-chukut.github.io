@@ -1,7 +1,7 @@
 /* ================================================================
    ROUTER - hash routing for the single-page site
    ================================================================
-   Behaviour, no content: maps the URL hash to one of the twelve
+   Behaviour, no content: maps the URL hash to one of the ten
    <section class="page"> pages in index.html (SC_show), keeps
    the browser-tab title, the active menu state and Back/Forward
    scroll restoration in step. Page tab titles are content:
@@ -12,9 +12,9 @@
    tab title, active-menu state), deep-link hand-off and the
    Back/Forward scroll restoration further below ---- */
 (function(){
-  var PAGES=["home","bio","library","courses","media","events","egov-days","partners","documents","contact","archive","site-files"];
+  var PAGES=["home","bio","library","courses","media","events","egov-days","partners","documents","contact"];
   var TITLES=window.PAGE_TITLES||{}; /* page tab titles are content: PAGE_TITLES in assets/content-texts.js */
-  var ANCHORS={"courses-public":"courses","courses-list":"courses","courses-disciplines":"courses","courses-teaching":"courses","courses-kpi":"courses","courses-george-brown":"courses","courses-gbc":"courses","media-talks":"media","media-events":"media","events-list":"events","events-gallery":"events","egov-story":"egov-days","egov-editions":"egov-days","egov-sponsors":"egov-days","egov-gallery":"egov-days","egov-archive":"egov-days","egov-sources":"egov-days","lib-book":"library","lib-catalogue":"library","partners-grid":"partners","contact-cards":"contact","home-quick":"home","home-download":"home","contact-download":"contact","docs-resume":"documents","docs-list":"documents","docs-add":"documents","archive-folders":"archive","archive-analysis":"archive","archive-review":"archive","files-download":"site-files","files-structure":"site-files","files-editing":"site-files","files-naming":"site-files"};
+  var ANCHORS={"courses-public":"courses","courses-list":"courses","courses-disciplines":"courses","courses-teaching":"courses","courses-kpi":"courses","courses-george-brown":"courses","courses-gbc":"courses","media-talks":"media","media-events":"media","events-list":"events","events-gallery":"events","egov-story":"egov-days","egov-editions":"egov-days","egov-sponsors":"egov-days","egov-gallery":"egov-days","egov-archive":"egov-days","egov-sources":"egov-days","lib-book":"library","lib-catalogue":"library","partners-grid":"partners","contact-cards":"contact","home-quick":"home","home-download":"home","contact-download":"contact","docs-resume":"documents","docs-list":"documents","docs-add":"documents"};
   function validTarget(h){
     if(!h) return null;
     if(PAGES.indexOf(h)>=0) return {page:h,anchor:""};
@@ -119,7 +119,9 @@
      check is a no-op, so this never re-lands or fights hashchange. */
   function syncRoute(){
     var h=location.hash||"";
-    if(h&&!validTarget(h.slice(1))) return;
+    /* An unknown hash (a removed page, a stale link) is not skipped:
+       route() defaults it to Home, so the visitor lands there instead
+       of staying on the previous page or facing a blank view. */
     var r=route(), cur=document.querySelector(".page.on");
     if(!cur||cur.id!=="page-"+r.page||h!==lastHash) window.SC_show();
   }
