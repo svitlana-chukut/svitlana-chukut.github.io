@@ -13,9 +13,51 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Svitlana Chukut",
-  "url": "https://muse.ai/s/space-xgxc5xqkawxqxva0/6vYRPfWyZ5fXahKTSGf4CbT1NM2_T1LVDVXX5qSiVEA",
-  "image": "https://muse.ai/s/space-xgxc5xqkawxqxva0/6vYRPfWyZ5fXahKTSGf4CbT1NM2_T1LVDVXX5qSiVEA/assets/hero.jpg",
+  "alternateName": [
+    "Svitlana Anatoliivna Chukut",
+    "Chukut, Svitlana",
+    "S. Chukut",
+    "S. A. Chukut",
+    "Світлана Чукут",
+    "Чукут Світлана Анатоліївна"
+  ],
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "ORCID",
+    "value": "0000-0001-9829-0218",
+    "url": "https://orcid.org/0000-0001-9829-0218"
+  },
+  "knowsAbout": [
+    "E-governance",
+    "E-democracy",
+    "Digital governance",
+    "Public administration",
+    "Information policy",
+    "Communication strategy",
+    "Smart cities",
+    "Digital transformation",
+    "Artificial intelligence in government",
+    "Curriculum development",
+    "Instructional design",
+    "Digital learning production",
+    "Academic quality assurance",
+    "Education policy analysis",
+    "Digital government policy analysis"
+  ],
   "jobTitle": "Professor",
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Curriculum Developer",
+    "occupationalCategory": {
+      "@type": "CategoryCode",
+      "codeValue": "41405",
+      "inCodeSet": {
+        "@type": "CategoryCodeSet",
+        "name": "National Occupational Classification (Canada), 2021"
+      },
+      "url": "https://noc.esdc.gc.ca/Structure/NocProfile?GocTemplateCulture=en-CA&code=41405&version=2021.0"
+    }
+  },
   "description": "The first woman in Ukraine to earn a Doctor of Sciences degree in Public Administration. Specialises in communication strategy, information policy and digital governance.",
   "email": "mailto:svchukut@gmail.com",
   "address": {
@@ -40,6 +82,10 @@
     "https://www.facebook.com/sv.ch.391"
   ]
 };
+  if (location.protocol === "https:" || location.protocol === "http:") {
+    data.url = new URL(".", location.href).href;
+    data.image = new URL("assets/hero.jpg", data.url).href;
+  }
   var el = document.createElement("script");
   el.type = "application/ld+json";
   el.textContent = JSON.stringify(data);

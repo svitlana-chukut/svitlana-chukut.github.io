@@ -14,11 +14,20 @@
 (function(){
   var PAGES=["home","bio","library","courses","media","events","egov-days","partners","documents","contact"];
   var TITLES=window.PAGE_TITLES||{}; /* page tab titles are content: PAGE_TITLES in assets/content-texts.js */
-  var ANCHORS={"courses-public":"courses","courses-list":"courses","courses-disciplines":"courses","courses-teaching":"courses","courses-kpi":"courses","courses-george-brown":"courses","courses-gbc":"courses","media-talks":"media","media-events":"media","events-list":"events","events-gallery":"events","egov-story":"egov-days","egov-editions":"egov-days","egov-sponsors":"egov-days","egov-gallery":"egov-days","egov-archive":"egov-days","egov-sources":"egov-days","lib-book":"library","lib-catalogue":"library","partners-grid":"partners","contact-cards":"contact","home-quick":"home","home-download":"home","contact-download":"contact","docs-resume":"documents","docs-list":"documents","docs-add":"documents"};
+  var ANCHORS={"courses-public":"courses","courses-kpi":"courses","courses-napa":"courses","courses-medical":"courses","courses-teaching":"courses","courses-george-brown":"courses","courses-gbc":"courses","media-talks":"media","media-events":"media","events-list":"events","events-gallery":"events","egov-story":"egov-days","egov-editions":"egov-days","egov-sponsors":"egov-days","egov-gallery":"egov-days","egov-archive":"egov-days","egov-sources":"egov-days","lib-book":"library","lib-catalogue":"library","partners-grid":"partners","contact-cards":"contact","home-quick":"home","home-download":"home","contact-download":"contact","docs-resume":"documents","docs-list":"documents","docs-add":"documents",
+    "contact-ontario":"contact",
+    "target-curriculum-developer":"contact",
+    "target-instructional-designer":"contact",
+    "target-digital-learning-producer":"contact",
+    "target-academic-quality-assurance":"contact",
+    "target-education-policy-analyst":"contact",
+    "target-digital-government-policy-analyst":"contact",
+    "career-curriculum":"bio"
+  };
   function validTarget(h){
     if(!h) return null;
     if(PAGES.indexOf(h)>=0) return {page:h,anchor:""};
-    if(/^bio-(story|education|career|awards|certificates|projects|research|supervision|expertise|editorial|volunteering|collaboration|skills|recommendations|legacy)$/.test(h)) return {page:"bio",anchor:h};
+    if(/^bio-(statements|statement-teaching|statement-research|story|education|career|awards|certificates|projects|research|supervision(?:-doctoral|-masters|-student)?|expertise|editorial|volunteering|collaboration|skills|recommendations|legacy)$/.test(h)) return {page:"bio",anchor:h};
     if(ANCHORS[h]) return {page:ANCHORS[h],anchor:h};
     return null;
   }

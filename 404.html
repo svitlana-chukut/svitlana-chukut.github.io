@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081c33">
+  <meta name="robots" content="noindex">
+  <title>Page not found | Svitlana Chukut</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --background: #f8f6f0;
+      --surface: #fffefa;
+      --heading: #10263e;
+      --text: #40576c;
+      --border: #d4cab6;
+      --accent-text: #6a4b08;
+      --focus: #755100;
+      --navy: #081c33;
+      --gold: #d3a52b;
+      --light-gold: #f2cf73;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --background: #071321;
+        --surface: #102943;
+        --heading: #f5f0e4;
+        --text: #c4cfdd;
+        --border: #375774;
+        --accent-text: #f2cf73;
+        --focus: #f2cf73;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --background: #071321;
+      --surface: #102943;
+      --heading: #f5f0e4;
+      --text: #c4cfdd;
+      --border: #375774;
+      --accent-text: #f2cf73;
+      --focus: #f2cf73;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font: 1rem/1.55 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    header {
+      background: var(--navy);
+      border-bottom: 1px solid var(--gold);
+      color: #f2ede1;
+    }
+
+    .wrap { width: min(100% - 2rem, 70rem); margin-inline: auto; }
+    .brand { display: flex; align-items: center; gap: .7rem; padding-block: .7rem; font-weight: 650; }
+    .mark, .home { background: linear-gradient(135deg, var(--light-gold), var(--gold)); color: var(--navy); }
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 2.1rem;
+      aspect-ratio: 1;
+      border-radius: .5rem;
+      font-size: .8rem;
+    }
+
+    main { padding-block: clamp(1rem, 8vh, 4rem); }
+    .card {
+      max-width: 38rem;
+      margin-inline: auto;
+      padding: clamp(1rem, 5vw, 2.5rem);
+      border: 1px solid var(--border);
+      border-radius: .875rem;
+      background: var(--surface);
+    }
+
+    .code { margin: 0 0 .45rem; color: var(--accent-text); font-size: .875rem; font-weight: 750; }
+    h1 {
+      margin: 0;
+      color: var(--heading);
+      font-size: clamp(1.75rem, 6vw, 2.75rem);
+      line-height: 1.12;
+      letter-spacing: -.025em;
+    }
+
+    .detail { margin: .65rem 0 1rem; max-width: 38ch; }
+    .home {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      min-height: 2.75rem;
+      padding: .55rem 1rem;
+      border-radius: .625rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .home:hover { text-decoration: underline; text-underline-offset: .2em; }
+    .home:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+    @media (max-height: 340px) {
+      main { padding-block: .6rem; }
+      .card { padding-block: .75rem; }
+      .detail { margin-block: .4rem .7rem; }
+    }
+  </style>
+  <script>
+    try {
+      const theme = localStorage.getItem("sc-theme");
+      if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+    } catch {}
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap brand"><span class="mark" aria-hidden="true">SC</span> Svitlana Chukut</div>
+  </header>
+  <main class="wrap">
+    <section class="card" aria-labelledby="page-title">
+      <p class="code">404</p>
+      <h1 id="page-title">Page not found</h1>
+      <p class="detail">This page may have moved or the address may be incorrect.</p>
+      <a class="home" href="/"><span aria-hidden="true">←</span><span class="home-label">Back to homepage</span></a>
+    </section>
+  </main>
+  <script>
+    const home = document.querySelector(".home");
+
+    if (/^fr(?:-|$)/i.test(navigator.language)) {
+      document.documentElement.lang = "fr";
+      document.title = "Page introuvable | Svitlana Chukut";
+      document.querySelector("h1").textContent = "Page introuvable";
+      document.querySelector(".detail").textContent = "Cette page a peut-être été déplacée ou son adresse est incorrecte.";
+      document.querySelector(".home-label").textContent = "Retour à l’accueil";
+    }
+
+    if (location.protocol === "file:") {
+      home.href = "./index.html";
+    } else {
+      // GitHub Pages project sites are mounted under /repository/. Confirm
+      // the candidate homepage before linking to it, since the first path
+      // segment can also belong to a missing URL on a root site.
+      const segment = location.pathname.split("/")[1];
+      if (segment) {
+        const projectHome = "/" + segment + "/";
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 1800);
+        const destination = fetch(projectHome + "index.html", { signal: controller.signal })
+          .then(response => response.ok ? response.text() : "")
+          .then(markup => {
+            if (markup.includes('id="page-home"') && markup.includes("<title>Svitlana Chukut")) home.href = projectHome;
+          })
+          .catch(() => {})
+          .finally(() => clearTimeout(timeout));
+
+        home.addEventListener("click", event => {
+          if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          destination.then(() => location.assign(home.href));
+        });
+      }
+    }
+  </script>
+</body>
+</html>

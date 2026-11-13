@@ -407,8 +407,8 @@
   var reduceM=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   var T={
-    fr:{ph:"Rechercher sur tout le site…",hint:"Recherche tolérante : fautes de frappe, synonymes et autres langues sont acceptés. Elle couvre les 215 publications, le CV complet, l'archive de documents, les certificats, les distinctions, les cours, les événements, les partenaires et les contacts.",none:"Aucun résultat",noneHint:"Même la recherche tolérante n'a rien trouvé pour « {q} ». Essayez un mot plus large — un thème, une organisation ou une année."},
-    en:{ph:"Search the whole site…",hint:"Forgiving search: typos, synonyms and other languages are fine. It covers all 215 publications, the full résumé, the document archive, certificates, awards, courses, events, partners and contacts.",none:"No results",noneHint:"Even the forgiving search found nothing for “{q}”. Try a broader word — a topic, an organisation or a year."}
+    fr:{ph:"Rechercher sur tout le site…",hint:"Recherche tolérante : fautes de frappe, synonymes et autres langues sont acceptés. Elle couvre les 219 publications, le CV complet, l'archive de documents, les certificats, les distinctions, les cours, les événements, les partenaires et les contacts.",none:"Aucun résultat",noneHint:"Même la recherche tolérante n'a rien trouvé pour « {q} ». Essayez un mot plus large — un thème, une organisation ou une année."},
+    en:{ph:"Search the whole site…",hint:"Forgiving search: typos, synonyms and other languages are fine. It covers all 219 publications, the full résumé, the document archive, certificates, awards, courses, events, partners and contacts.",none:"No results",noneHint:"Even the forgiving search found nothing for “{q}”. Try a broader word — a topic, an organisation or a year."}
   };
   var LABELS={
     home:{fr:"Accueil",en:"Home"},bio:{fr:"Biographie",en:"Biography"},
@@ -499,7 +499,7 @@
       });
     });
     var scholar=document.getElementById("contact-scholar");
-    if(scholar){ var SC=(typeof SCHOLAR!=="undefined")?SCHOLAR:{works:94,citations:{fr:"1 954",en:"1,954"},hIndex:20}; INDEX.push({el:scholar,fr:"Google Scholar — "+SC.works+" travaux · "+SC.citations.fr+" citations · indice h "+SC.hIndex,en:"Google Scholar — "+SC.works+" works · "+SC.citations.en+" citations · h-index "+SC.hIndex,text:"google scholar citations h-index profil academique academic profile",yearFr:"",yearEn:"",label:"contact"}); }
+    if(scholar){ var SC=(typeof SCHOLAR!=="undefined")?SCHOLAR:{works:94,citations:{fr:"1 956",en:"1,956"},hIndex:20}; INDEX.push({el:scholar,fr:"Google Scholar — "+SC.works+" travaux · "+SC.citations.fr+" citations · indice h "+SC.hIndex,en:"Google Scholar — "+SC.works+" works · "+SC.citations.en+" citations · h-index "+SC.hIndex,text:"google scholar citations h-index profil academique academic profile",yearFr:"",yearEn:"",label:"contact"}); }
     var resumeEl=document.getElementById("home-download");
     if(resumeEl) INDEX.push({el:resumeEl,fr:"CV complet sur demande — pour les employeurs, en anglais et en français, par courriel ou LinkedIn",en:"Full résumé, on request — for employers, in English and French, by email or LinkedIn",text:"cv resume résumé curriculum vitae demande request employeur employeurs employer employers courriel email linkedin anglais francais english french academic complet full",yearFr:"2026",yearEn:"2026",label:"docs"});
     var docsListEl=document.getElementById("docs-list");
@@ -947,6 +947,8 @@
     chips.forEach(function(b){
       b.addEventListener("click", function(){ sec.setAttribute("data-dcat", b.getAttribute("data-dcat")||"all"); paint(); });
     });
+    var rst=document.getElementById("docReset");
+    if(rst) rst.addEventListener("click", function(){ sec.setAttribute("data-dcat", "all"); paint(); });
     if(window.MutationObserver){
       new MutationObserver(paint).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
     }
@@ -988,11 +990,28 @@
       if(card) t = pickText(card.querySelector("h3, b"));
     }
     titleEl.textContent = t;
-    if(hintEl) hintEl.hidden = slug.indexOf("photo-") === 0;
+    if(hintEl){
+      var note = hintEl.querySelector("[data-i18n]");
+      var french = lang() === "fr";
+      hintEl.hidden = slug.indexOf("photo-") === 0;
+      if(d.exportPreview){
+        note.textContent = french ? "Aperçu du document disponible." : "Document preview available.";
+      } else if(d.sourceLanguage === "en" && french && !d.pagesFr){
+        note.textContent = "Document disponible en anglais.";
+      } else {
+        var labels = PAGE[lang()];
+        note.textContent = labels && labels["global-36"] || (french ? "Ouvrir une page." : "Open a page.");
+      }
+    }
     if(d.sum){ sumEl.textContent = d.sum[lang()]; sumEl.hidden = false; }
     else { sumEl.textContent = ""; sumEl.hidden = true; }
     pagesEl.innerHTML = "";
-    d.pages.forEach(function(src, i){
+    /* a document with translated versions (pagesFr / pagesEn in the
+       registry, e.g. the curriculum portfolio and the Electronic
+       Governance programme presentation) opens the pages in the
+       current page language — the CV pattern */
+    var pageSet = (lang() === "fr" && d.pagesFr) ? d.pagesFr : (lang() === "en" && d.pagesEn) ? d.pagesEn : d.pages;
+    pageSet.forEach(function(src, i){
       var a = document.createElement("a");
       a.href = src;
       a.target = "_blank";
@@ -1095,6 +1114,7 @@
     var a = e.target.closest ? e.target.closest('a[href^="assets/"]') : null;
     if(!a) return;
     if(viewer.contains(a)) return; /* the viewer's own "open directly" link must really navigate */
+    if(a.hasAttribute("download")) return; /* a true download (the CV) downloads — it does not open in this viewer */
     var src = a.getAttribute("href");
     if(!src) return;
     e.preventDefault();

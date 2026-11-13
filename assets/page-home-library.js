@@ -17,18 +17,38 @@ function HOME_AFTER(d,lang){
   function rs(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;pts=[];for(var i=0;i<70;i++)pts.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.6+.4,s:Math.random()*.4+.1});}
   rs(); addEventListener("resize",rs);
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  (function an(){x.clearRect(0,0,W,H);x.fillStyle="rgba(240,212,136,.7)";pts.forEach(function(p){if(!reduceMotion){p.y-=p.s;if(p.y<0)p.y=H;}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill();});if(!reduceMotion)requestAnimationFrame(an);})();
+  (function an(){x.clearRect(0,0,W,H);x.fillStyle="rgba(231,200,115,.7)";pts.forEach(function(p){if(!reduceMotion){p.y-=p.s;if(p.y<0)p.y=H;}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill();});if(!reduceMotion)requestAnimationFrame(an);})();
 }
 
-/* Publication library: 215 records, ordered newest first — strictly
+/* Publication library: 219 records, ordered newest first — strictly
    descending by year, stable within a year (source order kept).
    The renderer also re-sorts descending after every filter/search. */
 /* Catalogue data — one line per publication, newest first.
    Fields: [type, year, FR title, EN title, FR source, EN source,
-   FR co-authors, EN co-authors, URL, citations (optional)].
+   FR co-authors, EN co-authors, URL, citations,
+   FR description, EN description, APA reference (EN), APA reference (FR), optional book reference key].
+   Cards show the description and the APA reference below the title when provided.
    Types: art (article), conf, talk, proj, book… as in the filter list. */
 /* The catalogue data itself (const LIB) lives in
    assets/content-library.js - add publications there. */
+
+// Format descriptions as readable paragraphs without interpreting them as HTML.
+function libraryDescription(text) {
+  return text.split(/\n\s*\n/).map(function (paragraph) {
+    return "<p>" + paragraph.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>";
+  }).join("");
+}
+
+// Use the same description and APA reference on the corresponding book card.
+LIB.forEach(function (record) {
+  var referenceKey = record[14];
+  if (!referenceKey) return;
+  var descriptionKey = referenceKey.replace(/^apa-/, "description-");
+  PAGE.en[referenceKey] = record[12];
+  PAGE.fr[referenceKey] = record[13];
+  PAGE.en[descriptionKey] = libraryDescription(record[11]);
+  PAGE.fr[descriptionKey] = libraryDescription(record[10]);
+});
 
 function LIB_AFTER(d,lang){
   document.title = lang==="fr" ? "Bibliothèque des publications — Svitlana Chukut" : "Publication library — Svitlana Chukut";
@@ -75,7 +95,7 @@ function render(d,lang){
   out.sort(function(a,b){var ya=parseInt((a[1]||"").slice(0,4),10)||0, yb=parseInt((b[1]||"").slice(0,4),10)||0; return yb-ya;});
   var sig=q+"|"+c+"|"+dec+"|"+lang; if(sig!==_libSig){_libSig=sig;LIB_SHOW=24;}
   var g=document.getElementById("grid");
-  g.innerHTML=out.slice(0,LIB_SHOW).map(function(r){
+  g.innerHTML=out.slice(0,LIB_SHOW).map(function(r,idx){
     var t=lang==="fr"?r[2]:r[3], s=lang==="fr"?r[4]:r[5];
     /* fall back to the other language slot when a translation is absent,
        so a card never renders without its title or source */
@@ -86,13 +106,39 @@ function render(d,lang){
     var meta=[d["licat_"+r[0]]||r[0],r[1],s].filter(Boolean).join(" · ");
     var cit=r[9];
     if(cit!==undefined&&cit!==""&&cit!==null){ meta+=' · <span class="lib-cit">'+(lang==="fr"?"Citations : ":"Citations: ")+cit+'</span>'; }
-    var link=url?(' <a href="'+url+'" target="_blank" rel="noopener" aria-label="Open source">↗</a>'):"";
+    var link=url?(' <a href="'+url+'" target="_blank" rel="noopener" aria-label="'+d.libOpenSource+'">↗</a>'):"";
+    /* short description: fields 10 (FR) / 11 (EN), with the same
+       cross-language fallback as the title. Rendered collapsed
+       behind a per-card toggle so the list stays scannable by
+       title; the text itself stays in the DOM (hidden), and the
+       button carries aria-expanded / aria-controls. Cards without
+       a description get no toggle at all. The label is the same
+       word in both site languages: "Description". */
+    var desc=lang==="fr"?r[10]:r[11]; if(!desc) desc=lang==="fr"?r[11]:r[10];
+    var descHtml="";
+    if(desc){
+      var did="libd-"+idx;
+      descHtml='<button type="button" class="lib-desc-btn" aria-expanded="false" aria-controls="'+did+'"><span>Description</span><span class="lib-desc-chev" aria-hidden="true"></span></button>'
+        +'<div class="d" id="'+did+'" hidden>'+libraryDescription(desc)+'</div>';
+    }
+    var apa = lang === "fr" && r[13] ? r[13] : r[12];
+    var apaHtml = apa ? '<p class="apa"><span class="apa-label">'+d.libApaLabel+'</span>'+apa+'</p>' : "";
     var img="";
     var coverSrc=(r[1]==="2022" && /Fondements de l’administration électronique|Fundamentals of Electronic Governance/.test(t))?"assets/books/osnovy-egu-2022-titlepage.jpg":(r[1]==="2007" && /Politique d’information en Ukraine : support de cours|Information policy in Ukraine: lecture outline/.test(t))?"assets/books/info-policy.jpg":(r[1]==="2008" && /Politique d’information : manuel|Information Policy: a textbook/.test(t))?"assets/books/info-policy-textbook-cover.jpg":(r[1]==="2008" && /Expérience nationale et étrangère|Domestic and foreign experience/.test(t))?"assets/books/egov-2008.jpg":"";
     if(coverSrc) img='<img class="lib-cover" src="'+coverSrc+'" alt="'+t.replace(/"/g,"&quot;")+'">';
     var badge=r[0]==="cert"?'<div class="lib-badge">'+(lang==="fr"?"CERTIFICAT":"CERTIFICATE")+'</div>':"";
-    return '<div class="lib-it '+(img||badge?'visual':'')+'">'+img+badge+'<div class="lib-copy"><div class="t">'+t+link+'</div><div class="m">'+meta+'</div></div></div>';
+    return '<div class="lib-it '+(img||badge?'visual':'')+'">'+img+badge+'<div class="lib-copy"><div class="t">'+t+link+'</div>'+descHtml+apaHtml+'<div class="m">'+meta+'</div></div></div>';
   }).join("");
+  /* description toggles: expand/collapse this card's description */
+  g.querySelectorAll(".lib-desc-btn").forEach(function(b){
+    b.addEventListener("click",function(){
+      var p=document.getElementById(b.getAttribute("aria-controls"));
+      if(!p) return;
+      var open=b.getAttribute("aria-expanded")==="true";
+      b.setAttribute("aria-expanded", open?"false":"true");
+      p.hidden=open;
+    });
+  });
   var emptyEl=document.getElementById("libEmpty");
   if(emptyEl) emptyEl.hidden = out.length>0;
   var cntEl=document.getElementById("cnt");
