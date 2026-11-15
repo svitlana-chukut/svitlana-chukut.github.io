@@ -39,6 +39,40 @@ function libraryDescription(text) {
   }).join("");
 }
 
+// Keep citation access consistent between the bibliography and selected books.
+function publicationCitation(record, lang) {
+  if (["art", "book", "conf", "stu"].indexOf(record[0]) < 0) return "";
+  if (/^(?:Editor-in-chief|Editorial board member|Copyright certificate|Organiser of|Programme and organising committees member)/i.test(record[3] || "")) return "";
+  var scholarNote = LIB_SCHOLAR_NOTES[record[1] + "|" + record[3]];
+  var count = record[9];
+  var available = count !== "" && count !== null && count !== undefined &&
+    Number.isInteger(Number(count)) && Number(count) >= 0;
+  var label = lang === "fr" ? "Profil Google Scholar de Svitlana Chukut" : "Svitlana Chukut’s Google Scholar profile";
+  var citationLabel = Number(count) === 1 ? "citation" : "citations";
+  var total = available ? '<span class="lib-cit"><strong>' +
+    Number(count).toLocaleString(lang === "fr" ? "fr-CA" : "en-CA") +
+    '</strong> <span>' + citationLabel + '</span></span>' : "";
+  var href = SCHOLAR.profileUrl;
+  var note = scholarNote && scholarNote[lang];
+  var noteHtml = note ? '<span class="scholar-record-note">' + note + "</span>" : "";
+  return total + '<a href="' + href + '" target="_blank" rel="noopener">' + label + '</a>' + noteHtml;
+}
+
+const ARTICLE_TRANSLATIONS = new Map([
+  ["2016|Implementing e-governance amid network warfare", "network-warfare"],
+  ["2023|Organising e-service delivery in Ukraine during wartime", "wartime-e-services"],
+]);
+
+function articleTranslationLinks(record, lang) {
+  const slug = ARTICLE_TRANSLATIONS.get(record[1] + "|" + record[3]);
+  if (!slug) return "";
+  const label = lang === "fr" ? "Lire en traduction" : "Read the translation";
+  return '<div class="publication-translations policy-document-actions" role="group" aria-label="' +
+    label + '"><a class="text-link" href="article-translations/' + slug +
+    '-en.html" lang="en" hreflang="en">English</a><a class="text-link" href="article-translations/' +
+    slug + '-fr.html" lang="fr" hreflang="fr">Français</a></div>';
+}
+
 // Use the same description and APA reference on the corresponding book card.
 LIB.forEach(function (record) {
   var referenceKey = record[14];
@@ -48,6 +82,9 @@ LIB.forEach(function (record) {
   PAGE.fr[referenceKey] = record[13];
   PAGE.en[descriptionKey] = libraryDescription(record[11]);
   PAGE.fr[descriptionKey] = libraryDescription(record[10]);
+  var citationKey = referenceKey.replace(/^apa-/, "citation-");
+  PAGE.en[citationKey] = publicationCitation(record, "en");
+  PAGE.fr[citationKey] = publicationCitation(record, "fr");
 });
 
 function LIB_AFTER(d,lang){
@@ -104,8 +141,8 @@ function render(d,lang){
        (older records keep it in r[7], newer ones in r[8]) */
     var url=""; [r[8],r[7],r[6]].forEach(function(v){ if(!url&&typeof v==="string"&&/^https?:\/\//.test(v)) url=v; });
     var meta=[d["licat_"+r[0]]||r[0],r[1],s].filter(Boolean).join(" · ");
-    var cit=r[9];
-    if(cit!==undefined&&cit!==""&&cit!==null){ meta+=' · <span class="lib-cit">'+(lang==="fr"?"Citations : ":"Citations: ")+cit+'</span>'; }
+    var citation=publicationCitation(r,lang);
+    var citationHtml=citation ? '<div class="scholar-citation">'+citation+'</div>' : "";
     var link=url?(' <a href="'+url+'" target="_blank" rel="noopener" aria-label="'+d.libOpenSource+'">↗</a>'):"";
     /* short description: fields 10 (FR) / 11 (EN), with the same
        cross-language fallback as the title. Rendered collapsed
@@ -127,7 +164,7 @@ function render(d,lang){
     var coverSrc=(r[1]==="2022" && /Fondements de l’administration électronique|Fundamentals of Electronic Governance/.test(t))?"assets/books/osnovy-egu-2022-titlepage.jpg":(r[1]==="2007" && /Politique d’information en Ukraine : support de cours|Information policy in Ukraine: lecture outline/.test(t))?"assets/books/info-policy.jpg":(r[1]==="2008" && /Politique d’information : manuel|Information Policy: a textbook/.test(t))?"assets/books/info-policy-textbook-cover.jpg":(r[1]==="2008" && /Expérience nationale et étrangère|Domestic and foreign experience/.test(t))?"assets/books/egov-2008.jpg":"";
     if(coverSrc) img='<img class="lib-cover" src="'+coverSrc+'" alt="'+t.replace(/"/g,"&quot;")+'">';
     var badge=r[0]==="cert"?'<div class="lib-badge">'+(lang==="fr"?"CERTIFICAT":"CERTIFICATE")+'</div>':"";
-    return '<div class="lib-it '+(img||badge?'visual':'')+'">'+img+badge+'<div class="lib-copy"><div class="t">'+t+link+'</div>'+descHtml+apaHtml+'<div class="m">'+meta+'</div></div></div>';
+    return '<div class="lib-it '+(img||badge?'visual':'')+'">'+img+badge+'<div class="lib-copy"><div class="t">'+t+link+'</div>'+descHtml+apaHtml+'<div class="m">'+meta+'</div>'+articleTranslationLinks(r, lang)+citationHtml+'</div></div>';
   }).join("");
   /* description toggles: expand/collapse this card's description */
   g.querySelectorAll(".lib-desc-btn").forEach(function(b){

@@ -491,13 +491,13 @@ h1,h2,h3{text-wrap:balance}
 .book-feature p{color:var(--muted);font-size:16px;line-height:1.68;max-width:58ch}
 .archive-note{margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:14px!important}
 /* Books and bibliographic entries */
-.book-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:32px}
+.book-gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:32px}
 .book-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
 .book-card figure{padding:16px;background:var(--surface);border-bottom:1px solid var(--line-soft)}
 .book-card figure img{width:100%;aspect-ratio:3/4;object-fit:contain;object-position:center;border:1px solid var(--line-soft);border-radius:6px}
 .book-card figcaption{font-size:14px;color:var(--muted);margin-top:8px;text-align:center;line-height:1.5}
 .book-meta{padding:16px 24px 24px;display:flex;flex-direction:column;flex:1}
-.book-meta :is(h3,h4){color:var(--heading);font-size:20px;font-weight:650;line-height:1.2;letter-spacing:-.01em;margin:8px 0 8px}
+.book-meta :is(h3,h4){color:var(--heading);font-size:1.375rem;font-weight:700;line-height:1.25;letter-spacing:-.01em;margin:8px 0;overflow-wrap:anywhere}
 .book-meta p{color:var(--muted);font-size:14px;line-height:1.62;margin-bottom:16px}
 .book-description{margin:0 0 12px}
 .book-description summary{list-style:none}
@@ -527,7 +527,7 @@ html[data-theme="dark"] .book-card figcaption{color:#46536a}
    (--accent-dark: #7a5c0e on light, #e7c873 on dark) — the one
    colour in the palette made for gold as text: WCAG AA against
    the card surface in both themes (6.14:1 light, 9.07:1 dark) */
-.lib-it .t{font-weight:650;font-size:16px;color:var(--accent-dark);margin-bottom:4px;line-height:1.45}
+.lib-it .t{font-weight:700;font-size:1.25rem;color:var(--heading);margin-bottom:6px;line-height:1.3;overflow-wrap:anywhere}
 .lib-it .t a{color:var(--accent-dark);text-decoration:none}
 .lib-it .t a:hover{text-decoration:underline}
 .lib-it .d{font-size:14px;color:var(--muted);line-height:1.55;margin-bottom:8px}
@@ -549,7 +549,6 @@ html[data-theme="dark"] .book-card figcaption{color:#46536a}
 .lib-it .apa{overflow-wrap:anywhere;font-size:14px;color:var(--muted);line-height:1.55;margin:0 0 8px;padding:8px 0 0 16px;text-indent:-20px;border-top:1px solid var(--line-soft)}
 .lib-it .apa-label{display:inline-block;text-indent:0;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--accent-dark);background:var(--surface-2);border-radius:4px;padding:0px 4px;margin-right:8px;vertical-align:1px}
 .lib-it .m{font-size:14px;color:var(--muted);line-height:1.5}
-.lib-cit{color:var(--accent-dark);font-weight:600;white-space:nowrap}
 .scholar-panel{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r);padding:16px 24px;margin-bottom:24px}
 .scholar-panel-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:8px}
 .scholar-panel-title{font-size:16px;font-weight:700;color:var(--heading);margin:0}
@@ -662,11 +661,28 @@ a.media-it:hover,.media-it:hover{border-color:var(--line);box-shadow:var(--shado
 .media-it p{font-size:16px;color:var(--muted);line-height:1.6}
 
 /* ---------- events ---------- */
-.events-index{border-top:1px solid var(--line)}
+.chronology-controls{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:12px 16px;margin-top:24px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.chronology-search{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.chronology-controls input[type=search]{width:min(100%,16rem)}
+.chronology-controls select,.chronology-controls input[type=search]{min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--text);font:inherit}
+.chronology-checkbox{display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.chronology-checkbox input{width:1rem;height:1rem;accent-color:var(--accent-dark)}
+.chronology-count{margin-block:12px;font-size:.9rem;color:var(--muted)}
+.chronology-year{margin-block:24px 32px}
+.chronology-year>h3{padding:10px 16px;border-bottom:1px solid var(--line);background:var(--surface-2);color:var(--heading);font-size:1.25rem;font-variant-numeric:tabular-nums;border-radius:8px 8px 0 0}
+.chronology-year .event-record{grid-template-columns:minmax(108px,150px) minmax(0,1fr);gap:24px;padding:24px 16px;margin-inline:0}
+.event-record h4,.event-talk-title{overflow-wrap:anywhere}
+.event-talk-title>span:first-child,.event-workshop-heading{display:block;color:var(--accent-dark);font-size:.82rem;font-weight:700}
+.event-talk-title+.event-talk-title{margin-top:8px}
+.event-workshop-heading{margin-top:12px}
+.event-workshops{padding-inline-start:20px}
+.event-workshops a{margin-top:4px}
+@media(max-width:680px){.chronology-year .event-record{grid-template-columns:minmax(0,1fr);gap:8px;padding:18px 12px}.chronology-checkbox{flex-basis:100%}}
 .event-record{display:grid;grid-template-columns:180px minmax(0,1fr);gap:32px;padding:32px 0;border-bottom:1px solid var(--line-soft)}
 .event-record time{color:var(--accent-dark);font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
-.event-record h2{color:var(--heading);font-size:clamp(20px,2.4vw,25px);font-weight:650;line-height:1.25;letter-spacing:-.015em;margin:8px 0 8px}
+.event-record h4{color:var(--heading);font-size:clamp(20px,2.4vw,25px);font-weight:650;line-height:1.25;letter-spacing:-.015em;margin:8px 0 8px}
 .event-record p{color:var(--muted);font-size:14px;line-height:1.6}
+.event-talk-title{margin:12px 0 8px;padding-inline-start:12px;border-inline-start:2px solid var(--accent-dark);color:var(--heading);font-size:1.05rem;font-weight:650;line-height:1.45}
 .event-record a{display:inline-block;color:var(--accent-dark);font-size:14px;font-weight:600;margin-top:8px;text-underline-offset:3px}
 .event-record .event-card-open{margin-top:16px;max-width:440px}
 .event-record .event-card-open img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fffdf7;transition:box-shadow .15s ease}
@@ -996,7 +1012,6 @@ html[data-theme="dark"] .feature-story img{background:#fffdf7}
   .award-item time{font-size:20px}
   .award-item h3{font-size:16px}
   .compact-credentials article,.compact-credentials article:nth-child(even){padding:16px 0;border-left:0}
-  .book-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
   .photo-band{margin-top:24px}
   .photo-band img{aspect-ratio:16/10}
   .certificate-feature{grid-template-columns:1fr;gap:24px}
@@ -1414,7 +1429,7 @@ html{overflow-anchor:none}
 .bio-cv-meta{font-size:14px;font-weight:500;color:#bcc4d2}
 .ontario-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
 .ontario-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px 24px 24px;box-shadow:var(--shadow)}
-.ontario-item h3{font-size:20px;font-weight:700;letter-spacing:-.015em;line-height:1.2;color:var(--heading);margin-bottom:8px}
+.ontario-item h4{font-size:20px;font-weight:700;letter-spacing:-.015em;line-height:1.2;color:var(--heading);margin-bottom:8px}
 .ontario-item p{font-size:16px;line-height:1.65;color:var(--text)}
 .ontario-cta{margin-top:24px;display:flex;align-items:center;gap:16px 24px;flex-wrap:wrap;justify-content:space-between}
 .ontario-cta p{font-size:16px;line-height:1.65;color:var(--text);max-width:54ch}
@@ -1581,6 +1596,7 @@ a.tag-chip{text-decoration:none}
 .tag-copy-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:20px}
 .tag-copied{font-size:15px;font-weight:600;color:var(--accent-dark)}
 
+@media(max-width:1080px){.book-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.book-gallery,.book-register{grid-template-columns:1fr}}
 
 /* Graduate and doctoral supervision */
@@ -1708,3 +1724,410 @@ a.tag-chip{text-decoration:none}
 .scholarly-service-group .tl{margin-top:16px}
 .scholarly-service-group .tl-it h4{max-width:48ch;font-size:clamp(1.06rem,1.55vw,1.25rem)}
 .scholarly-service-group .tl-it .y{display:block}
+
+/* Keep source and photo links distinct in the event timeline. */
+.event-record a+a,.media-events-gateway .text-link+.text-link{margin-inline-start:12px}
+#bio-collaboration .cards{margin-block-end:24px}
+#bio-collaboration .cards .text-link{align-self:flex-start}
+
+/* Programme details on the E-Governance Days editions page. */
+.egov-programme{margin-block:20px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.egov-programme summary{cursor:pointer;padding:12px 16px;color:var(--accent-dark);font-weight:650}
+.egov-programme ol{list-style:none;padding:0 16px;margin:0}
+.year-copy .egov-programme li{display:grid;grid-template-columns:4ch minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.year-copy .egov-programme li::before{content:none}
+.egov-programme time{color:var(--accent-dark);font-weight:700;font-variant-numeric:tabular-nums}
+.egov-programme li strong{color:var(--heading)}
+.year-copy .egov-programme li p{font-size:.9rem;line-height:1.55;margin:4px 0 0}
+
+.egov-briefing{padding:12px 16px}
+.egov-briefing h4{margin:0 0 4px;color:var(--heading);font-size:1.05rem}
+.egov-briefing p+p{margin-top:8px}
+
+.image-preview-link{display:block;cursor:zoom-in}
+.image-preview-link:focus-visible{outline:2px solid var(--accent-dark);outline-offset:-3px}
+.fv-error{margin-block:12px;color:var(--text)}
+
+.chronology-controls{display:grid;grid-template-columns:minmax(12rem,2fr) minmax(7rem,1fr) auto auto;align-items:end;gap:12px}
+.chronology-search,.chronology-year-control{display:grid;gap:4px;min-width:0}
+.chronology-controls input[type=search],.chronology-controls select{width:100%;min-width:0}
+.chronology-reset{min-height:44px;padding:6px 12px;border:1px solid var(--control-border);border-radius:8px;background:var(--surface);color:var(--accent-dark);font:inherit;cursor:pointer}
+.chronology-year .event-record{margin-block:10px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.chronology-year .event-record time{font-size:.95rem;font-variant-numeric:tabular-nums;white-space:normal}
+.chronology-year .event-record .event-context{margin-block:4px;color:var(--muted)}
+.curriculum-portfolio{display:grid;grid-template-columns:minmax(130px,190px) minmax(0,1fr);padding:0;margin-block:24px;overflow:hidden}
+.curriculum-portfolio .doc-ph{height:100%;min-height:188px;border-bottom:0}
+.curriculum-portfolio-actions{display:flex;align-items:center;gap:8px 20px;flex-wrap:wrap;margin-top:12px}
+.curriculum-portfolio-actions .doc-dl,.curriculum-portfolio-actions .view-doc-link{margin:0}
+@media(max-width:850px){.chronology-controls{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.chronology-controls,.curriculum-portfolio{grid-template-columns:minmax(0,1fr)}}
+
+/* Research project sources and publication links */
+.research-projects .tl-it h4{max-width:64ch;text-wrap:pretty}
+.research-projects .tl-it p{max-width:72ch}
+.project-report{margin-block:12px 4px}
+.project-report summary{width:fit-content;max-width:100%;color:var(--accent-dark);font-weight:650;cursor:pointer}
+.project-report summary:focus-visible{outline:2px solid var(--accent-dark);outline-offset:4px}
+.project-report p{margin-top:10px}
+.coauthor-section{scroll-margin-top:var(--jump-offset, 140px)}
+.coauthor-section .subhead{margin-bottom:12px}
+.coauthor-section > p{margin-bottom:16px}
+.coauthor-list a{display:inline-block;margin-top:4px;overflow-wrap:anywhere}
+#bio-collaboration .card a + a{margin-inline-start:0}
+#bio-collaboration .card .collab-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:auto}
+
+/* Keep complete frames visible in documentary galleries. */
+.archive-gallery img,.gstrip.gallery-grid img,.arch-card img{display:block;object-fit:contain;object-position:center;background:var(--surface-2)}
+.photo-band > .image-preview-link img{display:block;aspect-ratio:auto;height:auto;max-height:580px;object-fit:contain;background:var(--surface-2)}
+.doc-ph > .image-preview-link{height:100%;max-width:100%}
+.doc-ph > .image-preview-link img{width:auto}
+.image-preview-link,.gal-open,.cv-page-file{position:relative}
+.image-preview-link::after,.gal-open::after,.cv-page-file::after{
+  content:"+";pointer-events:none;position:absolute;inset:auto 8px 8px auto;display:grid;place-items:center;
+  width:30px;height:30px;border-radius:50%;background:#122840;color:#fff;font:600 20px/1 system-ui;
+  box-shadow:0 0 0 1px rgba(255,255,255,.75);
+}
+.image-preview-link:hover::after,.gal-open:hover::after,.cv-page-file:hover::after{background:#274b70}
+.gstrip.gallery-grid figure .gal-open:hover img{transform:none}
+.gstrip.gallery-grid figure .gal-open:focus-visible{outline-offset:-3px}
+.fv-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px;margin-top:12px}
+.fv-toolbar .fv-alt{margin:0}
+.fv-zoom{min-height:44px;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);color:var(--heading);padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}
+.fv-zoom[aria-pressed="true"]{border-color:var(--accent-dark);box-shadow:inset 0 0 0 1px var(--accent-dark)}
+.fv-zoom:focus-visible,.fv-body:focus-visible{outline:2px solid var(--accent-dark);outline-offset:2px}
+.fv-body img{max-height:64dvh;object-fit:contain}
+.fv-body.is-actual-size{overflow:auto;max-height:64dvh}
+.fv-body.is-actual-size img{width:auto;max-width:none;max-height:none;margin:0 auto}
+
+/* Featured multi-year event inside the chronology. */
+.chronology-year .egov-forum-record {
+  grid-template-columns: minmax(0, 1fr);
+  padding: clamp(18px, 3vw, 32px);
+  background: var(--bg-alt);
+  border-inline-start: 4px solid var(--accent-dark);
+}
+.egov-forum-record .forum-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-block: 10px 12px;
+}
+.egov-forum-record .event-context { margin-bottom: 10px; }
+.egov-forum-record .forum-milestones {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0 8px;
+  padding: 0;
+  list-style: none;
+}
+.forum-milestones li {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.forum-milestones strong { color: var(--heading); }
+.forum-milestones p { margin-top: 4px; }
+.forum-links, .teaching-evidence {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+}
+.egov-forum-record .forum-links a + a { margin-inline-start: 0; }
+.teaching-evidence {
+  border-top: 1px solid var(--line-soft);
+  margin-top: 20px;
+  padding-top: 12px;
+}
+@media (max-width: 540px) {
+  .egov-forum-record .forum-milestones { grid-template-columns: minmax(0, 1fr); }
+}
+.forum-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 230px);
+  align-items: start;
+  gap: 18px 24px;
+}
+.forum-header figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.forum-header img { width: 100%; height: auto; }
+.forum-header figcaption { padding: 8px 10px; color: var(--muted); font-size: .82rem; }
+@media (max-width: 780px) {
+  .forum-header { grid-template-columns: minmax(0, 1fr); }
+  .forum-header figure { width: min(100%, 320px); }
+}
+
+/* Both language editions stay directly available on small screens. */
+.doc-dl.bilingual-downloads{display:flex;flex-wrap:wrap;gap:6px 16px}
+.doc-dl.bilingual-downloads a{max-width:100%}
+
+.event-record .presentation-actions{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 16px;margin-top:10px}
+.event-record .presentation-actions a,.event-record .presentation-actions .view-doc-link{margin:0}
+.event-record .presentation-actions .view-doc-link{font-size:14px}
+
+/* Teaching and curriculum development */
+.curriculum-section{margin-top:clamp(28px,5vw,50px)}
+.curriculum-section > p{max-width:78ch;line-height:1.65}
+.curriculum-section > .mini-h{margin:0 0 10px}
+.curriculum-links{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px}
+.curriculum-overview,.curriculum-catalogue{margin-top:14px}
+.curriculum-levels,.curriculum-practice-grid{display:grid;gap:14px;margin-top:16px}
+.curriculum-levels{grid-template-columns:repeat(3,minmax(0,1fr))}
+.curriculum-practice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.curriculum-level{min-width:0;padding:clamp(15px,2.3vw,24px);border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.curriculum-level h4{color:var(--heading);font-size:1.12rem;line-height:1.3}
+.curriculum-level h5{color:var(--heading);font-size:1rem;line-height:1.4}
+.curriculum-level p,.curriculum-level .tick{margin-top:10px;line-height:1.6}
+.curriculum-level .curriculum-links{margin-top:14px}
+.programme-entries{list-style:none;padding:0;margin:12px 0 0}
+.programme-entries li+li{margin-top:10px;padding-top:10px;border-top:1px solid var(--line-soft)}
+.programme-entries .programme-period{margin:4px 0 0;color:var(--muted);font-size:.88rem}
+.curriculum-history{margin-top:16px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+@media(max-width:850px){.curriculum-levels{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:680px){.curriculum-practice-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Policy and regulatory records */
+.policy-links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px}
+.policy-feature > p,.policy-panel > p{margin-top:10px}
+.policy-panel{padding:16px 18px;margin-block:16px}
+.policy-panel h4,.policy-panel h5{color:var(--heading);line-height:1.4}
+.policy-panel h4{font-size:1.1rem}
+.policy-panel h5{margin-top:14px;font-size:1rem}
+.policy-panel .policy-points{margin:8px 0 4px;padding-inline-start:1.2rem}
+.policy-panel .policy-points li{color:var(--text);line-height:1.6}
+.policy-panel .policy-points li+li{margin-top:7px}
+
+/* Archival attendance lists */
+.roster-chart,.roster-card{border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:clamp(14px,3vw,28px)}
+.roster-chart{margin-top:22px}
+.roster-chart h3,.roster-card h3{font-size:1.15rem;color:var(--heading)}
+.roster-key,.roster-sources{display:flex;flex-wrap:wrap;gap:8px 18px}
+.roster-key{list-style:none;margin:12px 0 20px;padding:0}
+.roster-key li{display:flex;gap:6px;align-items:center;font-size:.88rem}
+.roster-key i{width:12px;height:12px;border-radius:2px;flex:none}
+.roster-central{background:#3779b2}
+.roster-regions{background:#16846e}
+.roster-other{background:#b7611f}
+.roster-international{background:#8e62bc}
+.roster-bars{display:grid;gap:12px}
+.roster-row{display:grid;grid-template-columns:5.2rem minmax(0,1fr) 2.3rem;gap:8px;align-items:center;font-variant-numeric:tabular-nums;font-size:.95rem}
+.roster-row b{text-align:right}
+.roster-track{height:20px;display:flex;overflow:hidden;border-radius:4px;background:var(--surface-2)}
+.roster-track span{height:100%;flex:none}
+.roster-data{margin-top:18px}
+.roster-table-wrap{max-width:100%;overflow-x:auto;margin-top:10px}
+.roster-table-wrap table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.roster-table-wrap caption{text-align:start;margin-bottom:8px}
+.roster-table-wrap th,.roster-table-wrap td{padding:6px 9px;border-bottom:1px solid var(--line);text-align:start}
+.roster-method{margin-top:16px;color:var(--muted);font-size:.9rem;line-height:1.62}
+.roster-method h4{color:var(--heading)}
+.roster-method p+p,.roster-card p{margin-top:7px}
+.roster-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px;line-height:1.65}
+.roster-sources{margin-top:16px}
+@media(max-width:700px){.roster-cards{grid-template-columns:minmax(0,1fr)}}
+.roster-sector-bars{margin-top:16px}
+.roster-sector-row{display:grid;grid-template-columns:minmax(13rem,1fr) minmax(0,2fr) 2.4rem;align-items:center;gap:8px;font-size:.9rem}
+.roster-sector-row .roster-track span{background:#3779b2}
+.roster-sector-row b{text-align:right}
+.roster-report-role{margin-top:16px}
+@media(max-width:560px){
+  .roster-sector-row{grid-template-columns:minmax(0,1fr) 2.4rem;row-gap:4px}
+  .roster-sector-row .roster-track{grid-row:2;grid-column:1/-1;height:14px}
+}
+
+/* 2009 archival recommendations and programme records */
+.followup-panel p{margin-top:8px}
+.followup-entries{margin-top:14px;display:grid;gap:10px}
+.followup-entries > div{border-top:1px solid var(--line);padding-top:10px}
+.followup-entries dt{font-weight:700;color:var(--heading)}
+.followup-entries dd{margin:4px 0 0;line-height:1.6;color:var(--text)}
+
+/* 2011 forum participation by date */
+.egov-daily-stats{list-style:none;padding:0;margin:20px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.egov-daily-stats li{display:flex;flex-direction:column;gap:5px;border:1px solid var(--line);border-radius:var(--r);padding:14px;background:var(--surface);line-height:1.35}
+.egov-daily-stats b{color:var(--accent-dark);font-size:clamp(1.35rem,3vw,2rem);font-variant-numeric:tabular-nums}
+.egov-daily-directory{margin:28px 0}
+.egov-daily-directory > h3{color:var(--heading);font-size:1.35rem}
+.egov-daily-directory > p{margin:8px 0;max-width:76ch;line-height:1.6}
+.egov-daily-day{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);margin-top:10px}
+.egov-daily-day > summary{padding:12px 15px;cursor:pointer;color:var(--heading);font-weight:700;line-height:1.45}
+.egov-daily-day > summary time{display:inline-block;margin-inline:5px 12px;color:var(--accent-dark);min-width:4rem}
+.egov-daily-day > p,.egov-daily-grid{margin:0 16px 14px;line-height:1.55}
+.egov-daily-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 18px}
+.egov-daily-grid section{border-top:1px solid var(--line);padding-top:10px}
+.egov-daily-grid h4{color:var(--heading);font-size:.96rem}
+.egov-daily-grid ul{padding-inline-start:1.2rem;margin-top:5px}
+.egov-daily-grid li+li{margin-top:4px}
+.registration-only{display:block;color:var(--muted);font-size:.83rem}
+@media(max-width:600px){.egov-daily-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:440px){.egov-daily-stats{grid-template-columns:minmax(0,1fr)}.egov-daily-stats li{flex-direction:row;align-items:baseline;gap:10px}}
+
+/* Post-event participation figures */
+.egov-report-overview{margin:22px 0 32px}
+.egov-report-overview h3{font-size:1.2rem;color:var(--heading)}
+.egov-report-overview p{color:var(--muted);max-width:76ch}
+.egov-report-stats{grid-template-columns:repeat(4,minmax(0,1fr));margin:10px 0}
+.egov-report-stats li{flex-direction:column;align-items:flex-start}
+.egov-report-stats small{font-size:.84rem;color:var(--muted)}
+@media(max-width:750px){.egov-report-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:400px){.egov-report-stats{grid-template-columns:minmax(0,1fr)}}
+
+/* E-Governance Days programme and forum participants */
+.forum-analysis,.forum-contributors{margin:28px 0}
+.forum-analysis>h3,.forum-contributors>h3{color:var(--heading);font-size:1.35rem}
+.forum-themes{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:12px}
+.forum-analysis .roster-card{border-top:3px solid var(--accent)}
+.forum-themes h4,.forum-directory h4{margin:0;color:var(--heading);font-size:1.1rem;line-height:1.35}
+.forum-directory .roster-card ul{margin:12px 0 0;padding-inline-start:1.1rem}
+.forum-directory .roster-card li+li{margin-top:7px}
+.forum-sources .roster-sources{margin-top:12px}
+.forum-brand{display:grid;place-items:center;background:#fffdf7;min-height:72px;border-radius:10px;margin-bottom:13px;padding:12px}
+.forum-brand img{width:auto;height:auto;max-width:100%;max-height:53px;object-fit:contain}
+.forum-brand img[src$="media-trade-ukraine-2011.png"]{max-height:45px}
+@media(max-width:780px){.forum-themes{grid-template-columns:minmax(0,1fr)}}
+
+/* Reading paths for the E-Governance Days archive */
+.egov-rec-grid,.egov-sector-grid,.egov-partner-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:22px 0 0;
+}
+.egov-rec-grid .roster-card,.egov-sector-grid .roster-card{min-width:0}
+.egov-rec-grid .roster-card{border-top:3px solid var(--accent)}
+.egov-rec-header{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px}
+.egov-rec-year,.egov-partner-year{
+  display:inline-block;padding:4px 10px;border-radius:100px;background:var(--accent-soft);
+  color:var(--accent-dark);font-weight:700;font-size:.82rem;
+}
+.egov-rec-status{color:var(--muted);font-size:.85rem;line-height:1.45}
+.egov-rec-grid ul,.egov-sector-grid ul{padding-inline-start:1.15rem;margin:12px 0;line-height:1.58}
+.egov-rec-grid li+li,.egov-sector-grid li+li{margin-top:7px}
+.egov-rec-grid .roster-sources{margin-top:10px}
+.egov-sector-grid .roster-card h4{
+  border-bottom:1px solid var(--line);padding-bottom:10px;font-size:1.11rem;
+}
+.egov-sector-grid .roster-card h4::before{
+  content:"";display:inline-block;width:.5rem;height:.5rem;border-radius:50%;
+  background:var(--accent);margin-inline-end:.55rem;vertical-align:.12em;
+}
+.egov-partner-grid{grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;padding:0}
+.egov-partner-grid li{min-width:0}
+.egov-partner-grid .roster-card{display:flex;flex-direction:column;height:100%;box-sizing:border-box}
+.egov-partner-grid .forum-brand{height:80px}
+.egov-partner-grid .forum-brand img{max-width:min(100%,200px)}
+.egov-partner-grid h4{margin:0 0 5px;color:var(--heading);line-height:1.3}
+.egov-partner-grid p{line-height:1.48;font-size:.9rem}
+.egov-partner-grid .egov-partner-year{align-self:flex-start;margin:5px 0;color:var(--accent-dark);font-size:.78rem}
+.egov-gallery-year{margin-top:26px}
+.egov-gallery-year>summary{font-weight:700;color:var(--heading)}
+.egov-gallery-year>.archive-gallery,.egov-gallery-year>div>.archive-gallery{margin-top:15px}
+#egov-gallery .archive-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#egov-gallery .archive-gallery img{width:100%;aspect-ratio:4/3;object-fit:contain;object-position:center}
+#egov-gallery .archive-gallery figcaption{font-size:.88rem}
+#egov-gallery .archive-gallery figcaption a{display:block;margin-top:6px;font-size:.8rem;min-width:0;width:fit-content}
+@media(max-width:850px){
+  .egov-partner-grid,#egov-gallery .archive-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  .egov-rec-grid,.egov-sector-grid,.egov-partner-grid,#egov-gallery .archive-gallery{grid-template-columns:minmax(0,1fr)}
+  .egov-partner-grid .forum-brand{height:72px}
+}
+
+.international-card{grid-column:1/-1;border-top:3px solid var(--accent)}
+.international-marks{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px;padding:0}
+.egov-sector-grid .international-marks,.year-copy .international-marks{padding:0}
+.international-card .international-marks li+li,.year-copy .international-marks li+li{margin:0}
+.international-marks li{display:inline-flex;gap:7px;align-items:center;border:1px solid var(--line);border-radius:8px;background:var(--surface-2);padding:6px 9px;font-size:.88rem;line-height:1.35}
+.international-marks img{width:26px;height:20px;object-fit:contain;flex:none}
+.international-marks img[src*="/logos/"]{width:42px;height:30px;padding:2px;background:#fff}
+.international-card .international-status{color:var(--heading);font-weight:650;margin:13px 0 0}
+.egov-backing-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:14px;margin:14px 0}
+.egov-backing-grid h4{color:var(--heading);margin:0 0 8px}
+.egov-backing-grid ul{padding-inline-start:1.15rem;margin:0;line-height:1.55}
+.egov-backing-grid li+li{margin-top:5px}
+@media(max-width:650px){.egov-backing-grid{grid-template-columns:1fr}}
+
+.policy-dossier{border:1px solid var(--line);border-top:3px solid var(--accent);background:var(--surface);border-radius:var(--r);padding:clamp(14px,2.6vw,24px)}
+.policy-dossier>h4{font-size:clamp(1.15rem,2vw,1.42rem);margin:0;line-height:1.3}
+.policy-document-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.policy-document-grid-three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.policy-document-card{min-width:0;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:14px}
+.policy-document-card h5{margin:0 0 7px;line-height:1.3}
+.policy-document-card .policy-points{font-size:.91rem}
+.policy-document-caption{color:var(--muted);font-size:.86rem;font-weight:650;margin:13px 0 4px}
+.policy-document-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.policy-document-actions a{border:1px solid var(--line);border-radius:6px;padding:5px 10px;background:var(--surface);font-size:.88rem}
+.policy-document-actions a:hover{background:var(--accent-soft)}
+@media(max-width:900px){.policy-document-grid-three{grid-template-columns:1fr}}
+@media(max-width:700px){.policy-document-grid{grid-template-columns:1fr}}
+
+/* Long recommendations and discussion briefs */
+.egov-recommendation-list,.recommendation-list{display:grid;gap:16px;margin-top:24px}
+.egov-recommendation-list{max-width:57rem}
+.egov-recommendation-list .roster-card,.egov-reading-detail{padding:clamp(18px,3vw,32px)}
+.egov-recommendation-list .roster-card{border-inline-start:4px solid var(--accent)}
+.egov-recommendation-list :is(.roster-card,.egov-reading-detail) h3{font-size:clamp(1.17rem,2.4vw,1.48rem);color:var(--heading);line-height:1.3;margin:0 0 12px}
+.egov-recommendation-list .roster-card ul,.egov-reading-detail .policy-points{display:block;padding-inline-start:1.4rem;margin:12px 0 18px}
+.egov-recommendation-list :is(li,p,dd){font-size:1rem;line-height:1.65}
+.egov-recommendation-list li+li{margin-top:.55rem}
+.egov-reading-detail{margin:0 0 10px;background:var(--surface-2);border-radius:var(--r);border:1px solid var(--line)}
+.egov-reading-detail dl{margin:16px 0}
+.egov-reading-detail dt{font-weight:700;margin-top:.9rem}
+.egov-reading-detail dd{margin:4px 0 0}
+.egov-reading-detail .policy-document-grid{grid-template-columns:minmax(0,1fr)}
+.egov-reading-detail .policy-document-card{padding:16px;background:var(--surface)}
+.egov-reading-detail .policy-document-card h4{margin:0;color:var(--heading);font-size:1.08rem}
+.policy-document-actions a,.egov-recommendation-list .roster-sources a{display:inline-flex;align-items:center;min-height:44px}
+.policy-document-actions a:focus-visible,.scholar-citation a:focus-visible{outline:2px solid var(--accent-dark);outline-offset:3px}
+#bio-recommendations .recommendation-list{max-width:52rem}
+#bio-recommendations .recommendation-list .card{padding:clamp(18px,3vw,28px);border-inline-start:4px solid var(--accent)}
+#bio-recommendations .recommendation-list .card::before{content:none}
+#bio-recommendations .recommendation-list .rec-q{margin-top:8px}
+.olympiad-context{display:grid;gap:14px;margin:16px 0}
+.olympiad-context section{padding:13px 16px;border-inline-start:3px solid var(--accent);background:var(--surface-2)}
+.olympiad-context h5,.degree-evidence h4{color:var(--heading);font-size:1.03rem;margin:0 0 5px}
+.degree-evidence{margin-top:14px;border-inline-start:3px solid var(--accent);padding:12px 16px;background:var(--surface-2)}
+.degree-evidence ul{margin:8px 0 0;padding-inline-start:1.1rem}
+.degree-evidence li+li{margin-top:5px}
+.degree-evidence-jump{margin:5px 0 12px}
+.hero .degree-evidence-jump a{color:inherit}
+.scholar-citation{
+  display:grid;
+  justify-items:start;
+  gap:.25rem;
+  font-size:.875rem;
+  line-height:1.45;
+  overflow-wrap:anywhere;
+}
+.scholar-citation .lib-cit{
+  color:var(--muted);
+  font-size:.875rem;
+  font-weight:400;
+}
+.scholar-citation .lib-cit strong{
+  font-weight:600;
+  font-variant-numeric:tabular-nums;
+}
+.scholar-citation a{
+  display:flex;
+  align-items:center;
+  min-block-size:24px;
+  max-inline-size:100%;
+  color:var(--faint);
+  font-size:.8125rem;
+  line-height:1.4;
+  font-weight:400;
+  text-decoration:underline;
+  text-underline-offset:.18em;
+}
+.scholar-citation a:hover,.scholar-citation a:focus-visible{color:var(--accent-dark)}
+.scholar-record-note{display:block;margin-top:.2rem}
+.publication-translations{margin-top:.65rem}
+.lib-copy .scholar-citation{margin-top:7px}
+.book-meta .scholar-citation,.book-citation+.scholar-citation{margin-top:9px}

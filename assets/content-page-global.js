@@ -226,6 +226,7 @@
     ["global-35", "Documents et fichiers", "Documents &amp; files"],
     ["global-36", "Pages du document original, affichées en grand — faites défiler pour tout lire ; touchez une page pour ouvrir son fichier.", "Pages of the original document, shown large — scroll to read them all; tap a page to open its file."],
     ["global-37", "Ouvrir le fichier directement →", "Open the file directly →"],
+    ["global-image-unavailable", "Impossible de charger cette image dans la visionneuse. Vous pouvez ouvrir le fichier directement.", "This image could not load in the viewer. You can open the file directly."],
     ["global-40", "Étape suivante", "Next step"],
     ["global-30", "Recherche", "Search"],
     ["global-31", "Claire", "Light"],
@@ -263,6 +264,8 @@
     ["hashtags-academic-quality-assurance", "#AssuranceQualitéAcadémique", "#AcademicQualityAssurance"],
     ["hashtags-education-policy-analyst", "#PolitiquesDeLÉducation", "#EducationPolicyAnalyst"],
     ["hashtags-digital-government-policy-analyst", "#PolitiquesDeGouvernementNumérique", "#DigitalGovernmentPolicyAnalyst"],
+    ["hashtags-egov-olympiad", "#OlympiadeAdministrationÉlectronique", "#EGovernanceOlympiad"],
+    ["hashtags-curriculum-strategy", "#StratégieDeProgrammes", "#CurriculumStrategy"],
   ];
   for (var i = 0; i < L.length; i++) { PAGE.fr[L[i][0]] = L[i][1]; PAGE.en[L[i][0]] = L[i][2]; }
 })();
@@ -352,7 +355,7 @@ PAGE.en.metaDesc = "Svitlana Chukut — the first woman in Ukraine to earn a Doc
     ["alt-mon", "Ministère de l'Éducation et des Sciences de l'Ukraine", "Ministry of Education and Science of Ukraine"],
     ["alt-osnovy-egu-2022-titlepage", "Page de titre du manuel Fundamentals of Electronic Governance, 2022", "Title page of the textbook Fundamentals of Electronic Governance, 2022"],
     ["alt-egov-2008", "Page de titre des actes de 2008 Domestic and Foreign Experience of Implementing E-Governance", "Title page of the 2008 proceedings Domestic and Foreign Experience of Implementing E-Governance"],
-    ["alt-info-policy-textbook-cover", "Couverture du manuel Information Policy de Heorhii Pocheptsov et Svitlana Chukut, deuxième édition", "Cover of the textbook Information Policy by Heorhii Pocheptsov and Svitlana Chukut, second edition"],
+    ["alt-info-policy-textbook-cover", "Couverture du manuel ukrainien Politique de l’information de Heorhii Pocheptsov et Svitlana Chukut", "Cover of the Ukrainian-language textbook Information Policy by Heorhii Pocheptsov and Svitlana Chukut"],
     ["alt-info-policy", "Page de titre de Information Policy in Ukraine, plan de cours, 2007", "Title page of Information Policy in Ukraine, lecture outline, 2007"],
     ["alt-KBpZt8X0Pw0", "Svitlana Chukut s'exprimant au lutrin — miniature de la vidéo de la séance de clôture de l'Olympiade", "Svitlana Chukut speaking at a lectern — thumbnail of the Olympiad closing-session video"],
     ["alt-ipac-portrait-2026", "Portrait de Svitlana Chukut publié par l'Institut d'administration publique du Canada (IPAC)", "Portrait of Svitlana Chukut published by the Institute of Public Administration of Canada (IPAC)"],
@@ -415,11 +418,11 @@ PAGE.en.metaDesc = "Svitlana Chukut — the first woman in Ukraine to earn a Doc
     ["alt-microsoft", "Logo de Microsoft Ukraine", "Microsoft Ukraine logo"],
     ["alt-eset", "Logo d'ESET Ukraine", "ESET Ukraine logo"],
     ["alt-softkey", "Logo de Softkey Ukraine", "Softkey Ukraine logo"],
-    ["alt-arch-14-tuned", "Table ronde d'ouverture 2011 avec une bannière Microsoft", "2011 opening round table with Microsoft banner"],
+    ["alt-arch-14-tuned", "Svitlana Chukut et trois autres intervenants à la table de la conférence de presse", "Svitlana Chukut and three other panellists at the press conference table"],
     ["alt-arch-15-tuned", "Séance plénière d'ouverture 2011 sous les bannières de l'événement", "2011 opening plenary beneath event banners"],
-    ["alt-arch-16-tuned", "Le public à l'ouverture 2011", "Audience at the 2011 opening"],
-    ["alt-arch-17-tuned", "Exposition de projets de bibliothèques en 2011", "Library projects exhibition in 2011"],
-    ["alt-arch-18-tuned", "Exposition technologique dans le hall de l'Académie nationale d'administration publique auprès du Président de l'Ukraine en 2011", "Technology exhibition in the National Academy of Public Administration under the President of Ukraine foyer in 2011"],
+    ["alt-arch-16-tuned", "Public dans la salle pendant la séance plénière", "Audience seated in the hall during the plenary session"],
+    ["alt-arch-17-tuned", "Stands de bibliothèques, dont celui de la bibliothèque du district de Bar", "Library exhibits, including the Bar District Library stand"],
+    ["alt-arch-18-tuned", "Vue d’ensemble des stands d’entreprises informatiques à l’exposition", "Overhead view of IT company stands at the exhibition"],
     ["alt-arch-19-tuned", "Salle plénière de la conférence internationale 2011", "2011 international conference plenary hall"],
     ["alt-arch-20-tuned", "Activité de groupe à la conférence 2011", "2011 conference group activity"],
     ["alt-arch-22-tuned", "Exposition médias et technologies 2011", "2011 media and technology exhibition"],
@@ -497,7 +500,7 @@ PAGE.en.metaDesc = "Svitlana Chukut — the first woman in Ukraine to earn a Doc
     ["alt-opp-egov-kpi", "Diapositive de titre de la présentation du programme éducatif et professionnel Electronic Governance, Institut polytechnique de Kyiv Igor Sikorsky", "Title slide of the presentation of the Educational and Professional Programme Electronic Governance, Igor Sikorsky Kyiv Polytechnic Institute"],
     ["alt-prometheus-naqa-2019-2", "Certificat Prometheus : Expert in Accreditation of Educational Programmes, délivré à Svitlana Chukut, le 19 octobre 2019", "Prometheus certificate: Expert in Accreditation of Educational Programmes, issued to Svitlana Chukut, 19 October 2019"],
     ["alt-gramota-kpi-2", "Diplôme d'honneur de l'Université technique nationale d'Ukraine « Institut polytechnique de Kyiv Igor Sikorsky », décerné à Svitlana Chukut", "Honorary diploma of the National Technical University of Ukraine «Igor Sikorsky Kyiv Polytechnic Institute», awarded to Svitlana Chukut"],
-    ["alt-stock-contact", "Le front de lac de Kingston, Ontario — le parc de la Confédération, la marina et le port, avec le Collège militaire royal du Canada de l'autre côté de l'eau", "The Kingston, Ontario waterfront — Confederation Park, the marina and the harbour, with the Royal Military College of Canada across the water"]
+    ["alt-stock-contact", "Vue en contre-plongée des gratte-ciel du quartier financier de Toronto", "Looking up at skyscrapers in Toronto’s Financial District"]
   ];
   for (var i = 0; i < L.length; i++) { PAGE.fr[L[i][0]] = L[i][1]; PAGE.en[L[i][0]] = L[i][2]; }
 })();

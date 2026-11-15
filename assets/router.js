@@ -16,18 +16,48 @@
   var TITLES=window.PAGE_TITLES||{}; /* page tab titles are content: PAGE_TITLES in assets/content-texts.js */
   var ANCHORS={"courses-public":"courses","courses-kpi":"courses","courses-napa":"courses","courses-medical":"courses","courses-teaching":"courses","courses-george-brown":"courses","courses-gbc":"courses","media-talks":"media","media-events":"media","events-list":"events","events-gallery":"events","egov-story":"egov-days","egov-editions":"egov-days","egov-sponsors":"egov-days","egov-gallery":"egov-days","egov-archive":"egov-days","egov-sources":"egov-days","lib-book":"library","lib-catalogue":"library","partners-grid":"partners","contact-cards":"contact","home-quick":"home","home-download":"home","contact-download":"contact","docs-resume":"documents","docs-list":"documents","docs-add":"documents",
     "contact-ontario":"contact",
+    "bio-education-standards":"bio",
+    "bio-degree-evidence":"bio",
+    "bio-information-sphere-commission":"bio",
+    "bio-egov-policy":"bio",
+    "egov-outputs":"egov-days",
+    "egov-outputs-2008":"egov-days",
+    "egov-outputs-2009":"egov-days",
+    "egov-outputs-2010":"egov-days",
+    "egov-outputs-2011":"egov-days",
+    "egov-policy-2010":"egov-days",
+    "egov-policy-2011":"egov-days",
+    "egov-recommendations-2009":"egov-days",
+    "egov-masters-origins":"courses",
+    "egov-rosters-2011":"egov-days",
+    "egov-daily-2011":"egov-days",
+    "egov-rosters-2008":"egov-days",
     "target-curriculum-developer":"contact",
     "target-instructional-designer":"contact",
     "target-digital-learning-producer":"contact",
     "target-academic-quality-assurance":"contact",
     "target-education-policy-analyst":"contact",
     "target-digital-government-policy-analyst":"contact",
-    "career-curriculum":"bio"
+    "career-curriculum":"bio",
+    "career-creative":"bio",
+    "career-content":"bio",
+    "event-niss-smart-society-2011":"events",
+    "event-egov-may-2011":"events",
+    "event-egov-realities-2018":"events",
+    "egov-2011-plenary-talk":"egov-days",
+    "event-conference-2017":"events",
+    "event-conference-2016":"events",
+    "doc-portfolio-curriculum":"courses",
+    "event-chamber-it-2011":"events",
+    "egov-chamber-it-2011":"egov-days",
+    "event-kpi-fields-seminar-2021":"events",
+    "event-kpi-fields-seminar-photo":"events",
+    "event-egov-olympiad-2021":"events"
   };
   function validTarget(h){
     if(!h) return null;
     if(PAGES.indexOf(h)>=0) return {page:h,anchor:""};
-    if(/^bio-(statements|statement-teaching|statement-research|story|education|career|awards|certificates|projects|research|supervision(?:-doctoral|-masters|-student)?|expertise|editorial|volunteering|collaboration|skills|recommendations|legacy)$/.test(h)) return {page:"bio",anchor:h};
+    if(/^bio-(statements|statement-teaching|statement-research|story|education|career|awards|certificates|projects|research|supervision(?:-doctoral|-masters|-student)?|expertise|editorial|volunteering|collaboration|coauthors|skills|recommendations|legacy)$/.test(h)) return {page:"bio",anchor:h};
     if(ANCHORS[h]) return {page:ANCHORS[h],anchor:h};
     return null;
   }
@@ -94,21 +124,29 @@
        shown (see the scroll-restoration block below). */
     if(restoreReq){ var rq=restoreReq; restoreReq=null; if(rq.hash===(location.hash||"")){ restorePlace(rq); return; } }
     if(r.anchor){
-      /* One landing for every route to a deep anchor — menu, cards,
-         search, a shared or direct link, Back/Forward: the same
-         stabilized go-to the search uses (SC_scrollFlash in app.js),
-         which keeps correcting while images above the target finish
-         loading. The plain scrollIntoView below is only a fallback
-         for when app.js is unavailable. */
-      window.setTimeout(function(){
-        var target=document.getElementById(r.anchor);
-        if(!target) return;
+      var target=document.getElementById(r.anchor);
+      if(target){
         if(window.SC_scrollFlash) window.SC_scrollFlash(target);
-        else target.scrollIntoView({behavior:"smooth",block:"start"});
-      },0);
+        else if(document.readyState!=="loading") target.scrollIntoView({behavior:"instant",block:"start"});
+      }
     }else{
-      window.scrollTo(0,0);
+      window.scrollTo({top:0,behavior:"instant"});
     }
+  };
+  window.SC_navigate=function(hash,target){
+    var destination=validTarget(hash.slice(1));
+    if(!destination) return false;
+    var previous=route();
+    cancelRestore();
+    if((location.hash||"")!==hash){
+      savePlace();
+      try{ history.pushState(null,"",hash); }
+      catch(e){ location.hash=hash; return true; }
+    }
+    window.SC_show(Boolean(target));
+    if(target) window.SC_scrollFlash(target);
+    else if(!destination.anchor&&destination.page!==previous.page) focusHeading(destination.page);
+    return true;
   };
   /* ---- Route sync: never trust hashchange alone ----------------------
      The switch above was driven only by the hashchange event. In some
@@ -134,7 +172,10 @@
     var r=route(), cur=document.querySelector(".page.on");
     if(!cur||cur.id!=="page-"+r.page||h!==lastHash) window.SC_show();
   }
-  window.addEventListener("hashchange", window.SC_show);
+  window.addEventListener("hashchange", function(){
+    if(restoreReq) window.SC_show();
+    else syncRoute();
+  });
   /* Keyboard and screen-reader landing: when navigation switches to a
      different page without a deep anchor (anchor landings already focus
      their target through SC_scrollFlash), move focus to the new page's
@@ -147,10 +188,13 @@
     if(r.anchor){ focusPage=r.page; return; }
     if(focusPage===r.page) return;
     focusPage=r.page;
-    var pg=document.getElementById("page-"+r.page);
+    focusHeading(r.page);
+  });
+  function focusHeading(page){
+    var pg=document.getElementById("page-"+page);
     var h=pg?pg.querySelector("h1"):null;
     if(h){ if(!h.hasAttribute("tabindex")) h.setAttribute("tabindex","-1"); try{ h.focus({preventScroll:true}); }catch(e){} }
-  });
+  }
   /* ---- Back/Forward scroll restoration -------------------------------
      The browser's own restoration is switched off: every history entry
      carries the visitor's exact place — page, section anchor and scroll
@@ -191,8 +235,7 @@
     window.setTimeout(syncRoute, 0);
     window.setTimeout(syncRoute, 80);
     window.setTimeout(syncRoute, 300);
-    /* a same-page section jump swaps the fragment by replaceState and
-       fires no hashchange, so re-save once its landing has settled */
+    /* Record the destination after the in-page link has landed. */
     window.setTimeout(savePlace, 1400);
   }, true);
   window.addEventListener("hashchange", function(){
@@ -210,7 +253,7 @@
     cancelRestore();
     restoring=true;
     var y=Math.max(0, req.y||0);
-    window.scrollTo(0,y);
+    window.scrollTo({top:y,behavior:"instant"});
     var tries=0, stable=0, lastY=-1;
     window.addEventListener("wheel", onRestoreUser, {passive:true});
     window.addEventListener("touchstart", onRestoreUser, {passive:true});
@@ -220,7 +263,7 @@
       var cy=window.scrollY||window.pageYOffset||0;
       var maxY=Math.max(0, document.documentElement.scrollHeight-window.innerHeight);
       if(Math.abs(cy-y)<=2||(cy>=maxY-2&&cy===lastY)) stable++;
-      else{ stable=0; window.scrollTo(0,y); }
+      else{ stable=0; window.scrollTo({top:y,behavior:"instant"}); }
       lastY=cy;
       if(stable>=6||tries>48) cancelRestore();
     },250);

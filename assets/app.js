@@ -63,8 +63,7 @@
   /* ---- manual theme: Light / Dark segmented switch in the header ----
      The initial theme is set by the inline script in <head> (saved choice
      from localStorage, otherwise the system preference) before first paint.
-     A manual choice is saved and always wins over the system theme. */
-  function themeSaved(){ try{ var s=localStorage.getItem("sc-theme"); return (s==="light"||s==="dark")?s:null; }catch(e){ return null; } }
+     A manual choice is saved for subsequent visits. */
   function paintThemeBtns(){
     var t=document.documentElement.getAttribute("data-theme")||"light";
     document.querySelectorAll("[data-theme-set]").forEach(function(b){
@@ -93,7 +92,7 @@
   };
   document.addEventListener("DOMContentLoaded", function(){
     apply();
-    // theme switch wiring + follow live system changes only while no manual choice is saved
+    // Theme switch controls.
     paintThemeBtns();
     document.querySelectorAll("[data-theme-set]").forEach(function(b){
       b.addEventListener("click", function(){ window.SC_setTheme(b.getAttribute("data-theme-set")); });
@@ -106,11 +105,6 @@
         var cur=document.documentElement.getAttribute("data-theme")==="dark" ? "dark" : "light";
         window.SC_setTheme(cur==="dark" ? "light" : "dark");
       });
-    }
-    if(window.matchMedia){
-      var mq = window.matchMedia("(prefers-color-scheme: dark)");
-      var onSys = function(e){ if(!themeSaved()) window.SC_setTheme(e.matches?"dark":"light", false); };
-      if(mq.addEventListener) mq.addEventListener("change", onSys); else if(mq.addListener) mq.addListener(onSys);
     }
     // skip link: move focus to <main> without touching the hash router
     var sk=document.querySelector(".skip-link"), mn=document.getElementById("main");
@@ -404,7 +398,6 @@
   var results=document.getElementById("ssResults");
   var hint=document.getElementById("ssHint");
   var closeBtn=document.getElementById("ssClose");
-  var reduceM=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   var T={
     fr:{ph:"Rechercher sur tout le site…",hint:"Recherche tolérante : fautes de frappe, synonymes et autres langues sont acceptés. Elle couvre les 219 publications, le CV complet, l'archive de documents, les certificats, les distinctions, les cours, les événements, les partenaires et les contacts.",none:"Aucun résultat",noneHint:"Même la recherche tolérante n'a rien trouvé pour « {q} ». Essayez un mot plus large — un thème, une organisation ou une année."},
@@ -438,9 +431,10 @@
     return c.textContent.replace(/\s+/g," ").trim();
   }
   function titleOf(el,l){
-    var h=el.querySelector("h1,h2,h3,h4")||el.querySelector("b,strong");
+    var h=el.querySelector(".event-talk-title")||el.querySelector("h1,h2,h3,h4")||el.querySelector("b,strong");
     if(!h) return "";
-    return dictVal(h,l)||langText(h,l);
+    var contribution=h.querySelector(".event-contribution-name");
+    return dictVal(contribution||h,l)||langText(contribution||h,l);
   }
   function fullText(el){
     var t=el.textContent||"";
@@ -658,6 +652,7 @@
 
   /* ---- precise go-to: reveal folded content, scroll, flash ---- */
   function reveal(el){
+    if(window.SC_revealChronology) window.SC_revealChronology(el);
     var n=el;
     while(n&&n!==document.body){
       if(n.hidden){
@@ -691,11 +686,6 @@
     }
     return off;
   }
-  function scrollToEl(el){
-    var off=offFor(el);
-    var y=el.getBoundingClientRect().top+window.scrollY-off;
-    window.scrollTo({top:Math.max(0,y),behavior:reduceM?"auto":"smooth"});
-  }
   function flash(el){
     el.classList.remove("find-flash");
     void el.offsetWidth;
@@ -704,80 +694,39 @@
     if(!el.hasAttribute("tabindex")) el.setAttribute("tabindex","-1");
     try{ el.focus({preventScroll:true}); }catch(e){}
   }
-  var jumpTimer=null;
   function present(el){
     reveal(el);
-    var f=el;
-    if(el.tagName==="SECTION"){ var h=el.querySelector("h1,h2"); if(h) f=h; }
-    scrollToEl(el);
-    flash(f);
-    /* Deep targets drift while the page settles: images above them load
-       late and push them down, registry blocks expand. Keep correcting
-       until the target has sat at the header offset for a sustained
-       moment; an image finishing loading restarts the settle watch, and
-       a manual scroll by the visitor cancels the correction at once. */
-    var off=offFor(el);
-    var tries=0, stable=0;
-    if(jumpTimer) clearInterval(jumpTimer);
-    function cleanup(){
-      if(jumpTimer) clearInterval(jumpTimer);
-      jumpTimer=null;
-      document.removeEventListener("load",onLoad,true);
-      window.removeEventListener("wheel",onUser,{passive:true});
-      window.removeEventListener("touchstart",onUser,{passive:true});
-    }
-    function onLoad(){ stable=0; }
-    function onUser(){ cleanup(); }
-    document.addEventListener("load",onLoad,true);
-    window.addEventListener("wheel",onUser,{passive:true});
-    window.addEventListener("touchstart",onUser,{passive:true});
-    jumpTimer=setInterval(function(){
-      tries++;
-      var top=el.getBoundingClientRect().top;
-      if(Math.abs(top-off)<=6){ stable++; }
-      else{
-        stable=0;
-        window.scrollTo({top:window.scrollY+(top-off), behavior:"auto"});
-        if(tries%4===0) flash(f);
-      }
-      if(stable>=8||tries>50){
-        var settled=Math.abs(el.getBoundingClientRect().top-off)<=6;
-        cleanup();
-        if(settled) flash(f);
-      }
-    },300);
+    var top=el.getBoundingClientRect().top+window.scrollY-offFor(el);
+    window.scrollTo({top:Math.max(0,top),behavior:"instant"});
+    var heading=el.tagName==="SECTION"?el.querySelector("h1,h2"):null;
+    flash(heading||el);
   }
-  window.SC_scrollFlash=function(el){ if(el) present(el); };
+  window.SC_scrollFlash=present;
   function goToEl(el,hash){
+    if(hash&&window.SC_navigate&&window.SC_navigate(hash)) return;
     if(!el) return;
-    var page=el.closest(".page"), cur=document.querySelector(".page.on");
-    if(page&&(!cur||cur!==page)){
-      /* Keep the deep anchor in the address (e.g. #events-gallery),
-         not just the page name, so a reload, Back/Forward or a copied
-         link returns to the section itself; the router lands on it
-         through the same stabilized go-to as present() below. */
-      location.hash=hash||("#"+page.id.replace("page-",""));
-      setTimeout(function(){ present(el); },160);
+    var page=el.closest(".page");
+    if(page&&!page.classList.contains("on")&&window.SC_navigate){
+      window.SC_navigate("#"+page.id.slice(5),el);
     } else present(el);
-  }
-  function jumpHash(hash,fallbackEl){
-    var target=document.getElementById(hash.slice(1));
-    location.hash=hash;
-    setTimeout(function(){
-      var t=document.getElementById(hash.slice(1))||target||fallbackEl;
-      if(t) present(t);
-    },170);
   }
 
   /* ---- panel behaviour ---- */
   var current=[], activeIdx=-1;
-  function paintActive(){
+  function paintActive(revealActive){
     var items=results.querySelectorAll(".ss-item");
     items.forEach(function(b,i){
       var on=i===activeIdx;
       b.classList.toggle("act",on);
       b.setAttribute("aria-selected",on?"true":"false");
-      if(on){ input.setAttribute("aria-activedescendant",b.id); b.scrollIntoView({block:"nearest"}); }
+      if(on){
+        input.setAttribute("aria-activedescendant",b.id);
+        if(revealActive){
+          var row=b.getBoundingClientRect(), box=results.getBoundingClientRect();
+          if(row.top<box.top) results.scrollTop+=row.top-box.top;
+          else if(row.bottom>box.bottom) results.scrollTop+=row.bottom-box.bottom;
+        }
+      }
     });
   }
   function render(){
@@ -822,6 +771,7 @@
       });
     });
     results.innerHTML=html;
+    results.scrollTop=0;
     current=flat; activeIdx=flat.length?0:-1;
     input.setAttribute("aria-expanded","true");
     paintActive();
@@ -831,8 +781,7 @@
     var e=f.e;
     closePanel(false);
     if(e.lib){ if(window.SC_libGo) window.SC_libGo(e.lib); return; }
-    if(e.hash){ jumpHash(e.hash,e.el); return; }
-    goToEl(e.el);
+    goToEl(e.el,e.hash);
   }
   function openPanel(){
     if(!INDEX) buildIndex();
@@ -844,7 +793,7 @@
     if(burger){ burger.classList.remove("x"); burger.setAttribute("aria-expanded","false"); }
     document.body.classList.remove("menu-open");
     render();
-    setTimeout(function(){ input.focus(); },30);
+    input.focus({preventScroll:true});
   }
   function closePanel(refocus){
     if(panel.hidden) return;
@@ -861,7 +810,7 @@
       ev.preventDefault();
       if(!current.length) return;
       activeIdx=ev.key==="ArrowDown"?(activeIdx+1)%current.length:(activeIdx-1+current.length)%current.length;
-      paintActive();
+      paintActive(true);
     } else if(ev.key==="Enter"){
       ev.preventDefault();
       if(current.length) activate(activeIdx>=0?activeIdx:0);
@@ -882,7 +831,7 @@
     if(ev.key==="Escape"&&!panel.hidden) closePanel(true);
   });
   document.addEventListener("click",function(ev){
-    if(!panel.hidden&&!ev.target.closest(".hdr")) closePanel(false);
+    if(!panel.hidden&&!ev.target.closest(".hdr, button[data-tag-q]")) closePanel(false);
   });
   document.querySelectorAll(".nav a").forEach(function(a){
     a.addEventListener("click",function(){ closePanel(false); });
@@ -895,15 +844,13 @@
   var PAGE_NAMES=["home","bio","library","courses","media","events","egov-days","partners","documents","contact"];
   document.addEventListener("click",function(ev){
     var a=ev.target.closest?ev.target.closest('a[href^="#"]'):null;
-    if(!a) return;
+    if(!a||ev.defaultPrevented||ev.button!==0||ev.metaKey||ev.ctrlKey||ev.shiftKey||ev.altKey) return;
     var h=(a.getAttribute("href")||"").slice(1);
     if(!h||h==="main"||PAGE_NAMES.indexOf(h)>-1) return;
     var target=document.getElementById(h);
     if(!target) return;
     ev.preventDefault();
     closePanel(false);
-    var tp=target.closest(".page"), cur=document.querySelector(".page.on");
-    if(tp&&cur===tp){ try{ history.replaceState(null,"","#"+h); }catch(e){} }
     goToEl(target,"#"+h);
   });
   if(window.MutationObserver){
@@ -988,6 +935,11 @@
     if(!t){
       var card = btn.closest("article") || btn.closest(".certificate-feature") || btn.closest("figure");
       if(card) t = pickText(card.querySelector("h3, b"));
+    }
+    if(slug.indexOf("photo-") === 0 && d.pages.length === 1 && window.SC_openFile){
+      window.SC_openFile(d.pages[0], t || btn.querySelector("img")?.alt, btn);
+      lastFocus = null;
+      return;
     }
     titleEl.textContent = t;
     if(hintEl){
@@ -1074,14 +1026,25 @@
       bodyEl = document.getElementById("fvBody"),
       directEl = document.getElementById("fvDirect"),
       closeBtn = document.getElementById("fvClose"),
+      zoomBtn = document.getElementById("fvZoom"),
       lastFocus = null;
   function lang(){ return (window.SC_lang ? window.SC_lang() : "en") === "fr" ? "fr" : "en"; }
   function certOpen(){
     var cv = document.getElementById("certViewer");
     return !!(cv && !cv.hidden);
   }
-  function openFile(src, title){
-    lastFocus = document.activeElement;
+  function setActualSize(actual){
+    zoomBtn.setAttribute("aria-pressed", String(actual));
+    bodyEl.classList.toggle("is-actual-size", actual);
+    if(actual) bodyEl.tabIndex = 0;
+    else bodyEl.removeAttribute("tabindex");
+    bodyEl.scrollTop = 0;
+    bodyEl.scrollLeft = 0;
+  }
+  function openFile(src, title, trigger){
+    lastFocus = trigger || document.activeElement;
+    setActualSize(false);
+    zoomBtn.hidden = true;
     titleEl.textContent = title || src.split("/").pop() || "";
     bodyEl.innerHTML = "";
     if(/\.pdf($|\?)/i.test(src)){
@@ -1091,8 +1054,23 @@
       bodyEl.appendChild(fr);
     } else {
       var img = document.createElement("img");
-      img.src = src;
       img.alt = titleEl.textContent;
+      img.addEventListener("error", function(){
+        if(!bodyEl.contains(img)) return;
+        var message = document.createElement("p");
+        message.className = "fv-error";
+        message.setAttribute("role", "status");
+        message.textContent = PAGE[lang()]["global-image-unavailable"];
+        setActualSize(false);
+        if(document.activeElement === zoomBtn) closeBtn.focus();
+        zoomBtn.hidden = true;
+        img.replaceWith(message);
+      });
+      img.addEventListener("load", function(){
+        if(bodyEl.contains(img)) zoomBtn.hidden = false;
+      });
+      img.decoding = "async";
+      img.src = src;
       bodyEl.appendChild(img);
     }
     directEl.setAttribute("href", src);
@@ -1112,13 +1090,17 @@
   window.SC_openFile = openFile;
   document.addEventListener("click", function(e){
     var a = e.target.closest ? e.target.closest('a[href^="assets/"]') : null;
-    if(!a) return;
+    if(!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     if(viewer.contains(a)) return; /* the viewer's own "open directly" link must really navigate */
     if(a.hasAttribute("download")) return; /* a true download (the CV) downloads — it does not open in this viewer */
     var src = a.getAttribute("href");
     if(!src) return;
     e.preventDefault();
-    var t = a.getAttribute("aria-label") || "";
+    var preview = a.classList.contains("image-preview-link");
+    var image = preview ? a.querySelector("img") : null;
+    var figure = preview ? a.closest("figure") : null;
+    var caption = figure && figure.querySelector("figcaption");
+    var t = (caption && caption.textContent.trim()) || (image && image.alt) || a.getAttribute("aria-label") || "";
     if(!t){
       var sp = a.querySelector(lang() === "fr" ? ".lang-fr" : ".lang-en");
       t = (sp ? sp.textContent : a.textContent).replace(/\s+/g, " ").trim();
@@ -1128,7 +1110,10 @@
       var base = cvT ? cvT.textContent.trim() : "";
       t = base ? base + " — " + t : t;
     }
-    openFile(src, t);
+    openFile(src, t, a);
+  });
+  zoomBtn.addEventListener("click", function(){
+    setActualSize(zoomBtn.getAttribute("aria-pressed") !== "true");
   });
   closeBtn.addEventListener("click", closeFile);
   viewer.querySelector("[data-fv-close]").addEventListener("click", closeFile);

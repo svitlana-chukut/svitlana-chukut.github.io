@@ -8,7 +8,7 @@
   <title>Page not found | Svitlana Chukut</title>
   <style>
     :root {
-      color-scheme: light dark;
+      color-scheme: light;
       --background: #f8f6f0;
       --surface: #fffefa;
       --heading: #10263e;
@@ -21,19 +21,8 @@
       --light-gold: #f2cf73;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --background: #071321;
-        --surface: #102943;
-        --heading: #f5f0e4;
-        --text: #c4cfdd;
-        --border: #375774;
-        --accent-text: #f2cf73;
-        --focus: #f2cf73;
-      }
-    }
-
     :root[data-theme="dark"] {
+      color-scheme: dark;
       --background: #071321;
       --surface: #102943;
       --heading: #f5f0e4;

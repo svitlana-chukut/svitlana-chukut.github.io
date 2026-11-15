@@ -80,7 +80,7 @@
     ["home-quick-39", "Parcourir la bibliothèque", "Browse the library"],
     ["home-quick-40", "Chronologie", "Chronology"],
     ["home-quick-41", "Événements", "Events"],
-    ["home-quick-42", "26 conférences, conférences publiques, forums et événements institutionnels vérifiés.", "Twenty-six verified conferences, lectures, forums and institutional engagements."],
+    ["home-quick-42", "Conférences, ateliers, forums et activités institutionnelles.", "Conference talks, workshops, forums and institutional engagements."],
     ["home-quick-43", "Héritage national", "National legacy"],
     ["home-quick-44", "Journées de l'administration électronique", "E-Governance Days"],
     ["home-quick-45", "L'histoire documentée de quatre forums, 2008–2011 : participants, programmes, partenariats avec Microsoft, ESET et Softkey, et 21 photographies d'archives.", "The documented record of four forums held from 2008 to 2011: participants, programmes, Microsoft, ESET and Softkey partnerships, and 21 archival photographs."],
@@ -96,6 +96,16 @@
     ["hmgoPart", "Voir les partenaires →", "View the partners →"],
     ["hmgoDocs", "Voir les documents →", "View the documents →"],
     ["hmgoContact", "Voir les contacts →", "View the contacts →"],
+    ["home-founded-title", "Initiatives lancées et dirigées par Svitlana Chukut", "Initiatives founded and led by Svitlana Chukut"],
+    ["home-founded-olympiad-role", "Initiatrice, organisatrice et présidente du jury", "Initiator, organiser and jury chair"],
+    ["home-founded-olympiad-title", "Olympiade de la gouvernance électronique", "E-Governance Olympiad"],
+    ["home-founded-olympiad-description", "Chukut a lancé et organisé le concours et en a présidé le jury. L’édition 2021 a réuni des étudiants, des organismes publics et des praticiens pour appliquer les principes de l’administration électronique à la prestation de services numériques et à la participation citoyenne.", "Chukut initiated and organised the competition and chaired its jury. The 2021 edition brought together students, public agencies and practitioners to apply e-governance principles to digital service delivery and participation."],
+    ["home-founded-days-role", "Initiatrice et responsable de l’événement · 2008–2011", "Initiator and event lead · 2008–2011"],
+    ["home-founded-days-title", "Journées de l’administration électronique", "E-Governance Days"],
+    ["home-founded-days-description", "Chukut a créé le forum pour réunir agents publics, chercheurs et praticiens autour des services publics numériques. La participation est passée d’environ 300 personnes en 2008 à plus de 1 000 sur l’ensemble du programme de 2011.", "Chukut launched the forum to bring public officials, researchers and practitioners together around digital public services. Participation rose from about 300 in 2008 to more than 1,000 across the 2011 programme."],
+    ["home-founded-standards-role", "Direction de l’élaboration des normes · 2016–2019", "Standards development lead · 2016–2019"],
+    ["home-founded-standards-title", "Normes nationales de formation en administration et gestion publiques", "National higher education standards in public administration"],
+    ["home-founded-standards-description", "À la présidence de la sous-commission 281 du ministère ukrainien de l’Éducation et des Sciences, Chukut a dirigé l’élaboration des normes nationales en administration et gestion publiques aux cycles du baccalauréat, de la maîtrise et du doctorat.", "As chair of Subcommission 281 at Ukraine’s Ministry of Education and Science, Chukut led development of national standards in Public Governance and Administration at bachelor’s, master’s and doctoral level."],
   ];
   for (var i = 0; i < L.length; i++) { PAGE.fr[L[i][0]] = L[i][1]; PAGE.en[L[i][0]] = L[i][2]; }
 })();

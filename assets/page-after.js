@@ -40,14 +40,14 @@ function PAGE_AFTER(d,lang){
      pairs are content (PAGE keys named by each image's data-alt-i18n
      attribute, in assets/content-page-global.js) */
   document.querySelectorAll("img[data-alt-i18n]").forEach(function(im){ var v=d[im.getAttribute("data-alt-i18n")]; if(v) im.alt=v; });
-  // The portfolio and presentation downloads are available in English.
-  var pdfLabel = lang === "fr" ? "Télécharger le PDF (en anglais)" : "Download PDF (English)";
-  document.querySelectorAll("a[data-portfolio-download], a[data-opp-download]").forEach(function(a){
-    if(lang === "fr"){
-      a.setAttribute("aria-label", pdfLabel);
-    } else {
-      a.removeAttribute("aria-label");
-    }
+  // Presentation covers match the language used for the slides in the viewer.
+  document.querySelectorAll("img[data-cover-fr]").forEach(function(img){
+    var language = lang === "fr" ? "fr" : "en";
+    var src = img.getAttribute("data-cover-" + language);
+    var dimensions = img.getAttribute("data-cover-" + language + "-size").split(" ");
+    img.width = Number(dimensions[0]);
+    img.height = Number(dimensions[1]);
+    if(img.getAttribute("src") !== src) img.setAttribute("src", src);
   });
   /* the schema.org JSON-LD description follows the page language too
      (the Person record's facts themselves never change) */

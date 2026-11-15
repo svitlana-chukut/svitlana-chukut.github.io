@@ -19,6 +19,102 @@
    button carries data-cert="slug". Nothing else changes.
    ================================================================ */
 var CERTVIEW = {
+  "egov-realities-2018": {
+    "pages": [
+      "assets/cert-pages/egov-realities-2018-en-01.webp",
+      "assets/cert-pages/egov-realities-2018-en-02.webp",
+      "assets/cert-pages/egov-realities-2018-en-03.webp",
+      "assets/cert-pages/egov-realities-2018-en-04.webp",
+      "assets/cert-pages/egov-realities-2018-en-05.webp",
+      "assets/cert-pages/egov-realities-2018-en-06.webp",
+      "assets/cert-pages/egov-realities-2018-en-07.webp",
+      "assets/cert-pages/egov-realities-2018-en-08.webp",
+      "assets/cert-pages/egov-realities-2018-en-09.webp",
+      "assets/cert-pages/egov-realities-2018-en-10.webp",
+      "assets/cert-pages/egov-realities-2018-en-11.webp",
+      "assets/cert-pages/egov-realities-2018-en-12.webp",
+      "assets/cert-pages/egov-realities-2018-en-13.webp",
+      "assets/cert-pages/egov-realities-2018-en-14.webp",
+      "assets/cert-pages/egov-realities-2018-en-15.webp",
+      "assets/cert-pages/egov-realities-2018-en-16.webp",
+      "assets/cert-pages/egov-realities-2018-en-17.webp",
+      "assets/cert-pages/egov-realities-2018-en-18.webp",
+      "assets/cert-pages/egov-realities-2018-en-19.webp",
+      "assets/cert-pages/egov-realities-2018-en-20.webp",
+      "assets/cert-pages/egov-realities-2018-en-21.webp",
+      "assets/cert-pages/egov-realities-2018-en-22.webp",
+      "assets/cert-pages/egov-realities-2018-en-23.webp",
+      "assets/cert-pages/egov-realities-2018-en-24.webp",
+      "assets/cert-pages/egov-realities-2018-en-25.webp",
+      "assets/cert-pages/egov-realities-2018-en-26.webp"
+    ],
+    "pagesFr": [
+      "assets/cert-pages/egov-realities-2018-fr-01.webp",
+      "assets/cert-pages/egov-realities-2018-fr-02.webp",
+      "assets/cert-pages/egov-realities-2018-fr-03.webp",
+      "assets/cert-pages/egov-realities-2018-fr-04.webp",
+      "assets/cert-pages/egov-realities-2018-fr-05.webp",
+      "assets/cert-pages/egov-realities-2018-fr-06.webp",
+      "assets/cert-pages/egov-realities-2018-fr-07.webp",
+      "assets/cert-pages/egov-realities-2018-fr-08.webp",
+      "assets/cert-pages/egov-realities-2018-fr-09.webp",
+      "assets/cert-pages/egov-realities-2018-fr-10.webp",
+      "assets/cert-pages/egov-realities-2018-fr-11.webp",
+      "assets/cert-pages/egov-realities-2018-fr-12.webp",
+      "assets/cert-pages/egov-realities-2018-fr-13.webp",
+      "assets/cert-pages/egov-realities-2018-fr-14.webp",
+      "assets/cert-pages/egov-realities-2018-fr-15.webp",
+      "assets/cert-pages/egov-realities-2018-fr-16.webp",
+      "assets/cert-pages/egov-realities-2018-fr-17.webp",
+      "assets/cert-pages/egov-realities-2018-fr-18.webp",
+      "assets/cert-pages/egov-realities-2018-fr-19.webp",
+      "assets/cert-pages/egov-realities-2018-fr-20.webp",
+      "assets/cert-pages/egov-realities-2018-fr-21.webp",
+      "assets/cert-pages/egov-realities-2018-fr-22.webp",
+      "assets/cert-pages/egov-realities-2018-fr-23.webp",
+      "assets/cert-pages/egov-realities-2018-fr-24.webp",
+      "assets/cert-pages/egov-realities-2018-fr-25.webp",
+      "assets/cert-pages/egov-realities-2018-fr-26.webp"
+    ],
+    "title": {
+      "en": "E-Governance: Realities and Challenges",
+      "fr": "Administration électronique : réalités et défis"
+    }
+  },
+  "egov-days-2011": {
+    "pages": [
+      "assets/cert-pages/egov-days-2011-en-01.webp",
+      "assets/cert-pages/egov-days-2011-en-02.webp",
+      "assets/cert-pages/egov-days-2011-en-03.webp",
+      "assets/cert-pages/egov-days-2011-en-04.webp",
+      "assets/cert-pages/egov-days-2011-en-05.webp",
+      "assets/cert-pages/egov-days-2011-en-06.webp",
+      "assets/cert-pages/egov-days-2011-en-07.webp",
+      "assets/cert-pages/egov-days-2011-en-08.webp",
+      "assets/cert-pages/egov-days-2011-en-09.webp",
+      "assets/cert-pages/egov-days-2011-en-10.webp",
+      "assets/cert-pages/egov-days-2011-en-11.webp",
+      "assets/cert-pages/egov-days-2011-en-12.webp"
+    ],
+    "pagesFr": [
+      "assets/cert-pages/egov-days-2011-fr-01.webp",
+      "assets/cert-pages/egov-days-2011-fr-02.webp",
+      "assets/cert-pages/egov-days-2011-fr-03.webp",
+      "assets/cert-pages/egov-days-2011-fr-04.webp",
+      "assets/cert-pages/egov-days-2011-fr-05.webp",
+      "assets/cert-pages/egov-days-2011-fr-06.webp",
+      "assets/cert-pages/egov-days-2011-fr-07.webp",
+      "assets/cert-pages/egov-days-2011-fr-08.webp",
+      "assets/cert-pages/egov-days-2011-fr-09.webp",
+      "assets/cert-pages/egov-days-2011-fr-10.webp",
+      "assets/cert-pages/egov-days-2011-fr-11.webp",
+      "assets/cert-pages/egov-days-2011-fr-12.webp"
+    ],
+    "title": {
+      "en": "E-Governance Days 2011: Preliminary programme",
+      "fr": "Journées de l’administration électronique 2011 : programme préliminaire"
+    }
+  },
   "photo-podium-blue-1": {
     "pages": [
       "assets/photos/event-podium-blue-1.jpg"
@@ -258,8 +354,8 @@ var CERTVIEW = {
       "assets/photos/event-seminar-2021.jpg"
     ],
     "title": {
-      "fr": "Séminaire-réunion pan-ukrainien sur la modification de la liste des domaines de connaissance et des spécialités (en ligne, Zoom), 27 août 2021, à l’initiative de l’Institut polytechnique de Kyiv Igor Sikorsky. Modératrice — Svitlana Tchoukout, présidente de la sous-commission 281 du Conseil scientifique et méthodique du ministère de l’Éducation et des Sciences de l’Ukraine (2016–2019), vice-présidente du Conseil d’experts sectoriel 28 de l’Agence nationale d’assurance qualité de l’enseignement supérieur (2019–2020) ; des experts, scientifiques et enseignants formant des spécialistes en administration publique ont analysé le projet de résolution du Cabinet des ministres de l’Ukraine modifiant la Liste des domaines et spécialités ainsi que la Classification internationale type de l’éducation ISCED-F 2013",
-      "en": "All-Ukrainian seminar-meeting on amending the list of fields of knowledge and specialties (online, Zoom), 27 August 2021, initiated by Igor Sikorsky Kyiv Polytechnic Institute. Moderator — Svitlana Chukut, chair of subcommission 281 of the Scientific-Methodical Council of the Ministry of Education and Science of Ukraine (2016–2019), deputy chair of Sectoral Expert Council 28 of the National Agency for Higher Education Quality Assurance (2019–2020); experts, scholars and educators training specialists in public administration analysed the draft resolution of the Cabinet of Ministers of Ukraine on amendments to the List of Fields and Specialties and the International Standard Classification of Education ISCED-F 2013"
+      "fr": "Séminaire national sur les domaines d’études et les spécialités de l’enseignement supérieur, organisé en ligne par l’Institut polytechnique de Kyiv Igor Sikorsky le 27 août 2021. Svitlana Chukut a lancé, organisé et animé la rencontre.",
+      "en": "All-Ukrainian seminar on higher education fields of study and specialties, convened online by Igor Sikorsky Kyiv Polytechnic Institute on 27 August 2021. Svitlana Chukut initiated, organised and moderated the meeting."
     }
   },
   "photo-egov-for-all": {
@@ -532,6 +628,11 @@ var CERTVIEW = {
       "assets/cert-pages/costi-elt-2023-1.jpg"
     ]
   },
+  "doccu-2017": {
+    "pages": [
+      "assets/cert-pages/doccu-2017-1.jpg"
+    ]
+  },
   "prometheus-naqa-2019": {
     "pages": [
       "assets/cert-pages/prometheus-naqa-2019-1.jpg"
@@ -699,8 +800,8 @@ var CERTVIEW = {
       "assets/cert-pages/opp-egov-kpi-en-40.webp"
     ],
     "sum": {
-      "fr": "Présentation du programme éducatif et professionnel « Administration électronique » de l'Université technique nationale d'Ukraine « Institut polytechnique de Kyiv Igor Sikorsky » — disponible en ukrainien (original), en anglais et en français : le visualiseur affiche la version dans la langue actuelle de la page. L'objectif du programme correspond pleinement à la mission et à la stratégie de développement de l'Institut polytechnique de Kyiv Igor Sikorsky pour 2020–2025 : la formation professionnelle de fonctionnaires et de gestionnaires capables de résoudre des tâches spécialisées complexes et des problèmes pratiques en administration publique, notamment en administration électronique. La présentation montre le développement des compétences pratiques — cours hors les murs, notamment au Secrétariat du Cabinet des ministres de l'Ukraine, et étude des meilleures expériences ukrainiennes (composante « Villes intelligentes ») — et présente les étudiants du programme, participants et lauréats du concours panukrainien de travaux scientifiques étudiants en administration et gestion publiques et du concours du budget participatif de Kyiv.",
-      "en": "Presentation of the Educational and Professional Programme “Electronic Governance” of the National Technical University of Ukraine “Igor Sikorsky Kyiv Polytechnic Institute” — available in Ukrainian (original), English and French: the viewer shows the version in the current language of the page. The programme's goal fully matches the mission and the Development Strategy of Igor Sikorsky Kyiv Polytechnic Institute for 2020–2025: professional training of public servants and managers able to solve complex specialised tasks and practical problems in public administration and management, in particular in e-governance. The presentation shows how practical skills are developed — field classes, including at the Secretariat of the Cabinet of Ministers of Ukraine, and study of the best Ukrainian experience (the “Smart Cities” component) — and presents the programme's students, participants and winners of the All-Ukrainian Competition of Student Scientific Works in Public Administration and Management and of the Kyiv Public Budget competition."
+      "fr": "Présentation du programme éducatif et professionnel « Administration électronique » de l'Université technique nationale d'Ukraine « Institut polytechnique de Kyiv Igor Sikorsky » — le visualiseur affiche les diapositives en anglais ou en français selon la langue de la page. L'objectif du programme correspond pleinement à la mission et à la stratégie de développement de l'Institut polytechnique de Kyiv Igor Sikorsky pour 2020–2025 : la formation professionnelle de fonctionnaires et de gestionnaires capables de résoudre des tâches spécialisées complexes et des problèmes pratiques en administration publique, notamment en administration électronique. La présentation montre le développement des compétences pratiques — cours hors les murs, notamment au Secrétariat du Cabinet des ministres de l'Ukraine, et étude des meilleures expériences ukrainiennes (composante « Villes intelligentes ») — et présente les étudiants du programme, participants et lauréats du concours panukrainien de travaux scientifiques étudiants en administration et gestion publiques et du concours du budget participatif de Kyiv.",
+      "en": "Presentation of the Educational and Professional Programme “Electronic Governance” of the National Technical University of Ukraine “Igor Sikorsky Kyiv Polytechnic Institute” — the viewer displays the slides in English or French to match the page language. The programme's goal fully matches the mission and the Development Strategy of Igor Sikorsky Kyiv Polytechnic Institute for 2020–2025: professional training of public servants and managers able to solve complex specialised tasks and practical problems in public administration and management, in particular in e-governance. The presentation shows how practical skills are developed — field classes, including at the Secretariat of the Cabinet of Ministers of Ukraine, and study of the best Ukrainian experience (the “Smart Cities” component) — and presents the programme's students, participants and winners of the All-Ukrainian Competition of Student Scientific Works in Public Administration and Management and of the Kyiv Public Budget competition."
     },
     "title": {
       "fr": "Programme éducatif et professionnel « Administration électronique » — Institut polytechnique de Kyiv Igor Sikorsky",
@@ -752,7 +853,7 @@ var CERTVIEW = {
   },
   "fsp-gratitude-2023": {
     "pages": [
-      "assets/cert-pages/fsp-gratitude-2023-1.jpg"
+      "assets/cert-pages/fsp-gratitude-2023-75248f71.jpg"
     ]
   },
   "black-sea-science-2023": {
