@@ -10,14 +10,14 @@
    ================================================================ */
 /* ---- Home page: hero constellation canvas ---- */
 function HOME_AFTER(d,lang){
-  document.title = lang==="fr" ? "Svitlana Chukut — des communications qui transforment la gouvernance" : "Svitlana Chukut — communications that transform governance";
+  document.title = lang==="fr" ? "Prof. Svitlana Chukut — apprentissage et gouvernance numériques" : "Prof. Svitlana Chukut — digital learning and governance";
   // constellation canvas
   var c=document.getElementById("stars"); if(!c) return;
   var x=c.getContext("2d"),W,H,pts=[];
   function rs(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;pts=[];for(var i=0;i<70;i++)pts.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.6+.4,s:Math.random()*.4+.1});}
   rs(); addEventListener("resize",rs);
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  (function an(){x.clearRect(0,0,W,H);x.fillStyle="rgba(231,200,115,.7)";pts.forEach(function(p){if(!reduceMotion){p.y-=p.s;if(p.y<0)p.y=H;}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill();});if(!reduceMotion)requestAnimationFrame(an);})();
+  (function an(){x.clearRect(0,0,W,H);x.fillStyle="rgba(231,200,115,.7)";pts.forEach(function(p){if(!reduceMotion){p.y-=p.s;if(p.y<0)p.y=H;}x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill();});if(!reduceMotion&&!c.hasAttribute("data-static-decoration"))requestAnimationFrame(an);})();
 }
 
 /* Publication library: 219 records, ordered newest first — strictly
@@ -88,7 +88,7 @@ LIB.forEach(function (record) {
 });
 
 function LIB_AFTER(d,lang){
-  document.title = lang==="fr" ? "Bibliothèque des publications — Svitlana Chukut" : "Publication library — Svitlana Chukut";
+  document.title = lang==="fr" ? "Bibliothèque des publications — Prof. Svitlana Chukut" : "Publication library — Prof. Svitlana Chukut";
   var fc=document.getElementById("fc"), fd=document.getElementById("fd");
   var cv=fc.value, dv=fd.value;
   fc.innerHTML='<option value="">'+d.lifAll+'</option>'+CATS.map(function(c){return '<option value="'+c+'">'+(d["licat_"+c]||c)+'</option>';}).join("");
@@ -104,8 +104,7 @@ function LIB_AFTER(d,lang){
     });
   }
   var yrs=[...new Set(LIB.map(function(r){return (r[1]||"").slice(0,4);}).filter(function(y){return /^\d{4}$/.test(y);}))].sort().reverse();
-  var decades=[...new Set(yrs.map(function(y){return y.slice(0,3)+"0";}))].sort().reverse();
-  fd.innerHTML='<option value="">'+d.lifAllY+'</option>'+decades.map(function(x){return '<option value="'+x+'">'+x+'–'+(+x+9)+'</option>';}).join("");
+  fd.innerHTML='<option value="">'+d.lifAllY+'</option>'+yrs.map(function(y){return '<option value="'+y+'">'+y+'</option>';}).join("");
   fd.value=dv;
   var fq=document.getElementById("fq"); fq.placeholder=d.liphSearch;
   render(d,lang);
@@ -118,19 +117,30 @@ var LIB_SHOW=24, _libSig="";
 function render(d,lang){
   var q=(document.getElementById("fq").value||"").toLowerCase().trim();
   var c=document.getElementById("fc").value, dec=document.getElementById("fd").value;
+  var topic=document.getElementById("lib-topic");
+  var translation=document.getElementById("lib-language");
+  var topics={
+    ai:/\b(?:AI|artificial intelligence|intelligence artificielle)\b/i,
+    governance:/governance|gouvernance|government|gouvernement|administration électronique|e-governance|e-democracy/i,
+    learning:/curriculum|learning|teaching|course|education|apprentissage|enseignement|cours|formation/i,
+    cities:/smart cit|smart-city|villes? intelligentes?/i
+  };
   var chEl=document.getElementById("libChips");
   if(chEl){ chEl.querySelectorAll(".lib-chip").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-cat")===c?"true":"false"); }); }
   var out=LIB.filter(function(r){
     if(c&&r[0]!==c)return false;
-    if(dec){var y=(r[1]||"").slice(0,4);if(!(y>=dec&&y<(+dec+10)))return false;}
-    if(q){var t=((r[2]||"")+" "+(r[3]||"")).toLowerCase();if(t.indexOf(q)<0)return false;}
+    if(dec){var y=(r[1]||"").slice(0,4);if(y!==dec)return false;}
+    var text=[r[2],r[3],r[4],r[5],r[6],r[7],r[10],r[11]].join(" ");
+    if(q && !text.toLowerCase().includes(q))return false;
+    if(topic && topic.value && !topics[topic.value].test(text))return false;
+    if(translation && translation.value && !ARTICLE_TRANSLATIONS.has(r[1]+"|"+r[3]))return false;
     return true;
   });
   /* default order: newest first (strict descending year). The sort is
      stable, so entries within one year keep their source order, and it
      runs after every filter/search so the order never breaks. */
   out.sort(function(a,b){var ya=parseInt((a[1]||"").slice(0,4),10)||0, yb=parseInt((b[1]||"").slice(0,4),10)||0; return yb-ya;});
-  var sig=q+"|"+c+"|"+dec+"|"+lang; if(sig!==_libSig){_libSig=sig;LIB_SHOW=24;}
+  var sig=[q,c,dec,topic&&topic.value,translation&&translation.value,lang].join("|"); if(sig!==_libSig){_libSig=sig;LIB_SHOW=24;}
   var g=document.getElementById("grid");
   g.innerHTML=out.slice(0,LIB_SHOW).map(function(r,idx){
     var t=lang==="fr"?r[2]:r[3], s=lang==="fr"?r[4]:r[5];
@@ -143,7 +153,7 @@ function render(d,lang){
     var meta=[d["licat_"+r[0]]||r[0],r[1],s].filter(Boolean).join(" · ");
     var citation=publicationCitation(r,lang);
     var citationHtml=citation ? '<div class="scholar-citation">'+citation+'</div>' : "";
-    var link=url?(' <a href="'+url+'" target="_blank" rel="noopener" aria-label="'+d.libOpenSource+'">↗</a>'):"";
+    var link=url?(' <a href="'+url+'" target="_blank" rel="noopener" aria-label="'+d.libOpenSource+'">Source</a>'):"";
     /* short description: fields 10 (FR) / 11 (EN), with the same
        cross-language fallback as the title. Rendered collapsed
        behind a per-card toggle so the list stays scannable by
@@ -161,7 +171,7 @@ function render(d,lang){
     var apa = lang === "fr" && r[13] ? r[13] : r[12];
     var apaHtml = apa ? '<p class="apa"><span class="apa-label">'+d.libApaLabel+'</span>'+apa+'</p>' : "";
     var img="";
-    var coverSrc=(r[1]==="2022" && /Fondements de l’administration électronique|Fundamentals of Electronic Governance/.test(t))?"assets/books/osnovy-egu-2022-titlepage.jpg":(r[1]==="2007" && /Politique d’information en Ukraine : support de cours|Information policy in Ukraine: lecture outline/.test(t))?"assets/books/info-policy.jpg":(r[1]==="2008" && /Politique d’information : manuel|Information Policy: a textbook/.test(t))?"assets/books/info-policy-textbook-cover.jpg":(r[1]==="2008" && /Expérience nationale et étrangère|Domestic and foreign experience/.test(t))?"assets/books/egov-2008.jpg":"";
+    var coverSrc=(r[1]==="2022" && /Fondements de l’administration électronique|Fundamentals of Electronic Governance/.test(t))?"assets/books/osnovy-egu-2022-titlepage-hq.webp":(r[1]==="2007" && /Politique d’information en Ukraine : support de cours|Information policy in Ukraine: lecture outline/.test(t))?"assets/books/info-policy.jpg":(r[1]==="2008" && /Politique d’information : manuel|Information Policy: a textbook/.test(t))?"assets/books/info-policy-textbook-cover.jpg":(r[1]==="2008" && /Expérience nationale et étrangère|Domestic and foreign experience/.test(t))?"assets/books/egov-2008.jpg":"";
     if(coverSrc) img='<img class="lib-cover" src="'+coverSrc+'" alt="'+t.replace(/"/g,"&quot;")+'">';
     var badge=r[0]==="cert"?'<div class="lib-badge">'+(lang==="fr"?"CERTIFICAT":"CERTIFICATE")+'</div>':"";
     return '<div class="lib-it '+(img||badge?'visual':'')+'">'+img+badge+'<div class="lib-copy"><div class="t">'+t+link+'</div>'+descHtml+apaHtml+'<div class="m">'+meta+'</div>'+articleTranslationLinks(r, lang)+citationHtml+'</div></div>';
@@ -189,11 +199,11 @@ function render(d,lang){
   }
 }
 document.addEventListener("DOMContentLoaded",function(){
-  ["fq","fc","fd"].forEach(function(id){document.getElementById(id).addEventListener("input",function(){var l=document.documentElement.lang;render(Object.assign({},PAGE[l]),l);});});
+  ["fq","fc","fd","lib-topic","lib-language"].forEach(function(id){document.getElementById(id).addEventListener("input",function(){var l=document.documentElement.lang;render(Object.assign({},PAGE[l]),l);});});
   document.getElementById("fc").addEventListener("change",function(){var l=document.documentElement.lang;render(Object.assign({},PAGE[l]),l);});
   document.getElementById("fd").addEventListener("change",function(){var l=document.documentElement.lang;render(Object.assign({},PAGE[l]),l);});
   var rs=document.getElementById("libReset");
-  if(rs){ rs.addEventListener("click",function(){ var l=document.documentElement.lang||"en"; document.getElementById("fq").value=""; document.getElementById("fc").value=""; document.getElementById("fd").value=""; render(Object.assign({},PAGE[l]),l); var f=document.getElementById("fq"); if(f) f.focus(); }); }
+  if(rs){ rs.addEventListener("click",function(){ var l=document.documentElement.lang||"en"; document.getElementById("fq").value=""; document.getElementById("fc").value=""; document.getElementById("fd").value=""; document.getElementById("lib-topic").value=""; document.getElementById("lib-language").value=""; render(Object.assign({},PAGE[l]),l); var f=document.getElementById("fq"); if(f) f.focus(); }); }
 });
 /* Global-search target: filter the library to one record and flash its card. */
 window.SC_libGo=function(rec){
@@ -203,6 +213,8 @@ window.SC_libGo=function(rec){
     document.getElementById("fq").value=(lang==="fr"?(rec[2]||rec[3]):(rec[3]||rec[2]))||"";
     document.getElementById("fc").value=rec[0];
     document.getElementById("fd").value="";
+    document.getElementById("lib-topic").value="";
+    document.getElementById("lib-language").value="";
     LIB_AFTER(d,lang);
     setTimeout(function(){
       var title=(lang==="fr"?(rec[2]||rec[3]):(rec[3]||rec[2]))||"";

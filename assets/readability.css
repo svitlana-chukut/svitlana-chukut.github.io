@@ -1,0 +1,63 @@
+/* Primary sections occupy the upper row; the identity and controls follow. */
+.hdr-in{padding-top:0;padding-bottom:9px;row-gap:9px}
+.hdr-in>.nav{order:0;flex-basis:100%;margin:0;padding:7px 0;border-top:0;border-bottom:1px solid #ffffff28;flex-wrap:nowrap;justify-content:center;gap:2px}
+.hdr-in>.brand{order:1}
+.hdr-in>.hdr-ctrls{order:2}
+.nav>a,.nav>.nav-group>.nav-parent,.nav>.lab-nav-group>a{font-size:1rem;line-height:1.4;padding:9px 10px;min-height:46px}
+.nav-submenu a{font-size:.9375rem;line-height:1.5}
+.brand .nm{font-size:1rem}
+.brand .sb{font-size:.875rem;letter-spacing:0;text-transform:none}
+body{font-size:1rem;line-height:1.65}
+.lead,.phero p.lead,.hsub,.dl-panel .lead{font-size:1.125rem;line-height:1.7}
+.book-meta p,.book-feature p,.book-description .d,.lib-it .d,.event-record p,.story-copy p,.tl-it p,.course .body p,.egov-lede-grid p,.coauthor-list p{font-size:1.0625rem;line-height:1.75}
+.book-meta :is(h3,h4){font-size:1.5rem;line-height:1.3;overflow-wrap:normal}
+.book-meta .scholar-citation,.scholar-citation a,.scholar-record-note{font-size:.875rem;line-height:1.6}
+.book-meta .lib-cit,.book-meta .lib-cit strong{font-size:1rem}
+.book-description .d{max-width:70ch;margin-top:14px}
+.book-description .d p+p{margin-top:16px}
+.book-meta .book-synopsis{font-size:1.0625rem;font-weight:500;color:var(--heading);line-height:1.65}
+.book-full-text{margin-bottom:12px}
+.edition-badge{display:block;width:fit-content;max-width:100%;margin:0 auto 8px;padding:6px 12px;border:1px solid #7c9eaa;border-radius:999px;background:#eaf3f7;color:#163e55;font-size:1rem;font-weight:700;line-height:1.5}
+.book-card figcaption,.book-feature figcaption,.year-chip,.lang-badge,.lab-format,.lab-card-facts,.lib-desc-btn,.book-citation summary{font-size:.9375rem;line-height:1.5}
+.book-description summary,.book-citation summary{min-height:44px;display:flex;align-items:center;gap:10px;padding-top:7px;padding-bottom:7px}
+.book-meta .text-link{font-size:1rem;min-height:44px;line-height:1.5;overflow-wrap:anywhere}
+.book-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.book-card figure{padding:22px 20px 16px}
+.book-card figure>a{display:flex;align-items:center;justify-content:center;min-height:340px;height:340px;width:100%;background:#fff;border-radius:8px}
+.book-card figure>a>picture{display:contents}
+.book-card figure img{width:auto!important;height:auto!important;max-width:100%;max-height:320px;aspect-ratio:auto;object-fit:contain;border:0;border-radius:3px;box-shadow:0 5px 14px #10263e18}
+.book-card figcaption{margin-top:14px}
+#book-fundamentals-2022{grid-column:1/-1;display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);align-items:start}
+#book-fundamentals-2022 figure{border-bottom:0;border-right:1px solid var(--line-soft);height:100%}
+#book-fundamentals-2022 .book-meta{padding:26px 32px}
+#book-fundamentals-2022 h3{font-size:clamp(1.55rem,2.8vw,2rem)}
+.image-preview-link img,.gal-open img{image-rendering:auto}
+.gallery-grid figure,.archive-gallery figure{border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.gallery-grid figcaption,.archive-gallery figcaption{font-size:.9375rem;line-height:1.65;padding:14px 16px;color:var(--text)}
+.gallery-grid .gal-open,.archive-gallery .image-preview-link{display:block;width:100%;background:var(--surface-2)}
+.gallery-grid .gal-open img,.archive-gallery img{max-height:420px;width:100%;height:clamp(230px,28vw,360px);object-fit:contain}
+.fv-head h3,.cv-head h3{font-size:1.125rem;line-height:1.4}
+.fv-body img{image-rendering:auto}
+@media(max-width:1240px){
+ .hdr-in>.nav{justify-content:flex-start;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scrollbar-color:#eed08088 transparent;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch}
+ .nav>a,.nav>.nav-group,.nav>.lab-nav-group{flex:none}
+ .nav>a,.nav>.nav-group>.nav-parent,.nav>.lab-nav-group>a{font-size:.9375rem;padding:9px}
+ .nav-submenu,.nav-group:hover .nav-submenu,.nav-group:focus-within .nav-submenu,.nav-group.open .nav-submenu{display:none}
+ .lab-nav-tooltip{display:none}
+}
+@media(min-width:641px) and (max-width:1000px){.book-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.book-gallery{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:800px){
+ .hdr-in{padding-bottom:8px}
+ .hdr-in>.nav{padding:5px 0 7px}
+ .lead,.phero p.lead,.hsub,.dl-panel .lead{font-size:1.0625rem}
+ .book-card figure>a{height:320px;min-height:320px}
+ .book-card figure img{max-height:300px}
+ .book-meta{padding:20px}
+ .book-meta :is(h3,h4){font-size:1.35rem}
+ .brand .nm{font-size:.9375rem}
+ #book-fundamentals-2022{grid-template-columns:1fr}
+ #book-fundamentals-2022 figure{border-right:0;border-bottom:1px solid var(--line-soft)}
+ #book-fundamentals-2022 .book-meta{padding:22px}
+}
+@media(prefers-reduced-motion:reduce){.book-card,.gallery-grid img{transition:none;transform:none}}

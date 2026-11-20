@@ -45,6 +45,7 @@
     "Digital government policy analysis"
   ],
   "jobTitle": "Professor",
+  "honorificPrefix": "Prof.",
   "hasOccupation": {
     "@type": "Occupation",
     "name": "Curriculum Developer",
@@ -66,7 +67,7 @@
     "addressRegion": "Ontario",
     "addressCountry": "CA"
   },
-  "worksFor": {
+  "affiliation": {
     "@type": "Organization",
     "name": "George Brown Polytechnic"
   },
@@ -82,10 +83,8 @@
     "https://www.facebook.com/sv.ch.391"
   ]
 };
-  if (location.protocol === "https:" || location.protocol === "http:") {
-    data.url = new URL(".", location.href).href;
-    data.image = new URL("assets/hero.jpg", data.url).href;
-  }
+  data.url = "https://www.svitlanachukut.com/";
+  data.image = "https://www.svitlanachukut.com/assets/hero.jpg";
   var el = document.createElement("script");
   el.type = "application/ld+json";
   el.textContent = JSON.stringify(data);

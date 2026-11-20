@@ -22,8 +22,8 @@
   /* Shared texts (SHARED) are data, not behaviour: they live in
      assets/content-texts.js with the PAGE dictionary - edit texts there. */
   var SHARED = window.SHARED || {fr:{},en:{}};
-  var lang = "en";
-  function dict(){ var p=(typeof PAGE!=="undefined")?PAGE:{fr:{},en:{}}; return Object.assign({}, SHARED[lang], p[lang]||{}); }
+  var lang = document.documentElement.lang === "fr" ? "fr" : "en";
+  function dict(){ var p=(typeof PAGE!=="undefined")?PAGE:{fr:{},en:{}}; return Object.assign({}, SHARED.en, p.en||{}, SHARED[lang], p[lang]||{}); }
   function apply(){
     var d = dict();
     document.querySelectorAll("[data-i18n]").forEach(function(el){
@@ -53,7 +53,13 @@
     }
     if(typeof PAGE_AFTER==="function"){ try{PAGE_AFTER(d,lang);}catch(e){} }
   }
-  window.SC_setLang = function(l){ lang=l; apply(); };
+  window.SC_setLang = function(l){
+    if(l!=="en" && l!=="fr") return;
+    var lab = document.documentElement.dataset.startPage === "learning-lab";
+    var file = location.protocol === "file:" ? "index.html" : "";
+    var path = lab ? "learning-lab/" + (l === "fr" ? "fr/" : "") : l + "/";
+    location.assign(new URL(path + file + location.hash, document.baseURI).href);
+  };
   /* Language buttons are bound here, not with inline onclick attributes:
      strict Content Security Policies (like the one in the Muse shell)
      block inline event handlers, which silently killed the FR/EN switch. */
@@ -139,7 +145,7 @@
     var navGroups=[].slice.call(document.querySelectorAll(".nav-group"));
     if(navGroups.length){
       var CLOSE_MS=400, ddOpen=null, ddTimer=null, touchAt=0, lastTouch=false;
-      var desktopNav=window.matchMedia("(min-width:1081px)");
+      var desktopNav=window.matchMedia("(min-width:1241px)");
       document.addEventListener("pointerdown",function(e){
         lastTouch=(e.pointerType==="touch"||e.pointerType==="pen");
         if(lastTouch) touchAt=Date.now();
@@ -214,6 +220,7 @@
         if(parent){
           parent.addEventListener("keydown",function(e){
             if(e.key!=="ArrowDown"&&e.key!=="ArrowUp") return;
+            if(!desktopNav.matches) return;
             var links=g.querySelectorAll(".nav-submenu a");
             if(!links.length) return;
             e.preventDefault();
@@ -410,7 +417,8 @@
     courses:{fr:"Cours",en:"Courses"},media:{fr:"Médias",en:"Media"},
     events:{fr:"Événements",en:"Events"},egov:{fr:"Journées de l'administration électronique",en:"E-Governance Days"},
     partners:{fr:"Partenaires",en:"Partners"},contact:{fr:"Contacts",en:"Contact"},
-    docs:{fr:"Documents",en:"Documents & files"}
+    docs:{fr:"Documents",en:"Documents & files"},
+    lab:{fr:"Laboratoire d’apprentissage",en:"Learning Lab"}
   };
   function lang(){ return (window.SC_lang?window.SC_lang():"en")==="fr"?"fr":"en"; }
   function norm(s){ return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[«»"“”'’]/g," ").replace(/\s+/g," ").trim(); }
@@ -467,10 +475,11 @@
     if(pid==="partners") return "partners";
     if(pid==="contact") return "contact";
     if(pid==="documents") return "docs";
+    if(pid==="learning-lab") return "lab";
     return "home";
   }
 
-  var ITEM_SEL=".tl-it,.award-item,.cert-card,.oxford-cert,.compact-credentials article,.card,.course,.media-it,.event-record,.part,.c-row,.role-grid article,.year-entry,.skill-group,.collab-feature,.coauthor-list article,.sponsor-strip article,.certificate-feature,.book-feature,.book-card,.doc-card";
+  var ITEM_SEL=".tl-it,.award-item,.cert-card,.oxford-cert,.compact-credentials article,.card,.course,.media-it,.event-record,.part,.c-row,.role-grid article,.year-entry,.skill-group,.collab-feature,.coauthor-list article,.sponsor-strip article,.certificate-feature,.book-feature,.book-card,.doc-card,.lab-card,.lab-services article";
   var INDEX=null;
   function buildIndex(){
     INDEX=[];
@@ -679,10 +688,14 @@
      catalogue cards on desktop, the sticky library toolbar that would
      otherwise cover the card's title */
   function offFor(el){
-    var off=window.innerWidth<=680?128:150;
+    var header=document.querySelector('.hdr');
+    var fixed=header&&getComputedStyle(header).position==="sticky";
+    var off=(fixed?header.offsetHeight:0)+20;
+    var sectionBar=el&&el.closest(".page")&&el.closest(".page").querySelector(".section-jump");
+    if(sectionBar&&getComputedStyle(sectionBar).position==="sticky")off+=sectionBar.offsetHeight;
     if(window.innerWidth>680 && el && el.closest && el.closest("#grid")){
       var tools=document.querySelector(".lib-tools");
-      if(tools) off=68+tools.offsetHeight+14;
+      if(tools) off=(header?header.offsetHeight:68)+tools.offsetHeight+14;
     }
     return off;
   }
@@ -694,11 +707,32 @@
     if(!el.hasAttribute("tabindex")) el.setAttribute("tabindex","-1");
     try{ el.focus({preventScroll:true}); }catch(e){}
   }
+  var landingCancel=null;
+  window.addEventListener('popstate',function(){if(landingCancel)landingCancel();});
   function present(el){
+    if(landingCancel) landingCancel();
     reveal(el);
-    var top=el.getBoundingClientRect().top+window.scrollY-offFor(el);
-    window.scrollTo({top:Math.max(0,top),behavior:"instant"});
     var heading=el.tagName==="SECTION"?el.querySelector("h1,h2"):null;
+    var focusTarget=heading||el;
+    // A newly revealed page can still shift as fonts and lazy images settle.
+    // Track the actual heading, then stop on user input or after four seconds.
+    var stopped=false,start=performance.now(),frame;
+    document.documentElement.classList.add('is-landing');
+    function stop(){
+      if(stopped)return;stopped=true;cancelAnimationFrame(frame);
+      document.documentElement.classList.remove('is-landing');
+      ['wheel','touchstart','pointerdown','keydown'].forEach(function(t){window.removeEventListener(t,stop,true);});
+      landingCancel=null;
+    }
+    landingCancel=stop;
+    ['wheel','touchstart','pointerdown','keydown'].forEach(function(t){window.addEventListener(t,stop,{capture:true,passive:true});});
+    function settle(){
+      if(stopped)return;
+      var top=focusTarget.getBoundingClientRect().top+window.scrollY-offFor(focusTarget);
+      if(Math.abs(window.scrollY-Math.max(0,top))>2)window.scrollTo({top:Math.max(0,top),behavior:"instant"});
+      if(performance.now()-start<4000)frame=requestAnimationFrame(settle);else stop();
+    }
+    settle();
     flash(heading||el);
   }
   window.SC_scrollFlash=present;
@@ -841,12 +875,20 @@
   /* Quick-access cards, in-section jump chips and the other deep
      anchors land through the same stabilized go-to as search results,
      so every route to a section arrives at exactly the same place. */
-  var PAGE_NAMES=["home","bio","library","courses","media","events","egov-days","partners","documents","contact"];
+  var PAGE_NAMES=["home","bio","library","courses","media","events","egov-days","partners","documents","contact","learning-lab"];
   document.addEventListener("click",function(ev){
     var a=ev.target.closest?ev.target.closest('a[href^="#"]'):null;
     if(!a||ev.defaultPrevented||ev.button!==0||ev.metaKey||ev.ctrlKey||ev.shiftKey||ev.altKey) return;
     var h=(a.getAttribute("href")||"").slice(1);
-    if(!h||h==="main"||PAGE_NAMES.indexOf(h)>-1) return;
+    if(!h||h==="main") return;
+    // Handle page fragments explicitly: the document base points to the
+    // shared assets root, so a native fragment link would leave /fr/.
+    if(PAGE_NAMES.indexOf(h)>-1){
+      ev.preventDefault();
+      closePanel(false);
+      if(window.SC_navigate) window.SC_navigate("#"+h);
+      return;
+    }
     var target=document.getElementById(h);
     if(!target) return;
     ev.preventDefault();
@@ -1095,6 +1137,7 @@
     if(a.hasAttribute("download")) return; /* a true download (the CV) downloads — it does not open in this viewer */
     var src = a.getAttribute("href");
     if(!src) return;
+    if(/\.html?(?:$|[?#])/i.test(src)) return; /* Reading versions are pages, not image previews. */
     e.preventDefault();
     var preview = a.classList.contains("image-preview-link");
     var image = preview ? a.querySelector("img") : null;

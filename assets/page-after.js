@@ -53,18 +53,9 @@ function PAGE_AFTER(d,lang){
      (the Person record's facts themselves never change) */
   var ld=document.querySelector('script[type="application/ld+json"]');
   if(ld){ try{ var j=JSON.parse(ld.textContent); if(j&&typeof j.description==="string"){ j.description=metaDesc; ld.textContent=JSON.stringify(j); } }catch(e){} }
-  /* whole-card links carry a SHORT accessible name in the current
-     language — the section name plus its action line — not the
-     card's full text: the description and counters stay visible,
-     but the name is what a screen reader announces */
-  document.querySelectorAll("a.card,a.media-it,a.part").forEach(function(a){
-    var h=a.querySelector("h3");
-    if(!h) return;
-    var name=h.textContent.replace(/\s+/g," ").trim();
-    var go=a.querySelector(".go");
-    if(go){ var act=go.textContent.replace(/\s+/g," ").replace(/→/g,"").trim(); if(act&&act!==name) name=name+" — "+act; }
-    if(name) a.setAttribute("aria-label",name);
-  });
+  // Preserve the visible wording in each card's accessible name for voice control.
+  document.querySelectorAll("a.card,a.media-it,a.part").forEach(function(a){a.removeAttribute("aria-label");});
   try{ if(typeof HOME_AFTER==="function" && !window._haDone){ window._haDone=true; HOME_AFTER(d,lang); } }catch(e){}
   try{ if(typeof LIB_AFTER==="function") LIB_AFTER(d,lang); }catch(e){}
+  if(window.SC_show) window.SC_show(true);
 }

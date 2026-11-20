@@ -439,7 +439,7 @@ var CERTVIEW = {
   },
   "book-2022": {
     "pages": [
-      "assets/books/osnovy-egu-2022-titlepage.jpg"
+      "assets/books/osnovy-egu-2022-titlepage-hq.webp"
     ]
   },
   "proc-2008": {

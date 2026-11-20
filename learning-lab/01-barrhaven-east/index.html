@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071B30">
+<meta name="description" content="An independent bilingual, scenario-based civic learning game about constructive resident engagement in Ottawa’s Ward 24, Barrhaven East.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Barrhaven East: One Ward, Many Voices | Civic Learning Lab">
+<meta property="og:description" content="An independent bilingual (EN/FR) scenario-based civic learning game about constructive resident engagement in Ottawa’s Ward 24, Barrhaven East.">
+<meta name="twitter:card" content="summary">
+<title>Barrhaven East: One Ward, Many Voices | Civic Learning Lab</title>
+<style>
+:root{--ink:#0A2338;--muted:#4A5A68;--blue:#18598a;--green:#14756f;--green-dark:#115d58;--warm:#E7C873;--bg:#F7F2E7;--paper:#FFFDF7;--line:#DFD8C2;--focus:#a14500;--shadow:0 14px 38px rgba(15,48,69,.08);color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,Arial,sans-serif;line-height:1.55;font-size:16px}
+button,a{touch-action:manipulation}
+button{font:inherit;cursor:pointer}
+a{color:var(--blue);text-underline-offset:3px;font-weight:650}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.skip{position:absolute;top:-100px;left:12px;background:#FFFDF7;padding:12px 16px;z-index:200}.skip:focus{top:8px}
+.site{max-width:1280px;margin:auto;padding:0 22px}
+.top{background:#FFFDF7;border-bottom:1px solid var(--line)}
+.top-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;padding-block:10px}
+.brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--ink)}
+.emblem{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;background:var(--ink);color:#FFFDF7;flex-shrink:0}
+.brand strong{display:block;line-height:1.15;font-size:15px;letter-spacing:.01em}
+.brand small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.nav-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.switch{display:flex;border:1px solid #b9ccd9;padding:3px;border-radius:10px;background:#edf3f7}
+.switch button{border:0;background:transparent;color:#38516a;padding:8px 13px;border-radius:7px;font-size:13px;min-width:46px;min-height:44px;font-weight:800}
+.switch button[aria-pressed=true]{background:var(--ink);color:#FFFDF7}
+.btn{background:var(--blue);color:#FFFDF7;border:2px solid var(--blue);font-weight:750;border-radius:12px;min-height:48px;padding:11px 20px;display:inline-flex;justify-content:center;align-items:center;gap:9px;text-decoration:none}
+.btn:hover{background:#124569;border-color:#124569}
+.btn.secondary{background:#FFFDF7;color:var(--ink);border-color:#b7cad9}
+.btn.secondary:hover{background:#edf4f7}
+.btn.green{background:var(--green-dark);border-color:var(--green-dark);color:#FFFDF7}
+.btn.light{background:#FFFDF7;border-color:#FFFDF7;color:var(--ink)}
+.btn.small{font-size:13px;min-height:44px;padding:7px 12px}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.mini{font-size:12px;color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:7px;border-radius:8px;background:#e5f5f0;color:#125d55;font-size:12px;font-weight:850;padding:7px 10px}
+.badge.blue{background:#eaf1fb;color:#18598a}
+.badge.amber{background:#FFFDF72d0;color:#724800}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;color:#a7eadf;font-weight:850;font-size:12px}
+main{padding-bottom:36px}
+.hero{margin:24px 0 26px;background:linear-gradient(119deg,#173247 0%,#174a62 64%,#236b66 100%);color:#FFFDF7;border-radius:26px;box-shadow:var(--shadow);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(310px,.92fr);align-items:center;min-height:440px}
+.hero-copy{padding:46px 12px 46px 45px}
+.hero h1{font-size:clamp(36px,4.1vw,60px);letter-spacing:-.05em;line-height:1.06;margin:12px 0 16px;max-width:660px}
+.hero p{color:#e4f2f5;font-size:17px;max-width:640px;margin:0 0 24px}
+.hero .hero-actions{display:flex;gap:11px;flex-wrap:wrap}
+.hero .badge{background:rgba(255,255,255,.13);color:#FFFDF7;border:1px solid rgba(255,255,255,.22)}
+.hero-note{margin-top:24px;color:#d3e9e9;font-size:12px;max-width:550px}
+.visual{height:100%;min-height:380px;position:relative;overflow:hidden;display:grid;place-items:center;padding:22px}
+.visual svg{width:100%;height:auto;max-width:515px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.15))}
+.visual .float{position:absolute;display:flex;align-items:center;gap:7px;color:#183447;background:#FFFDF7;border-radius:11px;padding:9px 11px;font-size:12px;font-weight:800;box-shadow:0 8px 28px rgba(0,0,0,.16)}
+.visual .float.one{left:3%;top:17%}.visual .float.two{right:2%;top:40%}.visual .float.three{left:15%;bottom:15%}
+.stats{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.stats span{font-size:13px;padding:8px 11px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.09)}
+.sectionhead{margin:24px 0 15px;display:flex;gap:10px;justify-content:space-between;align-items:end}
+h2{font-size:clamp(23px,3vw,30px);line-height:1.2;letter-spacing:-.025em;margin:0}
+h3{line-height:1.25;letter-spacing:-.018em;margin:0}
+.desc{color:var(--muted);max-width:760px}
+.role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.role-card{padding:22px;background:#FFFDF7;border:1px solid var(--line);border-radius:18px;text-align:left;min-height:190px;box-shadow:0 8px 19px rgba(18,50,72,.04);transition:transform .15s,border-color .15s;width:100%;display:flex;flex-direction:column;align-items:flex-start}
+.role-card:hover{transform:translateY(-3px);border-color:#6998ad}
+.role-card .emoji{font-size:32px;margin-bottom:12px}
+.role-card strong{font-size:18px}
+.role-card span.blurb{color:var(--muted);margin:8px 0 14px;line-height:1.5;font-size:14px}
+.role-card .arrow{color:var(--green-dark);font-weight:800;margin-top:auto}
+.foot-strip{margin-top:20px;display:flex;justify-content:space-between;gap:15px;align-items:center;background:#FFFDF7;border:1px solid var(--line);padding:16px 20px;border-radius:15px}
+.foot-strip p{margin:0;font-size:13px;color:var(--muted)}
+.game-shell{display:grid;grid-template-columns:278px minmax(0,1fr);gap:20px;margin-top:24px;align-items:start}
+.sidebar{min-width:0;background:#FFFDF7;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow);position:sticky;top:14px}
+.side-title{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#526474;font-weight:800}
+.score{font-weight:850;font-size:42px;letter-spacing:-.06em;color:var(--ink);line-height:1.1;margin:5px 0}
+.score small{font-size:17px;color:#667989;font-weight:600}
+.side-divider{height:1px;background:var(--line);margin:15px 0}
+.bar-label{display:flex;justify-content:space-between;font-weight:680;font-size:12px;margin:11px 0 5px;gap:8px}
+.track{height:8px;background:#e5ecf1;border-radius:30px;overflow:hidden}.track div{height:100%;border-radius:30px;background:var(--green);transition:width .2s}
+.track.blue div{background:var(--blue)}
+.scene-box{min-width:0;overflow-wrap:anywhere;background:#FFFDF7;border:1px solid var(--line);border-radius:21px;padding:clamp(20px,3vw,38px);box-shadow:var(--shadow);min-height:550px}
+.topline{display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap}
+.stage{display:flex;align-items:center;gap:8px;font-weight:750;font-size:13px;color:var(--blue)}
+.story{margin:18px 0;padding:14px 18px;border-left:4px solid var(--green);background:#edf7f4;border-radius:0 12px 12px 0;color:#194d48;font-size:14px}
+.scene-box h1{font-size:clamp(27px,3.2vw,40px);line-height:1.16;letter-spacing:-.04em;margin:18px 0 15px}
+.scene-box .body{font-size:17px;color:#374b5b;line-height:1.75;max-width:760px}
+.scene-box .question{font-weight:850;font-size:20px;line-height:1.35;margin:25px 0 14px;color:var(--ink)}
+.choices{display:grid;gap:11px;margin-top:15px}
+.choice{background:#FFFDF7;border:1.5px solid #b8cbd8;padding:16px;border-radius:14px;display:flex;align-items:flex-start;gap:14px;width:100%;text-align:left;min-height:64px;color:var(--ink);font-weight:600;line-height:1.55}
+.choice:hover{border-color:#155f58;background:#f1faf7}
+.choice .index{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:#eaf1f6;color:#205775;flex-shrink:0;font-size:13px;font-weight:850}
+.source-inline{margin-top:21px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.feedback-card{padding:22px;border-radius:16px;background:#f0f8f6;border:1px solid #b7ddd3;margin:22px 0}
+.feedback-card.risky{background:#FFFDF78e8;border-color:#edcf89}
+.feedback-card h3{font-size:18px;margin-bottom:9px}
+.feedback-card p{margin:0 0 10px;line-height:1.7}
+.impact{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.impact span{background:#FFFDF7;border:1px solid #dce5ec;color:var(--ink);font-weight:800;padding:7px 11px;border-radius:8px;font-size:13px}
+.next-note{background:#f0f5fa;border-radius:13px;padding:15px;margin-top:16px;font-size:14px}
+.report{display:grid;gap:11px;margin-top:18px}
+.report-row{display:flex;gap:12px;justify-content:space-between;border-bottom:1px solid var(--line);padding:12px 0;font-size:14px}
+.report-row>div{min-width:0;overflow-wrap:anywhere}.report-row>strong{white-space:nowrap;flex-shrink:0}.report-row strong{overflow-wrap:anywhere}
+.resources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.resource{display:block;text-decoration:none;background:#FFFDF7;border:1px solid var(--line);border-radius:12px;padding:16px;min-height:75px}
+.resource:hover{border-color:#638db4;background:#f7fbfe}
+.resource strong{display:block}
+.resource small{display:block;color:#536675;font-weight:500;margin-top:4px}
+.legal{color:#556a78;font-size:12px;line-height:1.6}
+.site-footer{border-top:1px solid var(--line);padding:24px 0 34px}
+footer .container{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.sr-only{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0);overflow:hidden;white-space:nowrap}
+.floatlink{color:#dff7ee;text-decoration:underline}
+@media(max-width:950px){.hero-grid{grid-template-columns:1fr}.hero-copy{padding:37px 28px 0}.visual{min-height:280px;padding:0 18px 18px;max-width:660px;width:100%;margin:auto}.visual svg{max-width:410px}.game-shell{grid-template-columns:minmax(0,1fr)}.sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.sidebar .side-divider{grid-column:1/-1}.role-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.site{padding-inline:14px}.top-inner{min-height:70px}.brand small{display:none}.hero{margin-top:14px;border-radius:18px}.hero-copy{padding:30px 24px 0}.hero h1{font-size:clamp(34px,8vw,46px)}.hero p{font-size:15px}.visual{min-height:220px}.visual .float{font-size:12px}.stats{margin-bottom:8px}.role-grid{grid-template-columns:1fr}.role-card{min-height:140px}.foot-strip{display:block}.sidebar{grid-template-columns:1fr 1fr;padding:15px}.scene-box{min-height:0}.scene-box .body{font-size:16px}.resources{grid-template-columns:1fr}.topline{align-items:flex-start}}
+@media(max-width:380px){.nav-actions{width:100%;justify-content:space-between}.visual .float.one{left:1%;top:17%}.visual .float.three{bottom:10%;left:6%}.sidebar{display:block}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{body{background:#fff}.top,.sidebar,.nav-actions,.btn,.hero,.site-footer,.choices,.resources{display:none!important}.game-shell{display:block}.scene-box{border:0;box-shadow:none;padding:0}.report-row{break-inside:avoid}}
+</style><style>
+/* Learning Lab v2 layer styles — Barrhaven East (added 2026-11-19) */
+.v2-fab{position:fixed;right:16px;bottom:16px;z-index:60;min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid var(--line,#DFD8C2);background:var(--green,#14756f);color:#F7FAFC;font:600 .95rem/1.2 inherit;cursor:pointer;box-shadow:var(--shadow,0 14px 38px rgba(15,48,69,.08))}
+.v2-fab:hover{background:var(--green-dark,#115d58)}
+.v2-overlay{position:fixed;inset:0;z-index:80;background:rgba(10,35,56,.55);overflow:auto;padding:20px 14px}
+.v2-sheet{max-width:860px;margin:0 auto;background:var(--paper,#FFFDF7);color:var(--ink,#0A2338);border-radius:16px;padding:26px 24px 30px;box-shadow:var(--shadow,0 14px 38px rgba(15,48,69,.2))}
+.v2-cb-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.v2-cb-head h2{margin:0;font-size:1.35rem}
+.v2-cb-intro{color:var(--muted,#4A5A68)}
+.v2-cb-role{margin:26px 0 10px;color:var(--green-dark,#115d58)}
+.v2-card{border:1px solid var(--line,#DFD8C2);border-radius:12px;padding:14px 16px;margin:0 0 12px;background:var(--bg,#F7F2E7)}
+.v2-card h4{margin:0 0 6px}
+.v2-card p{margin:6px 0}
+.v2-practice{color:var(--ink,#0A2338)}
+.v2-why{color:var(--muted,#4A5A68)}
+.v2-src a{color:var(--blue,#18598a)}
+.v2-btn{min-height:44px;padding:9px 16px;border-radius:10px;border:1px solid var(--line,#DFD8C2);background:var(--green,#14756f);color:#F7FAFC;font:600 .95rem/1.2 inherit;cursor:pointer}
+.v2-btn:hover{background:var(--green-dark,#115d58)}
+.v2-panel{margin-top:28px;border:2px solid var(--warm,#E7C873);border-radius:16px;padding:20px;background:var(--paper,#FFFDF7)}
+.v2-badge{display:flex;gap:16px;align-items:flex-start}
+.v2-badge-medal{font-size:2.2rem;line-height:1;color:#B8860B;background:var(--bg,#F7F2E7);border:1px solid var(--warm,#E7C873);border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.v2-kicker{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#4A5A68);font-weight:700}
+.v2-badge-name{font-size:1.5rem;font-weight:800;color:var(--ink,#0A2338)}
+.v2-wish{margin:4px 0 0;color:var(--muted,#4A5A68);font-size:1rem}
+.v2-panel h3{margin:20px 0 6px;color:var(--ink,#0A2338)}
+.v2-list{margin:6px 0 0;padding-left:20px}
+.v2-list li{margin:4px 0}
+.v2-sub{font-weight:700;margin:10px 0 2px}
+.v2-lens{border:1px solid var(--line,#DFD8C2);border-radius:12px;padding:10px 14px;margin:8px 0;background:var(--bg,#F7F2E7)}
+.v2-note{color:var(--muted,#4A5A68);font-size:.85rem}
+@media print{.v2-fab{display:none}}
+
+</style>
+<style>.studio-return{padding:10px 20px;background:#10263e;color:#fff;font:500 14px/1.5 system-ui}.studio-return a{color:inherit;text-underline-offset:3px}.studio-return a:focus-visible{outline:2px solid #f2cf73;outline-offset:4px}</style><link rel="canonical" href="https://www.svitlanachukut.com/learning-lab/01-barrhaven-east/"><link rel="stylesheet" href="../studio-experience.css"><link rel="stylesheet" href="../studio-review.css"><link rel="stylesheet" href="../site-navigation.css"></head>
+<body>
+<nav class="studio-return" aria-label="Learning Lab"><a href="../../index.html#learning-lab" id="studio-return">← Learning Lab · Prof. Svitlana Chukut</a></nav><a class="skip" href="#main" id="skip">Skip to main content</a>
+<header class="top" role="group" aria-label="Simulation controls" data-simulation-controls=""><div class="site top-inner">
+<a class="brand" href="#" id="brandHome" aria-label="Civic Learning Lab home">
+<span class="emblem" aria-hidden="true"><svg width="27" height="27" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 17L12 6l8 11M4 17h16M8 17v-4h8v4"></path><circle cx="12" cy="6" r="2" fill="currentColor"></circle></svg></span>
+<span><strong>Prof. CHUKUT · CIVIC SKILLS STUDIO</strong><small id="brandSub">Independent educational simulation · Ottawa</small></span></a>
+<div class="nav-actions"><span class="badge blue" id="independent"></span><div class="switch" aria-label="Language selection"><button id="en" type="button" lang="en" aria-pressed="true">EN</button><button id="fr" type="button" lang="fr" aria-pressed="false">FR</button></div><button class="btn small secondary" id="restart" type="button" hidden></button></div>
+</div></header>
+<main class="site" id="main" tabindex="-1"><div id="app"></div></main>
+<footer class="site-footer"><div class="site container"><div><strong>Civic Skills Studio · Prof. Chukut · Independent learning prototype</strong><p class="legal" id="footerText"></p></div><a href="https://www.ward24.ca/" target="_blank" rel="noopener noreferrer">Ward 24 ↗</a></div></footer>
+<script id="game-data" type="application/json">{"sources": {"WARD": {"en": "Ward 24 — Barrhaven East", "fr": "Quartier 24 — Barrhaven-Est", "url": "https://www.ward24.ca/ward"}, "NEWS": {"en": "Ward 24 newsletter, 3 November 2026", "fr": "Bulletin du quartier 24, 3 novembre 2026", "url": "https://www.ward24.ca/newsletters/weekly-newsletter-november-3-2026"}, "ENG": {"en": "Ottawa Public Engagement Strategy (2026)", "fr": "Stratégie de participation publique d’Ottawa (2026)", "url": "https://ottawa.ca/en/city-hall/public-engagement/how-were-engaging-you/public-engagement-strategy-and-workbook"}, "PART": {"en": "Engage Ottawa — participation portal", "fr": "Participons Ottawa — portail de participation", "url": "https://engage.ottawa.ca/"}, "311": {"en": "Ottawa 3-1-1 service requests", "fr": "Demandes de service 3-1-1 d’Ottawa", "url": "https://ottawa.ca/en/3-1-1/services-phone-e-mail-and-person/general-inquiries"}, "MOB": {"en": "Engage Ottawa mobility dashboard", "fr": "Tableau de bord de la mobilité d’Ottawa", "url": "https://engage.ottawa.ca/mobility-dashboard"}, "ACC": {"en": "City of Ottawa Accessibility Policy", "fr": "Politique sur l’accessibilité de la Ville d’Ottawa", "url": "https://ottawa.ca/en/city-hall/city-manager-administration-and-policies/policies/administrative-policies/accessibility-policies-and-procedures/accessibility-policy"}, "BI": {"en": "Ottawa Bilingualism Policy", "fr": "Politique de bilinguisme d’Ottawa", "url": "https://ottawa.ca/en/city-hall/creating-equal-inclusive-and-diverse-city/french-language-services/bilingualism-policy"}, "CODE": {"en": "Code of Conduct for Members of Council, By-law 2025-99", "fr": "Code de conduite des membres du Conseil, règlement 2025-99", "url": "https://ottawa.ca/en/living-ottawa/laws-licences-and-permits/laws/laws-z/code-conduct-members-council-law-no-2025-99"}, "PROC": {"en": "Ottawa Procedure By-law 2025-100", "fr": "Règlement de procédure 2025-100 d’Ottawa", "url": "https://ottawa.ca/en/living-ottawa/laws-licences-and-permits/laws/laws-z/procedure-law-no-2025-100"}, "PRIV": {"en": "Municipal Freedom of Information and Protection of Privacy Act", "fr": "Loi sur l’accès à l’information municipale et la protection de la vie privée", "url": "https://www.ontario.ca/laws/statute/90m56"}, "CONTACT": {"en": "Councillor Wilson Lo — Ward 24 office", "fr": "Bureau du conseiller Wilson Lo — quartier 24", "url": "https://www.ward24.ca/"}}, "roles": {"resident": {"name": ["Neighbour", "Résidente ou résident"], "subtitle": ["See how a local concern becomes an evidence-based request.", "Transformez une préoccupation locale en demande étayée."], "icon": "🏡", "intro": ["You live in Barrhaven East. Your school commute, neighbourhood growth and changing weather all touch daily life. You cannot make a City decision alone, but you can help make information more complete and participation more inclusive.", "Vous habitez Barrhaven-Est. Les trajets scolaires, la croissance du quartier et les intempéries touchent votre quotidien. Vous ne décidez pas seul à la place de la Ville, mais vous pouvez enrichir les informations et favoriser la participation de tous."]}, "office": {"name": ["Ward office team", "Équipe du bureau de quartier"], "subtitle": ["Triage concerns fairly and communicate without over-promising.", "Traitez les demandes équitablement sans promettre l’impossible."], "icon": "🤝", "intro": ["You support the office serving Ward 24. A busy week brings traffic concerns, growth questions, stormwater reports and calls for accessible engagement. Your role is to listen, connect residents with the right process and explain what can happen next.", "Vous travaillez pour le bureau qui dessert le quartier 24. Cette semaine, on vous signale des problèmes de circulation, de croissance, de drainage et d’accessibilité. Votre tâche : écouter, orienter et expliquer les prochaines étapes."]}, "staff": {"name": ["City service designer", "Spécialiste des services municipaux"], "subtitle": ["Balance evidence, access, feasibility and accountability.", "Conciliez données, accessibilité, faisabilité et responsabilité."], "icon": "🏙️", "intro": ["You are a fictional City team lead tasked with testing ways to respond to several Ward 24 issues. Your recommendations must be technically sound, accessible, bilingual and honest about trade-offs; elected officials and residents will examine your process.", "Vous êtes responsable fictif d’une équipe municipale chargée d’examiner plusieurs enjeux du quartier 24. Vos propositions doivent être fondées sur des données, accessibles, bilingues et transparentes quant aux compromis."]}}, "scenes": {"resident": [{"id": "r1", "title": ["A crossing worries parents", "Un passage inquiète les parents"], "body": ["A parent near a busy Barrhaven East corridor reports unsafe crossing conditions during the morning rush. The details are incomplete, and another family uses a mobility aid.", "Près d’un axe très fréquenté de Barrhaven-Est, un parent signale une traversée difficile le matin. Les détails restent imprécis et une autre famille utilise une aide à la mobilité."], "question": ["What do you do first?", "Que faites-vous d’abord ?"], "source": "311", "options": [{"t": ["Document the place, time and access barrier; use 3-1-1 for the municipal issue and share the reference with the ward office.", "Notez le lieu, l’heure et l’obstacle d’accessibilité; signalez le problème au 3-1-1 et transmettez la référence au bureau du quartier."], "why": ["Specific facts make a request actionable. 3-1-1 is a municipal service channel; the ward office can follow up but does not replace operational assessment.", "Des faits précis permettent d’agir. Le 3-1-1 est un canal municipal; le bureau du quartier peut assurer un suivi sans remplacer l’analyse opérationnelle."], "points": 20, "delta": [6, 5, 6], "tag": "evidence"}, {"t": ["Write to the ward office with a clear description but do not document when or how the barrier occurs.", "Écrivez au bureau du quartier en décrivant la situation, sans préciser quand ni comment l’obstacle se présente."], "why": ["The office can help direct the concern, but missing details slow verification. Add context or use an official service request too.", "Le bureau peut orienter la demande, mais le manque de détails ralentit la vérification. Ajoutez du contexte ou utilisez aussi une demande officielle."], "points": 10, "delta": [1, 0, 1], "tag": "partial"}, {"t": ["Post an identifiable photo of the family online and accuse City staff of ignoring the problem.", "Publiez une photo permettant d’identifier la famille et accusez le personnel municipal d’inaction."], "why": ["That puts privacy at risk and does not create a reliable service record. Record conditions without disclosing personal identities.", "Cela peut nuire à la vie privée et ne crée pas de dossier de service fiable. Décrivez le contexte sans révéler l’identité des personnes."], "points": 0, "delta": [-8, -8, -6], "tag": "privacy"}], "voice": ["“My son needs more time to cross, and our neighbour uses a walker.” — fictional resident", "« Mon fils a besoin de plus de temps pour traverser, et notre voisine utilise une marchette. » — témoignage fictif"]}, {"id": "r2", "title": ["A transit headline spreads", "Une rumeur circule sur le transport"], "body": ["An online post claims that Barrhaven commute times have doubled. People are upset, but the post gives neither a period nor a route. You find Ottawa’s Mobility Dashboard.", "Une publication affirme que les temps de déplacement à Barrhaven ont doublé. Les gens sont inquiets, mais aucun itinéraire ni période n’est indiqué. Vous trouvez le tableau de bord municipal."], "question": ["What information would strengthen a constructive conversation?", "Quelle information renforcerait un échange constructif ?"], "source": "MOB", "options": [{"t": ["Ask for specific stops and times, compare trends carefully and explain that dashboard figures are not real-time route predictions.", "Demandez les arrêts et les heures concernés, comparez prudemment les tendances et précisez que le tableau de bord n’est pas un outil de prévision en temps réel."], "why": ["The dashboard offers weekly trends from selected locations. It is useful context, not proof about every journey.", "Le tableau de bord présente des tendances hebdomadaires sur des lieux sélectionnés. C’est un contexte utile, pas une preuve applicable à tous les trajets."], "points": 20, "delta": [3, 6, 5], "tag": "evidence"}, {"t": ["Forward the dashboard link alone and assume it settles all residents’ experiences.", "Transmettez seulement le lien vers le tableau de bord et supposez qu’il règle tous les témoignages."], "why": ["A source link is helpful, but residents’ access and trip patterns differ. Add a plain-language explanation and invite specific observations.", "Le lien est utile, mais les besoins et trajets diffèrent. Ajoutez une explication claire et invitez les observations précises."], "points": 10, "delta": [0, 2, 0], "tag": "partial"}, {"t": ["Treat the social-media claim as established fact and request a specific funding decision immediately.", "Présentez l’affirmation sur les réseaux sociaux comme un fait établi et exigez immédiatement une décision budgétaire précise."], "why": ["Policy requests should be grounded in evidence and transparent trade-offs. Unsupported claims make collaborative problem-solving harder.", "Les demandes de politique publique doivent reposer sur des données et des compromis transparents. Une affirmation non vérifiée nuit à la collaboration."], "points": 0, "delta": [-6, -8, -5], "tag": "claim"}], "voice": ["“The route feels different every day. Does the dashboard show my stop?” — fictional commuter", "« Le trajet change chaque jour. Le tableau de bord couvre-t-il mon arrêt ? » — personne fictive"]}, {"id": "r3", "title": ["Growth brings different needs", "La croissance suscite des besoins différents"], "body": ["A fictional proposal near an existing Woodroffe corridor prompts questions about traffic, private wells, parking and housing supply. Ward 24 has reported real discussion of these topics, but the proposal in this game is fictional.", "Un projet fictif près de l’axe Woodroffe soulève des questions de circulation, de puits privés, de stationnement et de logement. Le quartier 24 a évoqué ces enjeux réels, mais le projet du jeu est inventé."], "question": ["How do you participate without assuming the outcome?", "Comment participer sans présumer du résultat ?"], "source": "NEWS", "options": [{"t": ["Read the actual application and public record, identify concrete impacts, submit evidence through the appropriate planning channel and hear different neighbours.", "Consultez le dossier public, identifiez les effets concrets, transmettez vos observations par le canal d’urbanisme approprié et écoutez divers voisins."], "why": ["Planning decisions involve legislation, technical studies and public input. Evidence-based questions can inform conditions and mitigations without guaranteeing an outcome.", "L’urbanisme dépend des lois, des études techniques et de la participation. Des questions documentées peuvent éclairer les mesures d’atténuation sans garantir un résultat."], "points": 20, "delta": [5, 6, 4], "tag": "evidence"}, {"t": ["Circulate a petition without identifying which aspects of the proposal are disputed.", "Faites circuler une pétition sans préciser quels éléments du projet font débat."], "why": ["A petition can signal concern but rarely answers technical questions by itself. Clarify the issues and the right procedural channel.", "Une pétition peut signaler une inquiétude, mais ne répond pas à elle seule aux questions techniques. Précisez les enjeux et le canal officiel."], "points": 10, "delta": [1, 1, 1], "tag": "partial"}, {"t": ["Share unverified private-well results attributed to a neighbour by name.", "Diffuser des résultats non vérifiés concernant un puits privé en nommant le voisin."], "why": ["Unverified personal information can harm trust and privacy. Seek consent and rely on disclosed evidence and official review processes.", "Des données personnelles non vérifiées peuvent nuire à la confiance et à la vie privée. Demandez le consentement et appuyez-vous sur des études disponibles."], "points": 0, "delta": [-7, -7, -6], "tag": "privacy"}], "voice": ["“We need homes, but also safe roads and water protection.” — fictional neighbour", "« Il faut des logements, mais aussi des routes sûres et protéger l’eau. » — personne fictive"]}, {"id": "r4", "title": ["The stormwater alert", "Une alerte au drainage"], "body": ["After a heavy rainfall, a neighbour sees a blocked catch basin and water approaching a sidewalk. Another message alleges a serious emergency, but that has not been verified.", "Après une forte pluie, une personne constate une bouche d’égout obstruée et de l’eau près d’un trottoir. Un autre message parle d’une urgence grave, sans confirmation."], "question": ["Which response is proportionate and helpful?", "Quelle réaction est proportionnée et utile ?"], "source": "311", "options": [{"t": ["Keep away from unsafe water, report the location and severity through the right City channel; use emergency services if there is immediate danger.", "Évitez les eaux dangereuses, signalez le lieu et la gravité par le canal municipal approprié; utilisez les services d’urgence en cas de danger immédiat."], "why": ["Different hazards need different response channels. 3-1-1 handles municipal service reports; immediate threats call for emergency help.", "Les risques n’exigent pas tous le même canal. Le 3-1-1 traite les signalements municipaux; un danger immédiat nécessite les services d’urgence."], "points": 20, "delta": [5, 5, 6], "tag": "evidence"}, {"t": ["Take a safe photo and discuss it in a neighbourhood group, but make no service report.", "Prenez une photo sans vous mettre en danger et discutez-en dans un groupe local, sans faire de signalement."], "why": ["Community awareness can help, yet the City may not receive enough actionable information to dispatch or assess the problem.", "Sensibiliser les voisins peut aider, mais la Ville risque de manquer d’informations pour évaluer ou traiter la situation."], "points": 10, "delta": [1, 2, 0], "tag": "partial"}, {"t": ["Walk into flowing water to clear the drain yourself and tell neighbours the problem is solved.", "Entrez dans l’eau qui s’écoule pour déboucher vous-même l’avaloir et annoncez que tout est réglé."], "why": ["Entering floodwater can be hazardous. Avoid unsafe intervention; report the issue and use the appropriate response channel.", "S’aventurer dans une eau de ruissellement peut être dangereux. Évitez les interventions risquées et signalez le problème."], "points": 0, "delta": [-8, -5, -8], "tag": "safety"}], "voice": ["“The sidewalk is becoming hard to use. Who can act today?” — fictional resident", "« Le trottoir devient difficile à utiliser. Qui peut intervenir aujourd’hui ? » — témoignage fictif"]}, {"id": "r5", "title": ["Did anyone hear us?", "Nous a-t-on entendus ?"], "body": ["A consultation ends. Some people claim nothing changed; others expect every request to be adopted. The City’s engagement framework distinguishes receiving input from promising a particular decision.", "Une consultation se termine. Certaines personnes pensent que rien n’a changé; d’autres attendent l’adoption de chaque demande. Le cadre municipal distingue écoute et promesse de résultat."], "question": ["How do you keep the relationship constructive?", "Comment préserver une relation constructive ?"], "source": "ENG", "options": [{"t": ["Ask for a plain-language ‘what we heard / what happens next’ update, share it with neighbours and monitor future opportunities.", "Demandez un bilan clair « ce que nous avons entendu / prochaines étapes », partagez-le et suivez les possibilités de participation."], "why": ["Closing the feedback loop is fundamental: participants should understand what informed a decision, what did not and why.", "Boucler la rétroaction est essentiel : chacun doit comprendre ce qui a influencé la décision, ce qui n’a pas été retenu et pourquoi."], "points": 20, "delta": [5, 5, 7], "tag": "follow"}, {"t": ["Wait for a decision and assume people can find the outcome themselves.", "Attendez une décision en supposant que tout le monde pourra trouver le résultat."], "why": ["A passive approach misses residents who are not constantly online. Proactive, accessible follow-up improves trust.", "Une approche passive laisse de côté les personnes peu connectées. Un suivi accessible et proactif renforce la confiance."], "points": 10, "delta": [0, 1, 0], "tag": "partial"}, {"t": ["Claim that a councillor promised to implement every suggestion.", "Affirmez qu’un membre du Conseil a promis de mettre en œuvre toutes les suggestions."], "why": ["Engagement does not guarantee adoption of every suggestion. Unverified promises create false expectations about staff and Council decisions.", "Une consultation ne garantit pas l’adoption de toute proposition. Les promesses non vérifiées créent de fausses attentes."], "points": 0, "delta": [-7, -4, -9], "tag": "claim"}], "voice": ["“Even if our idea wasn’t selected, we want to know why.” — fictional participant", "« Même si notre idée n’a pas été retenue, nous voulons savoir pourquoi. » — personne fictive"]}], "office": [{"id": "o1", "title": ["Three requests, one morning", "Trois demandes, un matin"], "body": ["The ward inbox receives a dangerous crossing concern, a missed waste collection, and an unverified allegation about development. Staff capacity is limited.", "Le bureau reçoit un signalement de traversée dangereuse, une collecte de déchets manquée et une allégation non vérifiée sur un projet immobilier. L’équipe manque de temps."], "question": ["How should the office triage the messages?", "Comment prioriser les messages ?"], "source": "311", "options": [{"t": ["Flag immediate safety risk for the proper urgent channel, route routine service items to 3-1-1, and log the planning question for verification.", "Orientez le risque immédiat vers le bon canal d’urgence, la demande courante vers le 3-1-1 et consignez la question d’urbanisme à vérifier."], "why": ["This separates urgency, service delivery and policy inquiry. A councillor’s office can coordinate and follow up without replacing City operations.", "Cela distingue urgence, prestation de service et question de politique. Le bureau peut coordonner le suivi sans remplacer les services municipaux."], "points": 20, "delta": [5, 7, 6], "tag": ""}, {"t": ["Reply to all three with the same general contact information.", "Répondez aux trois messages avec les mêmes coordonnées générales."], "why": ["A uniform acknowledgement helps, but urgent and time-sensitive issues require more specific triage.", "Un accusé de réception uniforme est utile, mais les situations urgentes nécessitent un tri plus précis."], "points": 10, "delta": [1, 0, 1], "tag": ""}, {"t": ["Promise that the councillor will personally fix all three issues by tomorrow.", "Promettez que le conseiller règlera personnellement les trois problèmes d’ici demain."], "why": ["That overstates authority and capacity. Good case management records the issue, the responsible service and realistic next steps.", "Cette promesse surestime les pouvoirs et les moyens. Un bon suivi identifie le problème, le service responsable et les étapes réalistes."], "points": 0, "delta": [-7, -5, -8], "tag": ""}], "voice": ["“A fast reply is good; a useful reply is better.” — fictional office colleague", "« Répondre vite, c’est bien; répondre utilement, c’est mieux. » — collègue fictif"]}, {"id": "o2", "title": ["A consultation at the Walter Baker area", "Une rencontre près du centre Walter Baker"], "body": ["The office wants to hear from residents about changes in streets and public spaces. Some work shifts, some need French, others cannot attend a crowded evening event.", "Le bureau souhaite recueillir des avis sur les rues et espaces publics. Certaines personnes travaillent de soir, d’autres souhaitent le français ou ne peuvent participer à une rencontre bondée."], "question": ["Choose the outreach strategy.", "Choisissez la stratégie de mobilisation."], "source": "ENG", "options": [{"t": ["Offer bilingual notices, an accessible in-person option, online input and a plain-language summary of what decisions are open.", "Offrez des avis bilingues, une rencontre accessible, une participation en ligne et un résumé clair des décisions encore ouvertes."], "why": ["Multiple formats and clarity on the scope of influence align with Ottawa’s engagement, accessibility and bilingual-service principles.", "Plusieurs formats et la clarté sur les marges d’influence respectent les principes municipaux de participation, d’accessibilité et de bilinguisme."], "points": 20, "delta": [8, 4, 5], "tag": ""}, {"t": ["Hold one evening meeting and promise to upload slides later.", "Organisez une seule réunion en soirée en promettant de publier les diapositives."], "why": ["Some residents will be heard, but others face timing, language or access barriers. A complementary channel is needed.", "Certaines personnes pourront participer, d’autres rencontreront des obstacles d’horaire, de langue ou d’accessibilité. Un autre canal est utile."], "points": 10, "delta": [0, 1, 1], "tag": ""}, {"t": ["Invite only the most active neighbourhood group because it is easy to reach.", "Invitez uniquement le groupe de quartier le plus actif parce qu’il est facile à joindre."], "why": ["Convenience is not representative engagement. Unheard groups can have materially different accessibility and travel needs.", "La facilité ne garantit pas la représentativité. Les groupes non consultés peuvent avoir des besoins différents."], "points": 0, "delta": [-9, -5, -7], "tag": ""}], "voice": ["“Please don’t make us choose between childcare and being heard.” — fictional parent", "« Ne nous obligez pas à choisir entre garder les enfants et participer. » — parent fictif"]}, {"id": "o3", "title": ["Development questions and limits of power", "Urbanisme : questions et limites des pouvoirs"], "body": ["Emails about a fictional project echo real Ward 24 discussions: traffic, parking, private wells and stormwater. Residents ask the office to guarantee a particular planning outcome.", "Des courriels sur un projet fictif reprennent des questions déjà discutées dans le quartier 24 : circulation, stationnement, puits privés et eaux pluviales. Des résidents demandent une garantie de résultat."], "question": ["What can the office responsibly communicate?", "Que peut communiquer le bureau de façon responsable ?"], "source": "NEWS", "options": [{"t": ["Explain review stages and jurisdiction, seek staff advice on lawful options, and publish questions and technical responses without pre-judging the decision.", "Expliquez les étapes et les compétences, sollicitez l’avis des services sur les options légales et publiez les questions et réponses techniques sans préjuger de la décision."], "why": ["Planning outcomes depend on statutory rules and evidence. Transparent explanation respects residents without suggesting that one elected official controls every step.", "Les décisions d’urbanisme dépendent du droit et des preuves. La transparence respecte les résidents sans laisser croire qu’un élu contrôle tout."], "points": 20, "delta": [4, 7, 6], "tag": ""}, {"t": ["Say the office is listening but give no timeline, process or resource links.", "Dites que le bureau écoute, sans donner de calendrier, d’étapes ni de liens utiles."], "why": ["Empathy is a start; procedural clarity and follow-up are what make it useful.", "L’écoute est un début; la clarté des procédures et le suivi lui donnent sa valeur."], "points": 10, "delta": [1, 0, 0], "tag": ""}, {"t": ["Promise to block or approve the plan before any review.", "Promettez de bloquer ou d’approuver le projet avant l’examen."], "why": ["Such a promise misrepresents planning procedures and can undermine perceived fairness. Clarify roles and disclose limits.", "Cette promesse déforme la procédure et peut compromettre la perception d’équité. Précisez les rôles et les limites."], "points": 0, "delta": [-6, -8, -8], "tag": ""}], "voice": ["“We’re asking for an explanation—not a guarantee.” — fictional neighbour", "« Nous demandons une explication, pas une garantie. » — voisin fictif"]}, {"id": "o4", "title": ["A resident forwards private information", "Un résident transmet des renseignements privés"], "body": ["A resident emails photos and personal contact details about a dispute over surface drainage and asks that everything be posted publicly for accountability.", "Un résident envoie des photos et des coordonnées personnelles au sujet d’un désaccord de drainage et demande une publication intégrale au nom de la transparence."], "question": ["How should the office handle the material?", "Comment traiter les renseignements ?"], "source": "PRIV", "options": [{"t": ["Record only what is needed, route the issue to the responsible service, protect identifying data and explain what can be shared publicly.", "Conservez uniquement l’essentiel, orientez le dossier, protégez les données identifiantes et expliquez ce qui peut être rendu public."], "why": ["Accountability and privacy both matter. Municipal institutions have duties under MFIPPA, and a public update need not reveal personal correspondence.", "La responsabilité et la vie privée vont de pair. Les institutions municipales ont des obligations sous la loi ontarienne; un bilan public n’exige pas la publication de courriels personnels."], "points": 20, "delta": [6, 4, 7], "tag": ""}, {"t": ["Acknowledge the email and leave the full attachment in a widely shared team folder.", "Accusez réception et laissez la pièce jointe complète dans un dossier partagé largement."], "why": ["Unnecessary access increases risk. Restrict access and handle sensitive information according to authorized processes.", "Un accès inutile augmente les risques. Limitez-le et utilisez les procédures autorisées."], "points": 10, "delta": [0, 0, 0], "tag": ""}, {"t": ["Publish the whole email and photos to prove the office is transparent.", "Publiez l’intégralité du courriel et des photos pour prouver la transparence du bureau."], "why": ["Disclosure of personal information can create harm. Transparency requires a careful public summary, not indiscriminate release.", "La diffusion de données personnelles peut nuire. La transparence consiste à résumer les faits publics avec précaution."], "points": 0, "delta": [-8, -6, -9], "tag": ""}], "voice": ["“I wanted help, not my address on a public page.” — fictional resident", "« Je voulais de l’aide, pas mon adresse sur une page publique. » — résident fictif"]}, {"id": "o5", "title": ["The weekly update", "Le bulletin hebdomadaire"], "body": ["The office must update residents about a bus stop, a planning file and a drainage request. Some outcomes are pending and another agency makes part of the decision.", "Le bureau doit informer les résidents d’un arrêt d’autobus, d’un dossier d’urbanisme et d’un problème de drainage. Certains résultats sont en attente et une autre organisation décide d’un volet."], "question": ["Which update improves trust?", "Quel bilan favorise la confiance ?"], "source": "ENG", "options": [{"t": ["Use a bilingual, accessible ‘issue / responsible body / status / next update’ format, acknowledge uncertainty and invite corrections.", "Présentez un bilan bilingue accessible « enjeu / organisme responsable / état / prochain suivi », reconnaissez les incertitudes et invitez les corrections."], "why": ["This makes the engagement cycle visible. A clear status report allows residents to assess what was heard without implying promises.", "Cela rend le cycle de participation visible. Un bilan clair permet de voir le suivi sans sous-entendre de promesses."], "points": 20, "delta": [5, 5, 8], "tag": ""}, {"t": ["Post a brief success story mentioning only completed work.", "Publiez une bonne nouvelle qui ne mentionne que les dossiers terminés."], "why": ["Celebrating outcomes is fine, but residents also need honest updates on pending and unresolved work.", "Valoriser les réalisations est utile, mais les dossiers en attente méritent aussi un suivi honnête."], "points": 10, "delta": [0, 1, 1], "tag": ""}, {"t": ["Describe unfinished requests as solved because it looks efficient.", "Présentez les dossiers non réglés comme terminés pour montrer de l’efficacité."], "why": ["Misstating the status erodes trust. Report what is known, unknown and who is responsible for the next action.", "Annoncer à tort un dossier comme résolu mine la confiance. Indiquez les faits, les incertitudes et la prochaine responsabilité."], "points": 0, "delta": [-7, -5, -10], "tag": ""}], "voice": ["“We can accept a delay if you tell us what happens next.” — fictional resident", "« Nous pouvons accepter un délai si nous savons ce qui suit. » — résident fictif"]}], "staff": [{"id": "s1", "title": ["Start with the right problem", "Définir le bon problème"], "body": ["You are drafting options for a fictional Barrhaven East mobility improvement. Residents describe long waits and difficult crossings; mobility dashboards offer only citywide trend samples.", "Vous préparez des options pour une amélioration fictive des déplacements à Barrhaven-Est. Les résidents décrivent de longues attentes et des traversées difficiles; le tableau de bord ne donne que des tendances échantillonnées."], "question": ["How do you establish the baseline?", "Comment établir la situation de départ ?"], "source": "MOB", "options": [{"t": ["Combine location-specific field checks, accessibility observations, available datasets and resident accounts; explain sampling limits.", "Combinez des observations sur place, des vérifications d’accessibilité, les données disponibles et les témoignages; expliquez les limites des échantillons."], "why": ["Technical assessment and lived experience complement each other. The public mobility dashboard itself warns against treating trend indicators as real-time route facts.", "L’expertise technique et l’expérience vécue sont complémentaires. Le tableau de bord avertit que les tendances ne constituent pas des temps de parcours en temps réel."], "points": 20, "delta": [5, 8, 4], "tag": ""}, {"t": ["Use the dashboard alone as the baseline because it is official.", "Utilisez uniquement le tableau de bord parce qu’il est officiel."], "why": ["Official information is valuable but it covers selected locations and periods; local context remains essential.", "Les données officielles sont précieuses, mais concernent des lieux et périodes choisis; le contexte local reste essentiel."], "points": 10, "delta": [0, 3, 1], "tag": ""}, {"t": ["Choose a redesign before examining conditions or hearing from residents.", "Choisissez un réaménagement avant d’étudier les conditions et de consulter les résidents."], "why": ["A predetermined remedy risks wasting resources and missing access barriers. Scope the problem before choosing a solution.", "Une solution prédéterminée risque de gaspiller des ressources et d’ignorer des obstacles. Définissez d’abord le problème."], "points": 0, "delta": [-8, -9, -6], "tag": ""}], "voice": ["“Do the numbers include my accessible route?” — fictional resident", "« Les chiffres couvrent-ils mon trajet accessible ? » — personne fictive"]}, {"id": "s2", "title": ["Design the engagement, not just the survey", "Concevoir la participation, pas seulement le sondage"], "body": ["A project page is ready. Parents, people with mobility disabilities, francophones and shift workers may experience the corridor differently.", "La page du projet est prête. Parents, personnes ayant une limitation motrice, francophones et travailleurs de soir peuvent vivre différemment le même trajet."], "question": ["Which outreach design fits the City’s commitments?", "Quelle mobilisation respecte les engagements municipaux ?"], "source": "ENG", "options": [{"t": ["Define the decision scope, offer accessible English/French information, online and offline input, and describe how comments will be used.", "Définissez la marge de décision; offrez des ressources accessibles en français et en anglais, des canaux en ligne et hors ligne et expliquez l’utilisation des avis."], "why": ["The City’s 2026 engagement approach includes design, implementation, analysis and reporting back. Accessible bilingual options reduce exclusion.", "Le cadre 2026 comprend conception, mise en œuvre, analyse et rétroaction. Des options bilingues accessibles réduisent l’exclusion."], "points": 20, "delta": [9, 4, 5], "tag": ""}, {"t": ["Use a bilingual web survey without any other input channel.", "Utilisez uniquement un sondage Web bilingue."], "why": ["Bilingual text helps but does not resolve device, literacy, scheduling or disability barriers.", "Le bilinguisme aide, mais ne résout pas les obstacles technologiques, de littératie, d’horaire ou liés au handicap."], "points": 10, "delta": [2, 2, 1], "tag": ""}, {"t": ["Only invite participants who have commented on a previous City project.", "N’invitez que les personnes ayant déjà participé à un projet municipal."], "why": ["Repeat participants are not necessarily representative of those affected. Plan outreach beyond the existing list.", "Les participants habituels ne représentent pas forcément toutes les personnes concernées. Élargissez la mobilisation."], "points": 0, "delta": [-9, -4, -6], "tag": ""}], "voice": ["“A city service must be usable by more than regular survey-takers.” — fictional accessibility advisor", "« Un service municipal doit être utilisable au-delà des habitués des sondages. » — conseillère fictive"]}, {"id": "s3", "title": ["Growth, water and traffic", "Croissance, eau et circulation"], "body": ["A fictional planning file raises questions about parking, groundwater, road safety and stormwater. The ward’s November newsletter documented real questions on similar topics at 3400 Woodroffe Avenue.", "Un dossier fictif soulève des questions sur le stationnement, la nappe phréatique, la sécurité et le drainage. Le bulletin du quartier de novembre documentait des questions semblables au 3400, avenue Woodroffe."], "question": ["What goes into the briefing?", "Que doit contenir la note d’information ?"], "source": "NEWS", "options": [{"t": ["Describe the relevant planning framework, disclose technical studies and uncertainties, separate legal constraints from possible mitigations, and summarize divergent submissions.", "Décrivez le cadre d’urbanisme, les études techniques et les incertitudes; distinguez les contraintes légales des atténuations possibles et résumez les avis divergents."], "why": ["Decision-makers need an honest record of evidence and jurisdiction. A briefing should neither predetermine a vote nor conceal concerns.", "Les décideurs ont besoin d’un dossier transparent et de connaître les compétences. La note ne doit ni prédéterminer un vote ni masquer les inquiétudes."], "points": 20, "delta": [5, 9, 6], "tag": ""}, {"t": ["List requested mitigations but omit what legislation allows.", "Énumérez les mesures souhaitées sans expliquer ce que permet la loi."], "why": ["The requests are useful, but feasibility and jurisdiction are essential to avoid misleading expectations.", "Les demandes sont utiles, mais les limites légales et la faisabilité doivent être expliquées."], "points": 10, "delta": [0, 2, 0], "tag": ""}, {"t": ["Exclude concerns from residents who oppose the proposal.", "Écartez les préoccupations des personnes opposées au projet."], "why": ["Filtering evidence based on position compromises the fairness of the process. Record different views and assess their substance.", "Filtrer selon la position compromet l’équité. Consignez les points de vue et examinez leur contenu."], "points": 0, "delta": [-8, -8, -8], "tag": ""}], "voice": ["“Tell us what the City can change and what it cannot.” — fictional participant", "« Expliquez ce que la Ville peut modifier et ce qu’elle ne peut pas. » — participant fictif"]}, {"id": "s4", "title": ["An incident tests the service", "Un incident met le service à l’épreuve"], "body": ["During a fictional stormwater response, residents submit photos, private addresses and descriptions of a potentially unsafe area. The team wants to publish an incident map.", "Lors d’un épisode fictif de ruissellement, des résidents transmettent photos, adresses privées et détails sur une zone potentiellement dangereuse. L’équipe veut publier une carte des incidents."], "question": ["How should information be handled?", "Comment traiter les renseignements ?"], "source": "PRIV", "options": [{"t": ["Safely triage urgent hazards, restrict identifying details, aggregate public reporting where appropriate, and share a clear accessible status update.", "Évaluez les dangers urgents, limitez les données identifiantes, regroupez l’information publique au besoin et publiez un état clair et accessible."], "why": ["Service response, privacy and public communication have distinct needs. MFIPPA constrains municipal personal-information handling.", "Intervention, vie privée et communication publique ont des exigences distinctes. La loi ontarienne encadre les renseignements personnels municipaux."], "points": 20, "delta": [6, 6, 7], "tag": ""}, {"t": ["Keep detailed reports in a single shared spreadsheet open to every project participant.", "Conservez les rapports détaillés dans un tableau accessible à toute l’équipe élargie."], "why": ["Coordination matters, but unnecessary access to personal data is a risk; use authorization and minimization.", "La coordination compte, mais un accès excessif aux données crée un risque; limitez l’accès aux personnes autorisées."], "points": 10, "delta": [0, 1, 0], "tag": ""}, {"t": ["Publish names and addresses on an interactive public map.", "Publiez noms et adresses sur une carte publique interactive."], "why": ["That would expose personal information unnecessarily. Public transparency can use aggregated locations and status categories.", "Cela exposerait inutilement des données personnelles. On peut informer le public avec des lieux agrégés et des catégories d’état."], "points": 0, "delta": [-9, -7, -9], "tag": ""}], "voice": ["“The public needs a status—not the names of households who reported.” — fictional privacy advisor", "« Le public a besoin d’un état du dossier, pas du nom des ménages qui signalent. » — conseillère fictive"]}, {"id": "s5", "title": ["Present options without a predetermined outcome", "Présenter des options sans résultat prédéfini"], "body": ["Your team must explain findings to residents and decision-makers. Resources are finite and multiple interventions are technically possible.", "Votre équipe doit expliquer ses constats aux résidents et aux décideurs. Les ressources sont limitées et plusieurs interventions sont possibles."], "question": ["What makes the final briefing credible?", "Qu’est-ce qui rend la note finale crédible ?"], "source": "ENG", "options": [{"t": ["Present options, evidence, costs and access impacts; summarize what was heard, what changed and who will decide next.", "Présentez options, preuves, coûts et effets sur l’accès; résumez les avis recueillis, les changements et la prochaine instance décisionnelle."], "why": ["This supports informed democratic oversight and clear accountability, independent of which policy option is ultimately chosen.", "Cela soutient le contrôle démocratique éclairé et la responsabilité, quel que soit le choix final de politique."], "points": 20, "delta": [6, 7, 8], "tag": ""}, {"t": ["Present the technically preferred option without a clear account of community feedback.", "Présentez l’option technique privilégiée sans expliquer clairement les avis de la communauté."], "why": ["Technical conclusions are valuable, but the report should show how public input was considered and where uncertainties remain.", "Une conclusion technique est utile, mais le rapport doit montrer comment les contributions ont été prises en compte."], "points": 10, "delta": [0, 3, 1], "tag": ""}, {"t": ["Make the less popular option disappear from the record so the report appears unanimous.", "Supprimez l’option moins populaire afin de présenter un rapport unanime."], "why": ["Removing viable alternatives or dissent obscures trade-offs and weakens trust. Be transparent about the limits of consensus.", "Supprimer des options ou des divergences masque les compromis et nuit à la confiance. Expliquez les limites du consensus."], "points": 0, "delta": [-8, -8, -9], "tag": ""}], "voice": ["“We should be able to understand the reasons, even when we disagree.” — fictional resident", "« Nous devrions comprendre les raisons, même lorsque nous ne sommes pas d’accord. » — personne fictive"]}]}}</script>
+<script>
+"use strict";
+const G=JSON.parse(document.getElementById("game-data").textContent);
+const I={
+en:{
+ind:"Independent demo",restart:"Restart",skip:"Skip to main content",brandSub:"Independent educational simulation · Ottawa",
+eyebrow:"BARRHAVEN EAST · WARD 24 · OTTAWA",
+title:"One Ward. Many Voices.",intro:"A near-miss at a crossing. New neighbours and changing streets. Rainwater that won't drain. What would you do when everyday concerns reach City Hall?",
+start:"Choose your role",how:"How this simulation works",learn:"Explore real community issues through fictional characters. Make five decisions, see the consequences, and learn when to use City channels, share evidence and follow up.",
+stats:["3 perspectives","5 decisions per role","Up to 100 learning points"],
+notCity:"Independent educational game. Not produced, endorsed or operated by the City of Ottawa or Councillor Wilson Lo. No consultation responses are collected.",
+roleheading:"Whose perspective will you take?",roledesc:"Each role faces different constraints. The scoring rewards good civic process—not any political position.",
+play:"Play this role",back:"Back to roles",step:"Decision",of:"of",points:"Learning points",inclusive:"Inclusion",evidence:"Evidence",clarity:"Clarity & trust",
+scenario:"Your situation",voices:"A voice from the community",choose:"Choose your next move",source:"Learn why: official source",selected:"You chose",feedback:"Consequences & learning",best:"Evidence-led choice",partial:"Useful start, with gaps",risk:"A problem emerges",earned:"Points this decision",continue:"Continue",repairTitle:"An unexpected turn",repairText:"A stakeholder points out a problem created by the previous decision. How will you respond?",fix:"Acknowledge the issue, correct the record and use the relevant official process.",ignore:"Move on without correcting the issue.",fixWhy:"Owning and correcting an error can repair part of the harm. The original choice still matters.",ignoreWhy:"Without follow-through, the original risk remains and trust may deteriorate.",fixPts:"Recovery points",report:"Your learning debrief",
+finalTitle:"Strong communities grow through good conversations.",resultPerfect:"You showed a consistent approach to evidence, inclusion and transparent follow-up.",resultMid:"You built useful civic skills. Review where a clearer process or broader outreach would help.",resultLow:"Complex local issues take practice. Revisit the choices and try a more evidence-led approach.",
+outOf:"out of 100",scoreInfo:"Best choices give 20 points each. Intermediate choices give 10. Risky choices give 0; a constructive recovery can restore 5. The maximum is 100/100.",
+next:"Take the learning into real life",resources:"Official channels (external links)",reportText:"This is a learning score for procedural decisions; it is not a prediction or assessment of any councillor, official or City policy.",
+tryAgain:"Try another perspective",print:"Print learning summary",siteLinks:[
+["Ward 24 — news & contact","Follow local updates and contact the office","WARD"],
+["Engage Ottawa","Find active consultations, not this fictional exercise","PART"],
+["Ottawa 3-1-1","Report routine City service issues","311"],
+["Ottawa Mobility Dashboard","Review transit and travel trends","MOB"]],
+footer:"Built from public City of Ottawa resources and Ward 24 updates. Fictional residents, decisions and outcome scores. No personal data is collected or transmitted by this file. Content reviewed 17 Nov 2026.",
+carry:"A previous choice has left an issue unresolved. Residents are watching how you follow through.",
+sourceList:"Official references used to design the scenarios",learning:"Learning simulation · not an actual City consultation"
+},
+fr:{
+ind:"Démo indépendante",restart:"Recommencer",skip:"Aller au contenu principal",brandSub:"Simulation pédagogique indépendante · Ottawa",
+eyebrow:"BARRHAVEN-EST · QUARTIER 24 · OTTAWA",
+title:"Un quartier. Plusieurs voix.",intro:"Une quasi-collision au passage piéton. De nouveaux voisins et des rues qui évoluent. Des eaux pluviales qui s’écoulent mal. Comment réagir lorsque les préoccupations du quotidien arrivent à l’hôtel de ville?",
+start:"Choisir un rôle",how:"Comment fonctionne la simulation",learn:"Explorez des enjeux réels au moyen de personnages fictifs. Prenez cinq décisions, voyez les conséquences et découvrez comment participer, documenter et assurer le suivi.",
+stats:["3 perspectives","5 décisions par rôle","Jusqu’à 100 points"],
+notCity:"Jeu pédagogique indépendant, non produit, approuvé ni exploité par la Ville d’Ottawa ou le conseiller Wilson Lo. Aucune contribution à une consultation n’est recueillie.",
+roleheading:"Quel point de vue voulez-vous adopter ?",roledesc:"Chaque rôle présente des limites différentes. L’évaluation porte sur la qualité du processus civique, jamais sur une position politique.",
+play:"Choisir ce rôle",back:"Retour aux rôles",step:"Décision",of:"sur",points:"Points d’apprentissage",inclusive:"Inclusion",evidence:"Données et preuves",clarity:"Clarté et confiance",
+scenario:"Votre situation",voices:"Une voix de la communauté",choose:"Choisissez la prochaine étape",source:"Source officielle pour aller plus loin",selected:"Votre choix",feedback:"Conséquences et apprentissage",best:"Choix fondé sur les faits",partial:"Bon début, à améliorer",risk:"Une difficulté apparaît",earned:"Points de cette décision",continue:"Continuer",repairTitle:"Un imprévu",repairText:"Une partie prenante signale un problème causé par votre décision. Comment réagissez-vous?",fix:"Reconnaître le problème, corriger les informations et utiliser le processus officiel approprié.",ignore:"Continuer sans corriger le problème.",fixWhy:"Reconnaître et corriger une erreur peut atténuer une partie de ses effets. La décision initiale compte toujours.",ignoreWhy:"Sans suivi, le risque initial demeure et la confiance peut s’éroder.",fixPts:"Points de rattrapage",report:"Votre bilan d’apprentissage",
+finalTitle:"Des communautés fortes se construisent par le dialogue.",resultPerfect:"Vous avez constamment privilégié les faits, l’inclusion et un suivi transparent.",resultMid:"Vous avez développé des compétences utiles. Revoyez les moments où un processus plus clair ou une mobilisation plus vaste auraient aidé.",resultLow:"Les enjeux locaux sont complexes. Revenez sur vos choix et essayez une approche mieux fondée sur les faits.",
+outOf:"sur 100",scoreInfo:"Chaque meilleur choix donne 20 points, chaque choix partiel 10, et chaque choix risqué 0. Un rattrapage constructif permet de gagner 5 points. Maximum : 100/100.",
+next:"Passer de l’apprentissage à la participation",resources:"Canaux officiels (liens externes)",reportText:"Il s’agit d’une évaluation pédagogique des démarches, et non d’une prévision ou d’un jugement sur un élu, un fonctionnaire ou une politique.",
+tryAgain:"Essayer un autre point de vue",print:"Imprimer le bilan",siteLinks:[
+["Quartier 24 — actualités et contact","Suivre l’actualité locale et joindre le bureau","WARD"],
+["Participons Ottawa","Voir les véritables consultations, distinctes de ce jeu","PART"],
+["3-1-1 Ottawa","Signaler un problème de service municipal","311"],
+["Tableau de bord de la mobilité","Consulter les tendances des déplacements","MOB"]],
+footer:"Inspiré de ressources publiques de la Ville d’Ottawa et du quartier 24. Personnages, décisions et points fictifs. Aucune donnée personnelle n’est recueillie ou transmise par ce fichier. Contenu vérifié le 17 novembre 2026.",
+carry:"Une décision précédente a laissé une question sans réponse. Les résidents attendent un suivi.",
+sourceList:"Références officielles utilisées pour concevoir les scénarios",learning:"Simulation pédagogique · pas une consultation municipale réelle"
+}};
+const s={lang:0,screen:"home",role:null,step:0,score:0,metrics:[51,53,50],pending:null,history:[],recovery:null,unresolved:false};
+const loc=(a)=>Array.isArray(a)?a[s.lang]:a;
+const T=()=>I[s.lang===0?"en":"fr"];
+const app=document.getElementById("app");
+const esc=(x)=>String(x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function sourceLink(key){const v=G.sources[key];return `<a href="${esc(v.url)}" target="_blank" rel="noopener noreferrer">${esc(loc([v.en,v.fr]))} ↗</a>`}
+function focus(){requestAnimationFrame(()=>{const h=app.querySelector('h1');if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true});}window.scrollTo({top:0,behavior:"instant"});});}
+function updateChrome(){document.documentElement.lang=s.lang===0?"en":"fr";document.title=(s.lang===0?"Barrhaven East: One Ward, Many Voices":"Barrhaven-Est : un quartier, plusieurs voix")+" | Civic Learning Lab";
+document.getElementById("independent").textContent=T().ind;document.getElementById("brandSub").textContent=T().brandSub;document.getElementById("skip").textContent=T().skip;document.getElementById("footerText").textContent=T().footer;document.getElementById("en").setAttribute("aria-pressed",s.lang===0);document.getElementById("fr").setAttribute("aria-pressed",s.lang===1);document.getElementById("restart").hidden=s.screen==="home";document.getElementById("restart").textContent=T().restart}
+function getArt(){return `<div class="visual" aria-hidden="true"><svg viewBox="0 0 480 405" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="52" y="30" width="377" height="326" rx="26" fill="#E8F3EC"/><path d="M84 48V334M175 45V339M277 43V338M379 46V335" stroke="#C2D8CC" stroke-width="16" stroke-linecap="round"/><path d="M62 104H420M65 195H415M65 287H417" stroke="#FFF" stroke-width="22" stroke-linecap="round"/><path d="M62 104H420M65 195H415M65 287H417" stroke="#CDDCD8" stroke-width="2" stroke-dasharray="7 10"/>
+<path d="M100 310C136 271 151 238 199 221S261 170 279 123 352 55 402 66" stroke="#3C9F9B" stroke-width="13" stroke-linecap="round" opacity=".65"/>
+<rect x="107" y="126" width="86" height="58" rx="8" fill="#FEFBF1" stroke="#B9CEBE" stroke-width="3"/><path d="M107 139l43-30 43 30" fill="#F4CA69"/><path d="M107 139l43-30 43 30" stroke="#BA8640" stroke-width="3"/><rect x="139" y="153" width="22" height="31" rx="2" fill="#B9D9E4"/>
+<rect x="290" y="218" width="83" height="56" rx="8" fill="#fff" stroke="#B8CBD1" stroke-width="3"/><path d="M290 231l42-28 41 28" fill="#8CBCC8"/><path d="M290 231l42-28 41 28" stroke="#4D7787" stroke-width="3"/><rect x="323" y="241" width="19" height="33" fill="#C9E6D9"/>
+<circle cx="256" cy="192" r="27" fill="#173247" stroke="#fff" stroke-width="5"/><path d="M245 192h22m-11-11v22" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<circle cx="368" cy="117" r="23" fill="#E4A943" stroke="#fff" stroke-width="4"/><path d="M363 107v20m10-20v20m-15-9h20" stroke="#173247" stroke-width="3" stroke-linecap="round"/>
+<circle cx="128" cy="262" r="22" fill="#0F7771" stroke="#fff" stroke-width="4"/><path d="M119 260l7 7 13-16" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M155 83l31-18M308 311l27 16" stroke="#356B76" stroke-width="3" stroke-dasharray="5 5"/>
+</svg><span class="float one">${s.lang===0?"🚌 Transit & safety":"🚌 Transport et sécurité"}</span><span class="float two">${s.lang===0?"🏘️ Growth & access":"🏘️ Croissance et accès"}</span><span class="float three">${s.lang===0?"🌧️ Resilience":"🌧️ Résilience"}</span></div>`;}
+function home(){const t=T();return `<section class="hero" aria-labelledby="landingTitle"><div class="hero-grid"><div class="hero-copy"><span class="eyebrow">${t.eyebrow}</span><h1 id="landingTitle">${t.title}</h1><p>${t.intro}</p><div class="hero-actions"><button class="btn light" id="jump">${t.start} <span aria-hidden="true">→</span></button><span class="badge">${t.learning}</span></div><div class="stats">${t.stats.map(x=>`<span>${esc(x)}</span>`).join("")}</div><div class="hero-note">${t.notCity}</div></div>${getArt()}</div></section>
+<section id="roles"><div class="sectionhead"><div><h2>${t.roleheading}</h2><p class="desc">${t.roledesc}</p></div></div>
+<div class="role-grid">${Object.entries(G.roles).map(([id,r])=>`<button class="role-card" data-role="${id}" type="button"><span class="emoji" aria-hidden="true">${r.icon}</span><strong>${esc(loc(r.name))}</strong><span class="blurb">${esc(loc(r.subtitle))}</span><span class="arrow">${t.play} →</span></button>`).join("")}</div></section>
+<div class="foot-strip"><p><strong>${t.how}:</strong> ${t.learn}</p><a href="https://www.ward24.ca/ward" target="_blank" rel="noopener noreferrer">Ward 24 ↗</a></div>`}
+function sidebar(){const t=T();let p=s.step+(s.screen==="end"?0:0);return `<aside class="sidebar" aria-label="${esc(t.points)}"><div><div class="side-title">${t.points}</div><div class="score" aria-live="polite">${s.score}<small> / 100</small></div><div class="mini">${s.screen==="roleIntro"?(s.lang===0?"Role briefing":"Présentation du rôle"):`${t.step} ${Math.min(s.step+1,5)} ${t.of} 5`}</div><div class="track blue" aria-label="Game progress"><div style="width:${Math.min(100,s.step/5*100)}%"></div></div></div><div class="side-divider"></div><div>${[t.inclusive,t.evidence,t.clarity].map((k,i)=>`<div class="bar-label"><span>${k}</span><span>${s.metrics[i]}/100</span></div><div class="track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${s.metrics[i]}" aria-label="${esc(k)}"><div style="width:${s.metrics[i]}%"></div></div>`).join("")}</div><div class="side-divider"></div><div class="mini">${t.scoreInfo}</div></aside>`}
+function stage(){const t=T();const d=G.scenes[s.role][s.step];return `<div class="topline"><span class="stage">${t.step} ${s.step+1} ${t.of} 5 · ${esc(loc(G.roles[s.role].name))}</span><span class="badge blue">${t.scenario}</span></div><h1>${esc(loc(d.title))}</h1><p class="body">${esc(loc(d.body))}</p><div class="story">${esc(loc(d.voice))}</div>${s.unresolved?`<div class="next-note" role="status">⚠ ${t.carry}</div>`:""}<div class="question">${esc(loc(d.question))}</div><div class="choices">${d.options.map((x,i)=>`<button type="button" class="choice" data-choice="${i}"><span class="index">${String.fromCharCode(65+i)}</span><span>${esc(loc(x.t))}</span></button>`).join("")}</div><div class="source-inline">📚 ${t.source}: ${sourceLink(d.source)}</div>`}
+function roleIntro(){const t=T(),r=G.roles[s.role];return `<span class="badge blue">🧭 ${s.lang===0?"Role briefing":"Présentation du rôle"}</span><h1>${r.icon} ${esc(loc(r.name))}</h1><p class="body">${esc(loc(r.intro))}</p><div class="story">${t.learn}</div><p class="legal">${t.notCity}</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:26px"><button class="btn green" id="begin">${t.continue} →</button><button class="btn secondary" id="backHome">${t.back}</button></div>`}
+function feedback(){const t=T();const d=G.scenes[s.role][s.step],o=d.options[s.pending];const type=o.points===20?"best":o.points===10?"partial":"risk";
+return `<span class="badge ${type==="risk"?"amber":"blue"}">${t.step} ${s.step+1} ${t.of} 5</span><h1>${t.feedback}</h1><div class="mini">${t.selected}:</div><p class="body"><strong>${esc(loc(o.t))}</strong></p><div class="feedback-card ${type==="risk"?"risky":""}" role="status"><h3>${type==="best"?"✓":type==="partial"?"◐":"!"} ${t[type]}</h3><p>${esc(loc(o.why))}</p><div class="impact"><span>${t.earned}: +${o.points}</span><span>${t.points}: ${s.score}/100</span></div></div><div class="source-inline">📚 ${t.source}: ${sourceLink(d.source)}</div><div style="margin-top:26px"><button class="btn green" id="advance">${t.continue} →</button></div>`}
+function repair(){const t=T(),d=G.scenes[s.role][s.step];return `<span class="badge amber">↪ ${t.repairTitle}</span><h1>${t.repairTitle}</h1><p class="body">${t.repairText}</p><div class="story">${esc(loc(d.voice))}</div><div class="choices"><button type="button" class="choice" data-repair="1"><span class="index">A</span>${t.fix}</button><button type="button" class="choice" data-repair="0"><span class="index">B</span>${t.ignore}</button></div><div class="source-inline">📚 ${t.source}: ${sourceLink(d.source)}</div>`}
+function repairFeedback(){const t=T();return `<span class="badge blue">↪ ${t.repairTitle}</span><h1>${t.feedback}</h1><div class="feedback-card ${s.recovery?"":"risky"}"><h3>${s.recovery?t.best:t.risk}</h3><p>${s.recovery?t.fixWhy:t.ignoreWhy}</p><div class="impact"><span>${t.fixPts}: +${s.recovery?5:0}</span><span>${t.points}: ${s.score}/100</span></div></div><button class="btn green" id="advanceRepair">${t.continue} →</button>`}
+function end(){const t=T();let msg=s.score===100?t.resultPerfect:s.score>=70?t.resultMid:t.resultLow;
+return `<span class="badge">✓ ${t.report}</span><h1>${t.finalTitle}</h1><p class="body">${msg}</p><div class="feedback-card"><div class="side-title">${t.points}</div><div class="score">${s.score}<small> / 100</small></div><p class="legal">${t.reportText}</p></div><h2>${t.report}</h2><div class="report">${s.history.map((h,i)=>{let sc=G.scenes[s.role][i];return `<div class="report-row"><div><strong>${i+1}. ${esc(loc(sc.title))}</strong><br><span class="mini">${esc(loc(sc.options[h.choice].t))}</span>${h.repaired!==undefined?`<br><span class="mini">${h.repaired?"✓": "✕"} ${t.repairTitle}</span>`:""}</div><strong>+${h.points+(h.repaired?5:0)}</strong></div>`}).join("")}</div>
+<div class="next-note"><strong>${t.next}</strong><p class="legal">${t.notCity}</p></div><div class="resources">${t.siteLinks.map(([name,info,key])=>`<a class="resource" href="${G.sources[key].url}" target="_blank" rel="noopener noreferrer"><strong>${esc(name)} ↗</strong><small>${esc(info)}</small></a>`).join("")}</div>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px"><button class="btn green" id="again">${t.tryAgain}</button><button class="btn secondary" id="print">${t.print}</button></div>`}
+function render(move=false){updateChrome();let output=s.screen==="home"?home():`<div class="game-shell">${sidebar()}<section class="scene-box" aria-label="${T().scenario}">${s.screen==="roleIntro"?roleIntro():s.screen==="question"?stage():s.screen==="feedback"?feedback():s.screen==="recovery"?repair():s.screen==="recoveryFeedback"?repairFeedback():end()}</section></div>`;app.innerHTML=output;
+document.querySelectorAll("[data-role]").forEach(x=>x.addEventListener("click",()=>{s.role=x.dataset.role;s.screen="roleIntro";render(true)}));
+document.getElementById("jump")?.addEventListener("click",()=>document.getElementById("roles").scrollIntoView({behavior:"smooth"}));
+document.getElementById("backHome")?.addEventListener("click",reset);
+document.getElementById("begin")?.addEventListener("click",()=>{s.screen="question";render(true)});
+document.querySelectorAll("[data-choice]").forEach(x=>x.addEventListener("click",()=>{const i=Number(x.dataset.choice);const o=G.scenes[s.role][s.step].options[i];s.score+=o.points;s.metrics=s.metrics.map((m,k)=>Math.max(0,Math.min(100,m+o.delta[k])));s.pending=i;s.history.push({choice:i,points:o.points});s.screen="feedback";s.unresolved=o.points===0;render(true)}));
+document.getElementById("advance")?.addEventListener("click",()=>{const o=G.scenes[s.role][s.step].options[s.pending];if(o.points===0){s.screen="recovery"}else{advanceStep();return;}render(true)});
+document.querySelectorAll("[data-repair]").forEach(x=>x.addEventListener("click",()=>{s.recovery=x.dataset.repair==="1";s.history[s.history.length-1].repaired=s.recovery;if(s.recovery){s.score+=5;s.metrics=s.metrics.map(x=>Math.min(100,x+3));s.unresolved=false;}s.screen="recoveryFeedback";render(true)}));
+document.getElementById("advanceRepair")?.addEventListener("click",()=>{advanceStep()});
+document.getElementById("again")?.addEventListener("click",reset);
+document.getElementById("print")?.addEventListener("click",()=>window.print());
+if(move)focus();
+}
+function advanceStep(){s.step+=1;s.pending=null;s.recovery=null;s.screen=s.step>=5?"end":"question";render(true)}
+function reset(){let lang=s.lang;Object.assign(s,{lang,screen:"home",role:null,step:0,score:0,metrics:[51,53,50],pending:null,history:[],recovery:null,unresolved:false});render(true)}
+document.getElementById("en").addEventListener("click",()=>{s.lang=0;render(true)});
+document.getElementById("fr").addEventListener("click",()=>{s.lang=1;render(true)});
+document.getElementById("restart").addEventListener("click",reset);
+document.getElementById("brandHome").addEventListener("click",e=>{e.preventDefault();reset()});
+render();
+</script><script>
+/* Learning Lab v2 layer — Barrhaven East (added 2026-11-19).
+   Pure addition: the game's data and logic are untouched. Adds a casebook,
+   a richer ending (badge + wish, your pattern, designed pitfalls, other
+   roles' perspectives) and an on-device results history (Variant A:
+   local only, honestly labelled, nothing is sent anywhere). */
+(function () {
+  'use strict';
+  var GAME = 'barrhaven';
+  var DATA = null;
+  try { DATA = JSON.parse(document.getElementById('game-data').textContent); } catch (e) { DATA = null; }
+  if (!DATA) return;
+
+  var STR = {
+    en: {
+      casebookBtn: 'Casebook', casebookTitle: 'Casebook — decisions, sound practice, sources',
+      casebookIntro: 'Every decision in this game, the practice it teaches, and the official source behind it. Use it to prepare for a real conversation with the ward office or the City.',
+      practice: 'Sound practice', source: 'Source', close: 'Close',
+      badgeKicker: 'Your badge', patternTitle: 'Your decision pattern',
+      patternNone: 'No risky choices this time — every decision used the strongest practice available.',
+      patternRisk: 'Where the risk was:', patternPartial: 'Where a stronger option existed:',
+      pitfallsTitle: 'The traps this game is built to reveal',
+      pitfallsIntro: 'These are the recurring decision traps built into this simulation — the ones real processes fall into most easily:',
+      pitfalls: [
+        'Exposing private information — identifiable photos, names, addresses or a neighbour’s private test results.',
+        'Treating a claim or a viral post as established fact before checking it.',
+        'Promising outcomes beyond your authority — a fix by tomorrow, or blocking or approving a plan yourself.',
+        'Hearing only the loudest, closest or easiest-to-reach voices.',
+        'Deciding before examining the conditions and the evidence.',
+        'Making the record look cleaner than it is — hiding dissent or calling unfinished work solved.',
+        'Taking physical safety into your own hands instead of using the proper channel.'
+      ],
+      lensesTitle: 'Through other eyes',
+      lensesIntro: 'The same ward, seen from the other roles. Playing another role is the fastest way to feel where their constraints come from:',
+      historyTitle: 'Your previous results on this device',
+      historyNote: 'Saved only in this browser, on this device. Nothing is sent to the City or to any server.',
+      plays: 'plays', best: 'best', latest: 'latest scores',
+      bands: [
+        { min: 100, name: 'Civic Champion', wish: 'May every concern you raise arrive with facts — and every room you enter leave fairer than you found it.' },
+        { min: 85, name: 'Trusted Facilitator', wish: 'One repair away from flawless. May your next conversation close the gap.' },
+        { min: 70, name: 'Community Builder', wish: 'You are building the habits that hold a neighbourhood together. Keep going.' },
+        { min: 40, name: 'Civic Apprentice', wish: 'Every expert was once a beginner who stayed in the room. Try another role and watch the same ward change shape.' },
+        { min: 0, name: 'First Steps', wish: 'The first step is showing up. The casebook above shows the stronger path for every decision — the next run is yours.' }
+      ]
+    },
+    fr: {
+      casebookBtn: 'Carnet de cas', casebookTitle: 'Carnet de cas — décisions, pratique et sources',
+      casebookIntro: 'Chaque décision du jeu, la pratique qu’elle enseigne et la source officielle qui la soutient. À utiliser pour préparer une vraie conversation avec le bureau de quartier ou la Ville.',
+      practice: 'Pratique recommandée', source: 'Source', close: 'Fermer',
+      badgeKicker: 'Votre insigne', patternTitle: 'Votre profil de décision',
+      patternNone: 'Aucun choix risqué cette fois — chaque décision a suivi la pratique la plus solide.',
+      patternRisk: 'Là où le risque était :', patternPartial: 'Là où une option plus solide existait :',
+      pitfallsTitle: 'Les pièges que ce jeu apprend à repérer',
+      pitfallsIntro: 'Voici les pièges de décision intégrés à cette simulation — ceux dans lesquels les processus réels tombent le plus facilement :',
+      pitfalls: [
+        'Divulguer des renseignements privés — photos identifiables, noms, adresses ou résultats privés d’un voisin.',
+        'Traiter une affirmation ou une publication virale comme un fait établi avant de la vérifier.',
+        'Promettre des résultats au-delà de vos pouvoirs — une réparation demain, ou bloquer ou approuver un plan soi-même.',
+        'N’entendre que les voix les plus fortes, les plus proches ou les plus faciles à joindre.',
+        'Décider avant d’examiner les conditions et les preuves.',
+        'Présenter un dossier plus propre qu’il ne l’est — cacher un désaccord ou déclarer terminé un travail inachevé.',
+        'Prendre la sécurité physique en main au lieu d’utiliser le canal approprié.'
+      ],
+      lensesTitle: 'Par d’autres yeux',
+      lensesIntro: 'Le même quartier, vu depuis les autres rôles. Jouer un autre rôle est le moyen le plus rapide de sentir d’où viennent ses contraintes :',
+      historyTitle: 'Vos résultats précédents sur cet appareil',
+      historyNote: 'Enregistré uniquement dans ce navigateur, sur cet appareil. Rien n’est envoyé à la Ville ni à aucun serveur.',
+      plays: 'parties', best: 'meilleur', latest: 'derniers résultats',
+      bands: [
+        { min: 100, name: 'Champion civique', wish: 'Que chaque préoccupation que vous soulevez s’appuie sur des faits — et que chaque salle que vous quittez soit plus juste qu’à votre arrivée.' },
+        { min: 85, name: 'Facilitateur de confiance', wish: 'À une correction de la perfection. Que votre prochaine conversation comble l’écart.' },
+        { min: 70, name: 'Bâtisseur communautaire', wish: 'Vous construisez les habitudes qui font tenir un quartier ensemble. Continuez.' },
+        { min: 40, name: 'Apprenti civique', wish: 'Chaque expert a d’abord été un débutant resté dans la salle. Essayez un autre rôle et regardez le même quartier changer de forme.' },
+        { min: 0, name: 'Premiers pas', wish: 'Le premier pas, c’est d’être présent. Le carnet de cas ci-dessus montre la voie la plus solide pour chaque décision — la prochaine partie est à vous.' }
+      ]
+    }
+  };
+
+  function lang() { return (document.documentElement.lang || 'en').toLowerCase().indexOf('fr') === 0 ? 'fr' : 'en'; }
+  function L() { return STR[lang()]; }
+  function li(v) { var l = lang(); if (Array.isArray(v)) return v[l === 'fr' ? 1 : 0]; if (v && typeof v === 'object') return v[l] || v.en; return v; }
+  function esc(t) { return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function state() { try { return Function('return typeof s!=="undefined"?s:null')(); } catch (e) { return null; } }
+
+  /* ---------- casebook ---------- */
+  var overlay = null;
+  function buildCasebook() {
+    var t = L(), out = ['<div class="v2-cb-head"><h2>' + esc(t.casebookTitle) + '</h2><button type="button" class="v2-btn" data-v2="close">' + esc(t.close) + '</button></div><p class="v2-cb-intro">' + esc(t.casebookIntro) + '</p>'];
+    Object.keys(DATA.scenes).forEach(function (rk) {
+      var role = DATA.roles[rk];
+      out.push('<h3 class="v2-cb-role">' + esc(li(role.name)) + '</h3>');
+      DATA.scenes[rk].forEach(function (sc, i) {
+        var good = sc.options.filter(function (o) { return o.points === 20; })[0] || sc.options[0];
+        var src = DATA.sources[sc.source] || {};
+        out.push('<article class="v2-card"><h4>' + (i + 1) + '. ' + esc(li(sc.title)) + '</h4><p>' + esc(li(sc.body)) + '</p>' +
+          '<p class="v2-practice"><strong>' + esc(t.practice) + ':</strong> ' + esc(li(good.t)) + '</p><p class="v2-why">' + esc(li(good.why)) + '</p>' +
+          (src.url ? '<p class="v2-src">' + esc(t.source) + ': <a href="' + esc(src.url) + '" target="_blank" rel="noopener noreferrer">' + esc(li(src)) + '</a></p>' : '') + '</article>');
+      });
+    });
+    return out.join('');
+  }
+  function openCasebook() {
+    closeCasebook();
+    overlay = document.createElement('div');
+    overlay.className = 'v2-overlay'; overlay.setAttribute('role', 'dialog'); overlay.setAttribute('aria-modal', 'true');
+    overlay.innerHTML = '<div class="v2-sheet">' + buildCasebook() + '</div>';
+    document.body.appendChild(overlay);
+    overlay.querySelector('[data-v2="close"]').addEventListener('click', closeCasebook);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) closeCasebook(); });
+    var c = overlay.querySelector('[data-v2="close"]'); if (c) c.focus();
+  }
+  function closeCasebook() { if (overlay) { overlay.remove(); overlay = null; } }
+
+  var cbBtn = document.createElement('button');
+  cbBtn.type = 'button'; cbBtn.className = 'v2-fab'; cbBtn.addEventListener('click', openCasebook);
+  document.body.appendChild(cbBtn);
+  function syncFab() { var txt = '📖 ' + L().casebookBtn; if (cbBtn.textContent !== txt) cbBtn.textContent = txt; }
+  syncFab();
+
+  /* ---------- ending panel ---------- */
+  var recorded = false, panelFor = null;
+  function band(score) { var bs = L().bands; for (var i = 0; i < bs.length; i++) if (score >= bs[i].min) return bs[i]; return bs[bs.length - 1]; }
+  function history() { try { return JSON.parse(localStorage.getItem('llab.v2.' + GAME) || '[]'); } catch (e) { return []; } }
+  function record(score, role) {
+    try {
+      var hst = history(); hst.push({ score: score, role: role || '', ts: Date.now() });
+      if (hst.length > 50) hst = hst.slice(hst.length - 50);
+      localStorage.setItem('llab.v2.' + GAME, JSON.stringify(hst));
+    } catch (e) {}
+    try { window.parent.postMessage({ type: 'llab-result', game: GAME, score: score, role: role || '', lang: lang() }, '*'); } catch (e) {}
+  }
+  function patternHtml(st) {
+    var t = L();
+    if (!st || !st.history || !DATA.scenes[st.role]) return '';
+    var risks = [], partials = [];
+    st.history.forEach(function (hh, i) {
+      var sc = DATA.scenes[st.role][i]; if (!sc) return;
+      var opt = sc.options[hh.choice]; if (!opt) return;
+      if (hh.points === 0) risks.push('<li><strong>' + esc(li(sc.title)) + '</strong> — ' + esc(li(opt.why)) + '</li>');
+      else if (hh.points === 10) partials.push('<li><strong>' + esc(li(sc.title)) + '</strong> — ' + esc(li(opt.why)) + '</li>');
+    });
+    var out = '<h3>' + esc(t.patternTitle) + '</h3>';
+    if (!risks.length && !partials.length) out += '<p>' + esc(t.patternNone) + '</p>';
+    if (risks.length) out += '<p class="v2-sub">' + esc(t.patternRisk) + '</p><ul class="v2-list">' + risks.join('') + '</ul>';
+    if (partials.length) out += '<p class="v2-sub">' + esc(t.patternPartial) + '</p><ul class="v2-list">' + partials.join('') + '</ul>';
+    return out;
+  }
+  function lensesHtml(st) {
+    var t = L();
+    if (!st || !st.role) return '';
+    var others = Object.keys(DATA.roles).filter(function (rk) { return rk !== st.role; });
+    if (!others.length) return '';
+    var out = '<h3>' + esc(t.lensesTitle) + '</h3><p>' + esc(t.lensesIntro) + '</p>';
+    others.forEach(function (rk) {
+      var r = DATA.roles[rk];
+      out += '<div class="v2-lens"><strong>' + esc(li(r.name)) + '</strong> — ' + esc(li(r.subtitle)) + '<br><span>' + esc(li(r.intro)) + '</span></div>';
+    });
+    return out;
+  }
+  function historyHtml() {
+    var t = L(), hst = history();
+    if (!hst.length) return '';
+    var best = Math.max.apply(null, hst.map(function (x) { return x.score; }));
+    var last = hst.slice(-5).map(function (x) { return x.score; }).join(' · ');
+    return '<h3>' + esc(t.historyTitle) + '</h3><p>' + hst.length + ' ' + esc(t.plays) + ' · ' + esc(t.best) + ': ' + best + '/100 · ' + esc(t.latest) + ': ' + last + '</p><p class="v2-note">' + esc(t.historyNote) + '</p>';
+  }
+  function injectPanel() {
+    var st = state(); if (!st) return;
+    var host = document.querySelector('.scene-box'); if (!host) return;
+    if (panelFor === st && host.querySelector('.v2-panel')) return;
+    var old = host.querySelector('.v2-panel'); if (old) old.remove();
+    var t = L(), b = band(st.score);
+    var el = document.createElement('div');
+    el.className = 'v2-panel';
+    el.innerHTML =
+      '<div class="v2-badge"><div class="v2-badge-medal" aria-hidden="true">★</div><div><div class="v2-kicker">' + esc(t.badgeKicker) + '</div>' +
+      '<div class="v2-badge-name">' + esc(b.name) + '</div><p class="v2-wish">' + esc(b.wish) + '</p></div></div>' +
+      patternHtml(st) +
+      '<h3>' + esc(t.pitfallsTitle) + '</h3><p>' + esc(t.pitfallsIntro) + '</p><ul class="v2-list">' + t.pitfalls.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' +
+      lensesHtml(st) +
+      '<div class="v2-hist">' + historyHtml() + '</div>' +
+      '<p><button type="button" class="v2-btn" data-v2="cb">' + esc(t.casebookBtn) + '</button></p>';
+    host.appendChild(el);
+    el.querySelector('[data-v2="cb"]').addEventListener('click', openCasebook);
+    panelFor = st;
+    if (!recorded) { record(st.score, st.role); recorded = true; var hh = el.querySelector('.v2-hist'); if (hh) hh.innerHTML = historyHtml(); }
+  }
+  var obs = new MutationObserver(function () {
+    syncFab();
+    var onEnd = !!document.querySelector('#again');
+    if (onEnd) injectPanel();
+    else { recorded = false; panelFor = null; }
+  });
+  obs.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['lang'] });
+})();
+
+</script>
+<script src="../studio-navigation.js"></script><script src="../studio-content.js"></script><script src="../site-navigation.js"></script><script src="../../assets/navigation-accessibility.js"></script><script src="../studio-experience.js"></script><script src="../studio-review.js"></script><script src="../../assets/professional-names.js"></script></body></html>

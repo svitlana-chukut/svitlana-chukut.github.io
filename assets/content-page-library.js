@@ -187,3 +187,8 @@
   ];
   for (var i = 0; i < L.length; i++) { PAGE.fr[L[i][0]] = L[i][1]; PAGE.en[L[i][0]] = L[i][2]; }
 })();
+
+PAGE.en["policy-edition-2006"]="First edition \u00b7 2006";PAGE.fr["policy-edition-2006"]="Première édition · 2006";
+PAGE.en["policy-edition-2008"]="Second edition \u00b7 2008";PAGE.fr["policy-edition-2008"]="Deuxième édition · 2008";
+PAGE.en["book-2022-synopsis"]="An eight-chapter introduction combining concepts, international comparisons, Ukrainian experience and research-based learning activities.";PAGE.fr["book-2022-synopsis"]="Une introduction en huit chapitres associant concepts, comparaisons internationales, expérience ukrainienne et activités de recherche.";
+PAGE.en["book-2022-pdf"]="Read the full textbook (PDF)";PAGE.fr["book-2022-pdf"]="Lire le manuel intégral (PDF)";

@@ -12,9 +12,9 @@
    tab title, active-menu state), deep-link hand-off and the
    Back/Forward scroll restoration further below ---- */
 (function(){
-  var PAGES=["home","bio","library","courses","media","events","egov-days","partners","documents","contact"];
+  var PAGES=["home","bio","library","courses","media","events","egov-days","partners","documents","contact","learning-lab"];
   var TITLES=window.PAGE_TITLES||{}; /* page tab titles are content: PAGE_TITLES in assets/content-texts.js */
-  var ANCHORS={"courses-public":"courses","courses-kpi":"courses","courses-napa":"courses","courses-medical":"courses","courses-teaching":"courses","courses-george-brown":"courses","courses-gbc":"courses","media-talks":"media","media-events":"media","events-list":"events","events-gallery":"events","egov-story":"egov-days","egov-editions":"egov-days","egov-sponsors":"egov-days","egov-gallery":"egov-days","egov-archive":"egov-days","egov-sources":"egov-days","lib-book":"library","lib-catalogue":"library","partners-grid":"partners","contact-cards":"contact","home-quick":"home","home-download":"home","contact-download":"contact","docs-resume":"documents","docs-list":"documents","docs-add":"documents",
+  var ANCHORS={"lab-simulations":"learning-lab","lab-programmes":"learning-lab","lab-municipalities":"learning-lab","home-expertise":"home","courses-public":"courses","courses-kpi":"courses","courses-napa":"courses","courses-medical":"courses","courses-teaching":"courses","courses-george-brown":"courses","courses-gbc":"courses","media-talks":"media","media-events":"media","events-list":"events","events-gallery":"events","egov-story":"egov-days","egov-editions":"egov-days","egov-sponsors":"egov-days","egov-gallery":"egov-days","egov-archive":"egov-days","egov-sources":"egov-days","lib-book":"library","lib-catalogue":"library","partners-grid":"partners","contact-cards":"contact","home-quick":"home","home-download":"home","contact-download":"contact","docs-resume":"documents","docs-list":"documents","docs-add":"documents",
     "contact-ontario":"contact",
     "bio-education-standards":"bio",
     "bio-degree-evidence":"bio",
@@ -59,10 +59,13 @@
     if(PAGES.indexOf(h)>=0) return {page:h,anchor:""};
     if(/^bio-(statements|statement-teaching|statement-research|story|education|career|awards|certificates|projects|research|supervision(?:-doctoral|-masters|-student)?|expertise|editorial|volunteering|collaboration|coauthors|skills|recommendations|legacy)$/.test(h)) return {page:"bio",anchor:h};
     if(ANCHORS[h]) return {page:ANCHORS[h],anchor:h};
+    var element=document.getElementById(h);
+    var owner=element&&element.closest('.page[data-page]');
+    if(owner)return {page:owner.dataset.page,anchor:h};
     return null;
   }
   function route(){
-    return validTarget((location.hash||"").slice(1))||{page:"home",anchor:""};
+    return validTarget((location.hash||"").slice(1))||{page:document.documentElement.dataset.startPage||"home",anchor:""};
   }
   /* A deep link does not always arrive as this document's own fragment:
      the public address belongs to the shell around the page, and the
@@ -86,7 +89,7 @@
     return "";
   }
   function adoptHash(h){
-    try{ history.replaceState(history.state,"","#"+h); }
+    try{ var url=new URL(location.href); url.hash=h; history.replaceState(history.state,"",url.href); }
     catch(e){ location.hash=h; }
   }
   var lastHash=null;
@@ -98,18 +101,16 @@
        shown — the click changes the address and nothing else happens. */
     var sections=document.querySelectorAll(".page"), si;
     for(si=0;si<sections.length;si++) sections[si].classList.toggle("on", sections[si].id==="page-"+p);
-    var navLinks=document.querySelectorAll(".nav a"), ni, a;
-    for(ni=0;ni<navLinks.length;ni++){
-      a=navLinks[ni];
-      var href=a.getAttribute("href");
-      a.classList.toggle("on", href==="#"+p || href==="#"+(r.anchor||"__none__") || (a.classList.contains("nav-parent")&&p==="bio"));
-      a.removeAttribute("aria-current");
-    }
-    /* exactly one aria-current in the header menu: the most specific
-       link for this route (the section link when there is an anchor,
-       otherwise the page link) */
+    var navLinks=document.querySelectorAll(".nav a");
+    Array.from(navLinks).forEach(function(a){a.classList.remove('on');a.removeAttribute('aria-current');});
     var curLink=document.querySelector('.nav a[href="#'+(r.anchor||p)+'"]');
-    if(curLink) curLink.setAttribute("aria-current","page");
+    if(!curLink)curLink=document.querySelector('.nav a[data-page-link="'+p+'"]');
+    var currentGroup=curLink&&curLink.closest('.primary-group');
+    if(!currentGroup)currentGroup=Array.from(document.querySelectorAll('.primary-group')).find(function(g){return g.dataset.navPages.split(' ').includes(p);});
+    document.querySelectorAll('.primary-group').forEach(function(g){g.classList.toggle('is-current',g===currentGroup);});
+    if(!curLink&&currentGroup)curLink=currentGroup.querySelector('.primary-link');
+    if(curLink){curLink.classList.add('on');curLink.setAttribute('aria-current','page');}
+    document.dispatchEvent(new CustomEvent('sc:route',{detail:{page:p,anchor:r.anchor}}));
     /* A page with no title entry must never abort the switch: this line
        used to read TITLES[p].fr unguarded, which throws for such a page
        and killed the landing below it. */
@@ -140,7 +141,7 @@
     cancelRestore();
     if((location.hash||"")!==hash){
       savePlace();
-      try{ history.pushState(null,"",hash); }
+      try{ var url=new URL(location.href); url.hash=hash; history.pushState(null,"",url.href); }
       catch(e){ location.hash=hash; return true; }
     }
     window.SC_show(Boolean(target));
@@ -212,10 +213,14 @@
   var restoreReq=null, restoring=false, saveTimer=null, settleTimer=null;
   function currentPlace(){
     var r=route();
-    return {scPlace:1, page:r.page, section:r.anchor||"", y:Math.round(window.scrollY||window.pageYOffset||0)};
+    var y=Math.round(window.scrollY||window.pageYOffset||0),el=r.anchor&&document.getElementById(r.anchor);
+    return {scPlace:1, page:r.page, section:r.anchor||"", y:y,
+      anchorDelta:el?y-(el.getBoundingClientRect().top+y):null};
   }
   function savePlace(){
     if(restoring) return;
+    var current=document.querySelector('.page.on'),destination=route();
+    if(!current||current.id!=='page-'+destination.page||lastHash!==(location.hash||''))return;
     try{ history.replaceState(currentPlace(),""); }catch(e){}
   }
   function savePlaceSoon(){
@@ -242,17 +247,21 @@
     window.setTimeout(savePlace, 1200);
   });
   function onRestoreUser(){ cancelRestore(); }
-  function cancelRestore(){
+  function cancelRestore(skipSave){
     if(settleTimer){ window.clearInterval(settleTimer); settleTimer=null; }
     window.removeEventListener("wheel", onRestoreUser, {passive:true});
     window.removeEventListener("touchstart", onRestoreUser, {passive:true});
     window.removeEventListener("keydown", onRestoreUser, true);
-    if(restoring){ restoring=false; savePlace(); }
+    if(restoring){ restoring=false; if(skipSave!==true)savePlace(); }
   }
   function restorePlace(req){
     cancelRestore();
     restoring=true;
-    var y=Math.max(0, req.y||0);
+    function destinationY(){
+      var el=req.section&&document.getElementById(req.section);
+      return Math.max(0,el&&typeof req.anchorDelta==='number'?el.getBoundingClientRect().top+(window.scrollY||0)+req.anchorDelta:(req.y||0));
+    }
+    var y=destinationY();
     window.scrollTo({top:y,behavior:"instant"});
     var tries=0, stable=0, lastY=-1;
     window.addEventListener("wheel", onRestoreUser, {passive:true});
@@ -260,6 +269,7 @@
     window.addEventListener("keydown", onRestoreUser, true);
     settleTimer=window.setInterval(function(){
       tries++;
+      y=destinationY();
       var cy=window.scrollY||window.pageYOffset||0;
       var maxY=Math.max(0, document.documentElement.scrollHeight-window.innerHeight);
       if(Math.abs(cy-y)<=2||(cy>=maxY-2&&cy===lastY)) stable++;
@@ -269,9 +279,10 @@
     },250);
   }
   window.addEventListener("popstate", function(ev){
+    cancelRestore(true);
     var st=ev.state;
     if(st&&st.scPlace===1&&typeof st.y==="number"){
-      restoreReq={hash:location.hash||"", y:st.y};
+      restoreReq={hash:location.hash||"", y:st.y,section:st.section||'',anchorDelta:st.anchorDelta};
       /* hashchange follows popstate and SC_show consumes the request;
          if no hashchange comes (same-fragment traversal), show and
          restore directly. */
